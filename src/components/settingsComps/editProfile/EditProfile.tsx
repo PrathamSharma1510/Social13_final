@@ -83,22 +83,22 @@ const EditProfile = () => {
   };
 
   // check for valid phone number or not.
-  const checkPhoneNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "" || e.target.value === null) {
-      setPhoneCorrect(true);
-    } else {
-      const phoneValidString = "(0|91)?[7-9][0-9]{9}";
-      if (e.target.value.length !== 10) {
-        setPhoneCorrect(true);
-        console.log("Phone Num not correct");
-      } else if (e.target.value.match(phoneValidString)) {
-        console.log("Phone num correct");
-        setPhoneCorrect(false);
-      } else {
-        setPhoneCorrect(true);
-      }
-    }
-  };
+  // const checkPhoneNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.value === "" || e.target.value === null) {
+  //     setPhoneCorrect(true);
+  //   } else {
+  //     const phoneValidString = "(0|91)?[7-9][0-9]{9}";
+  //     if (e.target.value.length !== 10) {
+  //       setPhoneCorrect(true);
+  //       console.log("Phone Num not correct");
+  //     } else if (e.target.value.match(phoneValidString)) {
+  //       console.log("Phone num correct");
+  //       setPhoneCorrect(false);
+  //     } else {
+  //       setPhoneCorrect(true);
+  //     }
+  //   }
+  // };
 
   const { loggedIn, uid } = useSelector(
     (state: RootStateOrAny) => state?.userData
@@ -145,7 +145,7 @@ const EditProfile = () => {
     twitterUsername: userData.socials.twitterUsername,
     facebookUrl: userData.socials.facebookUrl,
     youtubeUrl: userData.socials.youtubeUrl,
-    phone: userData.phone,
+    // phone: userData.phone,
     gender: userData.gender,
   });
 
@@ -157,16 +157,13 @@ const EditProfile = () => {
 
   // update user data here.
   const handleSubmit = async () => {
-    const ref = doc(db, "hyprUsers", uid);
+    const ref = doc(db, "users", uid);
     console.log(data);
     console.log(data.twitterUsername);
     const phoneValidString = "(0|91)?[7-9][0-9]{9}";
     if (phoneCorrect) {
       console.log("Please Enter Correct Phone Number");
       setErrorMessage("Invalid Phone Number");
-      setOpenErrMsg(true);
-    } else if (data.phone === null) {
-      setErrorMessage("Phone Number Can't be NUll");
       setOpenErrMsg(true);
     } else {
       if (usernameTaken) {
@@ -190,7 +187,7 @@ const EditProfile = () => {
             youtubeProfileUrl: data.youtubeUrl,
             portfolioUrl: data.portfolioUrl,
           },
-          phone: data.phone,
+          // phone: data.phone,
           gender: data.gender,
         })
           .then(() => {
@@ -370,7 +367,7 @@ const EditProfile = () => {
               />
 
               <div className={clsx("d-flex", styles.editProf)}>
-                <InputField
+                {/* <InputField
                   garyBold
                   half
                   name="phone"
@@ -381,7 +378,7 @@ const EditProfile = () => {
                     updateState(e);
                     checkPhoneNumber(e);
                   }}
-                />
+                /> */}
                 <InputField
                   garyBold
                   half

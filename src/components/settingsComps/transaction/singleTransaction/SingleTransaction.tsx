@@ -39,7 +39,9 @@ const SingleTransaction = ({
               )} */}
               <p className={styles.boldTitle}>{requestID}</p>
               <p className={styles.date}>{date}</p>
+              <li className={styles.statusDesk}>{status}</li>
             </div>
+            <p className={styles.boldTitle}>{propertyName}</p>
             <p className={styles.dateDesk}>{date}</p>
             <p className={styles.transDesk}>{requestID}</p>
             <li className={styles.statusDesk}>{status}</li>

@@ -112,7 +112,7 @@ const Settings = () => {
               </Accordion.Item>
 
               <Accordion.Item className={styles.change} eventKey="4">
-                <Accordion.Header>Transaction History</Accordion.Header>
+                <Accordion.Header>Subletting History</Accordion.Header>
                 <Accordion.Body>
                   <Transaction subletRequestData={subletRequestData} />
                 </Accordion.Body>
