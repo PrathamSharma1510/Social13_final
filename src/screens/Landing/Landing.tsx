@@ -75,13 +75,13 @@ const Landing = () => {
 
         <div className={clsx(styles.creativity)}>
           <h1 className={styles.title}>
-            <span className={styles.gradient}>Creativity </span>Meets <br />
-            <span className={styles.gradient}> Commerce</span>
+            <span className={styles.gradient}> Team</span>
           </h1>
           <p className={styles.desc}>
-            Create or Join Exclusive Memberships, Buy or Sell Digital & Physical
-            Items via Shop, Support your favourite creator through easy One-Time
-            Payments.{" "}
+            Our team comprises highly skilled individuals with diverse expertise
+            in web development, design, and project management. Led by Professor
+            Pedro Guillermo, we're dedicated to delivering a platform that makes
+            a real difference in the lives of Gainesville residents.
           </p>
 
           <div className={styles.desktopcards}>
