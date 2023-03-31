@@ -253,7 +253,7 @@ const Explore = ({ items }: explore) => {
       </div>
       <div className={styles.body}>
         <div className={styles.grid}>
-          {items?.map((x: any, index: any) => (
+          {card_items?.map((x: any, index: any) => (
             <ExploreCard className={styles.card} items={x} key={index} />
           ))}
         </div>

@@ -18,7 +18,7 @@ import UploadModals from "../../UploadNFT/UploadNFT/Upload_Modals/UploadModals";
 const nav = [
   {
     url: "/market",
-    title: "Marketplace",
+    title: "LISTINGS",
   },
 ];
 
