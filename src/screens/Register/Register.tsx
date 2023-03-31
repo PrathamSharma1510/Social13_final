@@ -289,19 +289,20 @@ const Register = () => {
               setDoc(doc(db, "users", uid), {
                 name: name,
                 email: email,
-                username: username, //add username here
-                profileViewsCount: 0,
-                phone: phone,
+                username: username,
                 uid: uid,
                 newsletterSubscription: false,
                 category: "",
                 age: "",
                 gender: "",
                 flagCounter: 0,
-                profileUrl: "",
+                profileUrl: "", // add profile url here
+                coverPhotoUrl: "", // add firebase storage function url here
+                profilePhotoUrl: "", // add firebase storage function here
                 bio: "",
-                isNsfw: false,
                 verified: false,
+                interests: [],
+                isAdmin: false,
                 socials: {
                   portfolioUrl: "",
                   instagramUsername: "",
@@ -309,34 +310,8 @@ const Register = () => {
                   facebookProfileUrl: "",
                   youtubeProfileUrl: "",
                 },
-                interests: [],
-                isCreator: false,
-                creatorApproval: {
-                  approvalStatus: "Not Applied",
-                  comments: "",
-                },
-                dateOfJoining: date,
-                isKycDone: false,
-                savedNfts: [],
-                soldNfts: [],
-                followers: [],
-                following: [],
-                followerCount: 0,
-                followingCount: 0,
-                posts: {
-                  createdPosts: [],
-                  savedPosts: [],
-                },
-                bankAccountDetails: {
-                  accountHolderName: "",
-                  accountType: "",
-                  ifscCode: "",
-                  accountNumber: "",
-                  branchName: "",
-                  accountHolderPhoneNumber: "",
-                },
+                savedProperty: [],
               }).then((snap) => {
-                logEvent(analytics, "new_user_google");
                 window.location.reload();
               });
             }
@@ -351,93 +326,93 @@ const Register = () => {
   };
 
   //function for facebook sign-in
-  const facebookSignIn = async () => {
-    const provider = new FacebookAuthProvider();
-    await signInWithPopup(auth, provider)
-      .then((userCredentials) => {
-        const uid = userCredentials.user.uid;
-        const name = userCredentials.user.displayName;
-        const email = userCredentials.user.email;
-        // const photoUrl = userCredentials.user.photoURL;
-        let phone = userCredentials.user.phoneNumber;
-        const current = new Date();
-        const date = `${current.getDate()}/${
-          current.getMonth() + 1
-        }/${current.getFullYear()}`;
+  // const facebookSignIn = async () => {
+  //   const provider = new FacebookAuthProvider();
+  //   await signInWithPopup(auth, provider)
+  //     .then((userCredentials) => {
+  //       const uid = userCredentials.user.uid;
+  //       const name = userCredentials.user.displayName;
+  //       const email = userCredentials.user.email;
+  //       // const photoUrl = userCredentials.user.photoURL;
+  //       let phone = userCredentials.user.phoneNumber;
+  //       const current = new Date();
+  //       const date = `${current.getDate()}/${
+  //         current.getMonth() + 1
+  //       }/${current.getFullYear()}`;
 
-        getDoc(doc(db, "users", uid))
-          .then((querySnapshot) => {
-            if (querySnapshot.exists()) {
-              console.log("User Data Exits");
-            } else {
-              if (phone === null) {
-                phone = "";
-              }
-              console.log("Set Doc");
-              const username = name?.replaceAll(" ", "") + makeRandomString(5);
-              setDoc(doc(db, "users", uid), {
-                name: name,
-                email: email,
-                username: "hello3", //add username here
-                profileViewsCount: 0,
-                phone: phone,
-                uid: uid,
-                newsletterSubscription: false,
-                category: "",
-                age: "",
-                gender: "",
-                flagCounter: 0,
-                profileUrl: "",
-                bio: "",
-                isNsfw: false,
-                verified: false,
-                socials: {
-                  portfolioUrl: "",
-                  instagramUsername: "",
-                  twitterUsername: "",
-                  facebookProfileUrl: "",
-                  youtubeProfileUrl: "",
-                },
-                interests: [],
-                isCreator: false,
-                creatorApproval: {
-                  approvalStatus: "Not Applied",
-                  comments: "",
-                },
-                savedNfts: [],
-                soldNfts: [],
-                dateOfJoining: date,
-                isKycDone: false,
-                followers: [],
-                following: [],
-                followerCount: 0,
-                followingCount: 0,
-                posts: {
-                  createdPosts: [],
-                  savedPosts: [],
-                },
-                bankAccountDetails: {
-                  accountHolderName: "",
-                  accountType: "",
-                  ifscCode: "",
-                  accountNumber: "",
-                  branchName: "",
-                  accountHolderPhoneNumber: "",
-                },
-              }).then((snap) => {
-                logEvent(analytics, "new_user_facebook");
-                window.location.reload();
-              });
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  //       getDoc(doc(db, "users", uid))
+  //         .then((querySnapshot) => {
+  //           if (querySnapshot.exists()) {
+  //             console.log("User Data Exits");
+  //           } else {
+  //             if (phone === null) {
+  //               phone = "";
+  //             }
+  //             console.log("Set Doc");
+  //             const username = name?.replaceAll(" ", "") + makeRandomString(5);
+  //             setDoc(doc(db, "users", uid), {
+  //               name: name,
+  //               email: email,
+  //               username: "hello3", //add username here
+  //               profileViewsCount: 0,
+  //               phone: phone,
+  //               uid: uid,
+  //               newsletterSubscription: false,
+  //               category: "",
+  //               age: "",
+  //               gender: "",
+  //               flagCounter: 0,
+  //               profileUrl: "",
+  //               bio: "",
+  //               isNsfw: false,
+  //               verified: false,
+  //               socials: {
+  //                 portfolioUrl: "",
+  //                 instagramUsername: "",
+  //                 twitterUsername: "",
+  //                 facebookProfileUrl: "",
+  //                 youtubeProfileUrl: "",
+  //               },
+  //               interests: [],
+  //               isCreator: false,
+  //               creatorApproval: {
+  //                 approvalStatus: "Not Applied",
+  //                 comments: "",
+  //               },
+  //               savedNfts: [],
+  //               soldNfts: [],
+  //               dateOfJoining: date,
+  //               isKycDone: false,
+  //               followers: [],
+  //               following: [],
+  //               followerCount: 0,
+  //               followingCount: 0,
+  //               posts: {
+  //                 createdPosts: [],
+  //                 savedPosts: [],
+  //               },
+  //               bankAccountDetails: {
+  //                 accountHolderName: "",
+  //                 accountType: "",
+  //                 ifscCode: "",
+  //                 accountNumber: "",
+  //                 branchName: "",
+  //                 accountHolderPhoneNumber: "",
+  //               },
+  //             }).then((snap) => {
+  //               logEvent(analytics, "new_user_facebook");
+  //               window.location.reload();
+  //             });
+  //           }
+  //         })
+  //         .catch((error) => {
+  //           console.log(error);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   useEffect(() => {
     console.log(loggedIn);
@@ -585,7 +560,7 @@ const Register = () => {
             </div>
             <SocialLogins
               registerGoogle={() => googleSignIn()}
-              registerFacebook={() => facebookSignIn()}
+              // registerFacebook={() => facebookSignIn()}
               login={false}
               purpose={"Sign Up"}
             />
