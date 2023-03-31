@@ -10,7 +10,7 @@ import ExploreCard from "./ExploreCard/ExploreCard";
 const dateOptions = ["Recently added", "Long Added"];
 const navLinks = ["All", "Subleasing"];
 const priceOptions = ["Highest Rating", "Low Rating"];
-const likesOptions = ["Safest Place","Less Safe Place"];
+const likesOptions = ["Safest Place", "Less Safe Place"];
 const creatorOptions = ["High Rating", "All", "Most liked"];
 
 interface explore {
@@ -93,9 +93,12 @@ const Explore = ({ items }: explore) => {
   const [likes, setLikes] = useState(likesOptions[0]);
   const [creator, setCreator] = useState(creatorOptions[0]);
   const [values, setValues] = useState([5]);
-  const STEP = 0.1;
-  const MIN = 0.01;
-  const MAX = 10;
+  const STEP = 50;
+  const MIN = 0.1;
+  const MAX = 2000;
+  // const STEP = 10;
+  // const MIN = 250;
+  // const MAX = 2000;
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.grad}>Find Your Perfect Home with Ease </h2>
@@ -140,7 +143,7 @@ const Explore = ({ items }: explore) => {
             />
           </div>
           <div className={styles.cell}>
-            <div className={styles.label}>Price</div>
+            <div className={styles.label}>Rating</div>
             <Dropdown
               className={styles.dropdown_1}
               value={price}
@@ -150,7 +153,7 @@ const Explore = ({ items }: explore) => {
             />
           </div>
           <div className={styles.cell}>
-            <div className={styles.label}>likes</div>
+            <div className={styles.label}>safety</div>
             <Dropdown
               className={styles.dropdown_1}
               value={likes}
@@ -159,7 +162,7 @@ const Explore = ({ items }: explore) => {
               height=" max(min(3.35vw,48px),40px)"
             />
           </div>
-          <div className={styles.cell}>
+          {/* <div className={styles.cell}>
             <div className={styles.label}>creator</div>
             <Dropdown
               className={styles.dropdown_1}
@@ -168,7 +171,7 @@ const Explore = ({ items }: explore) => {
               options={creatorOptions}
               height=" max(min(3.35vw,48px),40px)"
             />
-          </div>
+          </div> */}
           <div className={styles.cell}>
             <div className={styles.label}>Price range</div>
             <Range
@@ -242,8 +245,8 @@ const Explore = ({ items }: explore) => {
               )}
             />
             <div className={styles.scale}>
-              <div className={styles.number}>0.01 ETH</div>
-              <div className={styles.number}>10 ETH</div>
+              <div className={styles.number}>250 USD</div>
+              <div className={styles.number}>2000 USD</div>
             </div>
           </div>
         </div>
