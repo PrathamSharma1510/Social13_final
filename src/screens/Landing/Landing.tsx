@@ -161,15 +161,12 @@ const Landing = () => {
                   <div className={styles.imgDivmob}>
                     <img
                       className={styles.cardImgmob}
-                      src="images/Present-1.png"
+                      src="images/kushargra_photo.jpg"
                       alt=""
                     />
                   </div>
-                  <h3 className={styles.cardTitle}>Say Thanks</h3>
-                  <p>
-                    Encourage your favorite creator to continue their work by
-                    contributing with ‘Say Thanks’!
-                  </p>
+                  <h3 className={styles.cardTitle}>Kushagra Sikka</h3>
+                  <p>Data Analyst Student at UF.</p>
                 </div>
               </div>
             </div>
@@ -179,16 +176,28 @@ const Landing = () => {
                 <div className={styles.cardInsidemob}>
                   <div className={styles.imgDivmob}>
                     <img
-                      className={styles.cardImgmob}
-                      src="images/Trolly2.png"
+                      className={styles.cardImg}
+                      src="images/jv_photo.jpg"
                       alt=""
                     />
                   </div>
-                  <h3 className={styles.cardTitle}>Creator Store</h3>
-                  <p>
-                    Buy NFTs from your favorite creators and unlock special
-                    perks curated exclusively!
-                  </p>
+                  <h3 className={styles.cardTitle}>Jayavidhi Kumar</h3>
+                  <p>Ui/UX developer, Student at UF.</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className={styles.cardmob}>
+                <div className={styles.cardInsidemob}>
+                  <div className={styles.imgDivmob}>
+                    <img
+                      className={styles.cardImg}
+                      src="images/pratham_photo.jpeg"
+                      alt=""
+                    />
+                  </div>
+                  <h3 className={styles.cardTitle}> Pratham Sharma</h3>
+                  <p>Frontend Developer Student at UF.</p>
                 </div>
               </div>
             </div>
@@ -198,35 +207,28 @@ const Landing = () => {
                 <div className={styles.cardInsidemob}>
                   <div className={styles.imgDivmob}>
                     <img
-                      className={styles.cardImgmob}
-                      src="images/Diamond.png"
+                      className={styles.cardImg}
+                      src="images/archit_photo.jpg"
                       alt=""
                     />
                   </div>
-                  <h3 className={styles.cardTitle}>NFTs With Perks</h3>
-                  <p>
-                    Buy NFTs from your favorite creators and unlock special
-                    perks curated exclusively!
-                  </p>
+                  <h3 className={styles.cardTitle}>Archit Mittal</h3>
+                  <p>Backend Developer Student at UF.</p>
                 </div>
               </div>
             </div>
-
             <div>
               <div className={styles.cardmob}>
                 <div className={styles.cardInsidemob}>
                   <div className={styles.imgDivmob}>
                     <img
-                      className={styles.cardImgmob}
-                      src="images/shoping.png"
+                      className={styles.cardImg}
+                      src="images/jarvis_photo.png"
                       alt=""
                     />
                   </div>
-                  <h3 className={styles.cardTitle}>Memberships</h3>
-                  <p>
-                    Buy NFTs from your favorite creators and unlock special
-                    perks curated exclusively!
-                  </p>
+                  <h3 className={styles.cardTitle}>Jarvis Thuluri</h3>
+                  <p>Ui/Ux designer Student at UF.</p>
                 </div>
               </div>
             </div>
