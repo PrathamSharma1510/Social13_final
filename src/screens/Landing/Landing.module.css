@@ -445,10 +445,10 @@ line-height: 24px;
 }
 
 .buyNFTdesc {
-  padding-left: 27vw;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 32px;
+  /* padding-left: 27vw; */
+  font-weight: 350;
+  font-size: 25px;
+  /* line-height: 32px; */
   margin-bottom: 20px;
 }
 
@@ -480,10 +480,11 @@ line-height: 24px;
 }
 
 .nftcards {
-  position: absolute;
-  bottom: -87px;
-  left: -252px;
-  width: 626px;
+  /* position: absolute; */
+  /* bottom: -87px;
+  left: -252px; */
+  width: 100%;
+  border-radius: 30px;
 }
 
 @media (max-width: 991px) {

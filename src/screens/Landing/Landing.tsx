@@ -53,13 +53,24 @@ const Landing = () => {
           <p className={styles.buyNFTwithUPI}>
             Find Your Perfect Home in Gainesville
           </p>
-          <p className={styles.buyNFTdesc}>
-            Finding the perfect home can be a daunting task, but our platform is
-            here to make it easy and efficient for everyone. Our user-friendly
-            website offers a convenient and dynamic experience, making the
-            process of finding Gainesville houses a breeze.
-          </p>
-          <img className={styles.nftcards} src="images/house.png" alt="" />
+          <div className="row">
+            <div className="col-6">
+              <img
+                className={styles.nftcards}
+                src="images/housing_landing .jpeg"
+                alt=""
+              />
+            </div>
+            <div className="col-6">
+              <p className={styles.buyNFTdesc}>
+                Finding the perfect home can be a daunting task, but our
+                platform is here to make it easy and efficient for everyone. Our
+                user-friendly website offers a convenient and dynamic
+                experience, making the process of finding Gainesville houses a
+                breeze.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className={clsx(styles.creativity)}>
