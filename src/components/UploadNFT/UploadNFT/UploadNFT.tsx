@@ -3,10 +3,11 @@ import styles from "./UploadNFT.module.css";
 import { FileUploader } from "react-drag-drop-files";
 // import ToggleBtn from "./ToggleBtn/ToggleBtn";
 // import Collection from "./Collection_Categories/Collection";
-import { getFirestore, setDoc, doc } from "firebase/firestore";
+import { getFirestore, setDoc, doc, GeoPoint } from "firebase/firestore";
 import { FileArrowUp, Plus, X } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../Loader/Loader";
+import Geocode from "react-geocode";
 import { Form } from "react-bootstrap";
 import InputField from "../../inputField/Input";
 // import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
@@ -23,7 +24,7 @@ import SuccPopup from "../../popups/SuccPopup";
 import ErrPopup from "../../popups/ErrPopup";
 
 const fileTypes = ["GIF", "PNG", "JPEG", "JPG"];
-// const Categories = ["Art", "Bleh", "Blehh", "Blehh"];
+const Apartment = ["4x4", "4X3", "4x2", "3x3", "3x2", "2x2", "2x1"];
 
 const items = [
   {
@@ -45,13 +46,16 @@ const items = [
 ];
 
 const UploadNFT = () => {
-  // const [category, setCategory] = useState(Categories[0]);
+  const [ApartmentType, setApartmentType] = useState("");
   const [perks, setPerks]: any[] = useState(() => new Set());
   const navigate = useNavigate();
   const [community, setCommunity]: any[] = useState(() => new Set());
   const userData = useSelector((state: RootStateOrAny) => state.userData);
   // const [file, setFile] = useState(null);
-  const [propertyName, setPropetyName] = useState("");
+  const [securityRating, setSecurityRating] = useState<any>();
+  const [overallRating, setOverallRating] = useState<any>();
+  const [propertyName, setPropertyName] = useState("");
+  const [propertyAddress, setPropertyAddress] = useState("");
   const [Utility, setUtility] = useState(0);
   const [cred, setRent] = useState(100);
   const perksarray = [...perks];
@@ -199,6 +203,10 @@ const UploadNFT = () => {
   };
 
   const SubletRequest = async () => {
+    Geocode.setApiKey("AIzaSyApeXIBszsayq36Kzn5p1o7-eW6qvR7fq0");
+    Geocode.setLanguage("en");
+    Geocode.setRegion("us");
+
     let roomAmenities: any = [];
     let communityAmenities: any = [];
     for (let i = 0; i < perksarray.length; i++) {
@@ -239,40 +247,59 @@ const UploadNFT = () => {
         setErrorMessage("Please add atleast One Community Amenity");
         setOpenErrMsg(true);
         // console.log("Please add atleast one perk");
+      } else if (propertyAddress === "") {
+        setErrorMessage("Please enter property Address");
+        setOpenErrMsg(true);
+        // console.log("Please add atleast one perk");
+      } else if (ApartmentType === "") {
+        setErrorMessage("Please Select Apartment Category");
+        setOpenErrMsg(true);
+        // console.log("Please add atleast one perk");
       }
     } else {
-      console.log(propertyImage);
-      console.log(propertyName);
-      const db = getFirestore(firebaseApp);
-      const reqID = "REQNFT" + makeSubletId(24);
-      await setDoc(doc(db, "subletRequest", reqID), {
-        tentName: userData?.name,
-        tentEmail: userData?.email,
-        // creatorPhone: userData?.phone,
-        tentUsername: userData?.username,
-        tentUid: userData?.uid,
-        requestId: reqID,
-        propertyImg: propertyImage,
-        applyDate: date,
-        // isMinted: false,
-        isApproved: false,
-        // video: isVideo,
-        state: "PENDING",
-        roomAmenities: perksarray,
-        communityAmenities: communityArray,
-        rent: cred,
-        utilityCost: Utility,
-        description: desc,
-        propertyName: propertyName,
-      })
-        .then(() => {
-          setSuccMess("Sublet Request Sent");
-          setSuccess(true);
-          navigate("/");
+      Geocode.fromAddress(propertyAddress)
+        .then(async (response) => {
+          const { lat, lng } = response.results[0].geometry.location;
+          console.log(lat, lng);
+          const db = getFirestore(firebaseApp);
+          const reqID = "REQ" + makeSubletId(24);
+          await setDoc(doc(db, "subletRequest", reqID), {
+            tentName: userData?.name,
+            tentEmail: userData?.email,
+            // creatorPhone: userData?.phone,
+            tentUsername: userData?.username,
+            tentUid: userData?.uid,
+            requestId: reqID,
+            propertyImg: propertyImage,
+            applyDate: date,
+            // isMinted: false,
+            isApproved: false,
+            // video: isVideo,\
+            overallRating: parseFloat(overallRating),
+            securityRating: parseFloat(securityRating),
+            ApartmentCat: ApartmentType,
+            location: new GeoPoint(lat, lng),
+            propertyAddress: propertyAddress,
+            state: "PENDING",
+            roomAmenities: perksarray,
+            communityAmenities: communityArray,
+            rent: cred,
+            utilityCost: Utility,
+            description: desc,
+            propertyName: propertyName,
+          })
+            .then(() => {
+              setSuccMess("Sublet Request Sent");
+              setSuccess(true);
+              // navigate("/");
+            })
+            .catch((error) => {
+              setErrorMessage("Some Error Occured");
+              setOpenErrMsg(true);
+              console.log(error);
+            });
         })
         .catch((error) => {
-          setErrorMessage("Some Error Occured");
-          setOpenErrMsg(true);
           console.log(error);
         });
     }
@@ -297,6 +324,7 @@ const UploadNFT = () => {
     setCommunity(updatedPerks);
     setPerks2(updatedPerks1);
   };
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -332,15 +360,63 @@ const UploadNFT = () => {
             </div>
           )}
           {loading && <Loader />}
-          <div className={styles.propertyName}>
-            {/* <h6 className={styles.Heading}>Enter Item Name</h6> */}
-            <InputField
-              typeOfInput="text"
-              lableText="Enter Property Name"
-              garyBold={true}
-              className={styles.Input}
-              onChange={(e: any) => setPropetyName(e.target.value)}
-            />
+          <div className={styles.Item_stck_prc}>
+            <div className={styles.ItemCred}>
+              {/* <h6 className={styles.Heading}>Enter Property Name</h6> */}
+              <InputField
+                typeOfInput="text"
+                lableText="Enter Property Name"
+                garyBold={true}
+                className={styles.Input}
+                onChange={(e: any) => setPropertyName(e.target.value)}
+              />
+            </div>
+            <div className={styles.ItemCred}>
+              {/* <h6 className={styles.Heading}>Enter Property Address</h6> */}
+              <InputField
+                typeOfInput="textarea"
+                lableText="Enter Property Address"
+                garyBold={true}
+                className={styles.Input}
+                onChange={(e: any) => setPropertyAddress(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className={styles.Item_stck_prc}>
+            <div className={styles.ItemCred}>
+              {/* <h6 className={styles.Heading}>Enter Property Name</h6> */}
+              <InputField
+                typeOfInput="number"
+                lableText="Security Rating"
+                garyBold={true}
+                className={styles.Input}
+                onChange={(e: any) => {
+                  if (e.target.value <= 5 && e.target.value >= 0) {
+                    setSecurityRating(e.target.value);
+                  } else {
+                    setErrorMessage("only Max Rating 5 and Minimum 0");
+                    setOpenErrMsg(true);
+                  }
+                }}
+              />
+            </div>
+            <div className={styles.ItemCred}>
+              {/* <h6 className={styles.Heading}>Enter Property Address</h6> */}
+              <InputField
+                typeOfInput="number"
+                lableText="Overall Rating"
+                garyBold={true}
+                className={styles.Input}
+                onChange={(e: any) => {
+                  if (e.target.value <= 5 && e.target.value >= 0) {
+                    setOverallRating(e.target.value);
+                  } else {
+                    setErrorMessage("only Max Rating 5 and Minimum 0");
+                    setOpenErrMsg(true);
+                  }
+                }}
+              />
+            </div>
           </div>
           <div className={styles.Item_stck_prc}>
             <div className={styles.ItemCred}>
@@ -442,17 +518,20 @@ const UploadNFT = () => {
                 ))}
             </div>
           </div>
-          {/* <div className={styles.dropdown}>
-            <h6 className={styles.Heading}>Category</h6>
+          <div className={styles.dropdown}>
+            <h6 className={styles.Heading}> Apartment Category</h6>
             <Form.Select
               aria-label="Default select example"
               className={styles.drop}
+              onChange={(e) => {
+                setApartmentType(e.target.value);
+              }}
             >
-              {Categories.map((x, index) => (
+              {Apartment.map((x, index) => (
                 <option key={index}>{x} </option>
               ))}
             </Form.Select>
-          </div> */}
+          </div>
         </div>
         <div className={styles.Bottom}>
           {/* <div className={styles.Collection}>
