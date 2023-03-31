@@ -90,15 +90,12 @@ const Landing = () => {
                 <div className={styles.imgDiv}>
                   <img
                     className={styles.cardImg}
-                    src="images/Present-1.png"
+                    src="images/kushargra_photo.jpg"
                     alt=""
                   />
                 </div>
-                <h3 className={styles.cardTitle}>Say Thanks</h3>
-                <p>
-                  Encourage your favorite creator to continue their work by
-                  contributing with ‘Say Thanks’!
-                </p>
+                <h3 className={styles.cardTitle}>Kushagra Sikka</h3>
+                <p>Data Analyst Student at UF.</p>
               </div>
             </div>
             <div className={clsx(styles.card, styles.CreatorStore)}>
@@ -106,15 +103,12 @@ const Landing = () => {
                 <div className={styles.imgDiv}>
                   <img
                     className={styles.cardImg}
-                    src="images/Trolly2.png"
+                    src="images/jv_photo.jpg"
                     alt=""
                   />
                 </div>
-                <h3 className={styles.cardTitle}>Creator Store</h3>
-                <p>
-                  Buy NFTs from your favorite creators and unlock special perks
-                  curated exclusively!
-                </p>
+                <h3 className={styles.cardTitle}>Jayavidhi Kumar</h3>
+                <p>Ui/UX developer, Student at UF.</p>
               </div>
             </div>
             <div className={clsx(styles.card, styles.nftWithPerks)}>
@@ -122,15 +116,12 @@ const Landing = () => {
                 <div className={styles.imgDiv}>
                   <img
                     className={styles.cardImg}
-                    src="images/Diamond.png"
+                    src="images/pratham_photo.jpeg"
                     alt=""
                   />
                 </div>
-                <h3 className={styles.cardTitle}>NFTs With Perks</h3>
-                <p>
-                  Buy NFTs from your favorite creators and unlock special perks
-                  curated exclusively!
-                </p>
+                <h3 className={styles.cardTitle}> Pratham Sharma</h3>
+                <p>Frontend Developer Student at UF.</p>
               </div>
             </div>
             <div className={clsx(styles.card, styles.membership)}>
@@ -138,15 +129,12 @@ const Landing = () => {
                 <div className={styles.imgDiv}>
                   <img
                     className={styles.cardImg}
-                    src="images/shoping.png"
+                    src="images/archit_photo.jpg"
                     alt=""
                   />
                 </div>
-                <h3 className={styles.cardTitle}>Memberships</h3>
-                <p>
-                  Buy NFTs from your favorite creators and unlock special perks
-                  curated exclusively!
-                </p>
+                <h3 className={styles.cardTitle}>Archit Mittal</h3>
+                <p>Backend Developer Student at UF.</p>
               </div>
             </div>
             <div className={clsx(styles.card, styles.last_person)}>
@@ -154,15 +142,12 @@ const Landing = () => {
                 <div className={styles.imgDiv}>
                   <img
                     className={styles.cardImg}
-                    src="images/shoping.png"
+                    src="images/jarvis_photo.png"
                     alt=""
                   />
                 </div>
-                <h3 className={styles.cardTitle}>Memberships</h3>
-                <p>
-                  Buy NFTs from your favorite creators and unlock special perks
-                  curated exclusively!
-                </p>
+                <h3 className={styles.cardTitle}>Jarvis Thuluri</h3>
+                <p>Ui/Ux designer Student at UF.</p>
               </div>
             </div>
           </div>
