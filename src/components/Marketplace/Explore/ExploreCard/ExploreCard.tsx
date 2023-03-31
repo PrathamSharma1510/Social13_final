@@ -34,59 +34,30 @@ const ExploreCard = ({ className, items: itemFromProps }: any) => {
   useEffect(() => {
     console.log(itemFromProps);
     const run = async () => {
-      setLoading(true);
-      if (itemFromProps) {
-        await getDoc(doc(db, "subletRequest", itemFromProps)).then((docs) => {
-          if (docs.exists()) {
-            setPrice(docs.data().rent);
-            // setCollectionTag(docs.data().collectionTag);
-            setIdToken(docs.data().token);
-
-            // setVideo(docs.data().video);
-            axios
-              .get(
-                "https://cdn.hyprclub.com/" +
-                  docs.data().collectionTag +
-                  "/" +
-                  docs.data().token
-              )
-              .then((repns) => {
-                setItem(repns.data);
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-            getDoc(doc(db, "users", docs.data().tentUid))
-              .then((document) => {
-                if (document.exists()) {
-                  setCreatorUsername(document?.data()?.username);
-                  const creatorPhotoRef = ref(
-                    storage,
-                    "users/" + docs.data().tentUid + "/profile.jpg"
-                  );
-                  getDownloadURL(ref(creatorPhotoRef))
-                    .then((url) => {
-                      setCreatorPhoto(url);
-                    })
-                    .catch((err) => {
-                      if (err.code === "storage/object-not-found") {
-                        setCreatorPhoto("/images/content/avatar-big.jpg");
-                      } else {
-                        console.error(err.code);
-                      }
-                    });
-                }
+      getDoc(doc(db, "users", itemFromProps.tentUid))
+        .then((document) => {
+          if (document.exists()) {
+            setCreatorUsername(document?.data()?.username);
+            const creatorPhotoRef = ref(
+              storage,
+              "users/" + itemFromProps.tentUid + "/profile.jpg"
+            );
+            getDownloadURL(ref(creatorPhotoRef))
+              .then((url) => {
+                setCreatorPhoto(url);
               })
               .catch((err) => {
-                console.error(err);
+                if (err.code === "storage/object-not-found") {
+                  setCreatorPhoto("/images/content/avatar-big.jpg");
+                } else {
+                  console.error(err.code);
+                }
               });
           }
+        })
+        .catch((err) => {
+          console.error(err);
         });
-        setLoading(false);
-      } else {
-        setLoading(false);
-        return;
-      }
     };
     run();
   }, [db, itemFromProps]);
@@ -94,15 +65,21 @@ const ExploreCard = ({ className, items: itemFromProps }: any) => {
     <div className={cn(styles.card, className)}>
       {loading && <Loader />}
       {loading === false && (
-        <Link className={styles.link} to={`/nft/${itemFromProps}`}>
+        <Link className={styles.link} to={`/nft/${itemFromProps.requestId}`}>
           <div className={styles.body}>
             <div className={styles.line}>
               <div
                 className={clsx(styles.imgAndBtn, "position-relative w-100")}
               >
-                {<img className={styles.image} src={item.image} alt="NFT" />}
+                {
+                  <img
+                    className={styles.image}
+                    src={itemFromProps.propertyImg}
+                    alt="PropertyImg"
+                  />
+                }
               </div>
-              <div className={styles.title}>{item.name}</div>
+              <div className={styles.title}>{itemFromProps.propertyName}</div>
               <div
                 className={clsx(
                   "d-flex align-items-center justify-content-between w-100 mt-2"
@@ -110,11 +87,13 @@ const ExploreCard = ({ className, items: itemFromProps }: any) => {
               >
                 <div className={clsx("d-flex align-items-center")}>
                   <div className={styles.ownerAndUsername}>
-                    <p className={styles.owner}>Apartment</p>
+                    <p className={styles.owner}>{creatorUsername}</p>
                   </div>
                 </div>
                 <div className={styles.price}>
-                  <span className={styles.pricetxt}>INR {price}</span>
+                  <span className={styles.pricetxt}>
+                    $ {itemFromProps.rent}
+                  </span>
                 </div>
               </div>
             </div>

@@ -16,6 +16,7 @@ import {
   orderBy,
   where,
   query,
+  getDoc,
 } from "firebase/firestore";
 import { firebaseApp } from "../../firebaseConfig";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
@@ -25,7 +26,7 @@ import Loader from "../../components/Loader/Loader";
 const Marketplace = () => {
   const db = getFirestore(firebaseApp);
   const dispatch = useDispatch();
-  const [subletIds, setSubletIds] = useState<Array<string>>([]);
+  const [subletIds, setSubletIds] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(false);
   const query1 = query(
     collection(db, "subletRequest"),
@@ -38,14 +39,9 @@ const Marketplace = () => {
       setLoading(true);
       await getDocs(query1)
         .then((querySnapShot) => {
-          let propertyIds: string[] = [];
+          let propertyIds: any[] = [];
           querySnapShot.forEach((element) => {
-            propertyIds.push(element.id);
-            // dispatch(
-            //   UserDataActions.propertyId({
-            //     propertyIds: propertyIds,
-            //   })
-            // );
+            propertyIds.push(element.data());
           });
           console.log(propertyIds);
           setSubletIds(propertyIds);
