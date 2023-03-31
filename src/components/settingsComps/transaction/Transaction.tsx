@@ -18,7 +18,7 @@ const Transaction = ({ subletRequestData }: any) => {
   return (
     <>
       <div className={styles.mainDiv}>
-        <h2 className={styles.title}>Transaction History</h2>
+        <h2 className={styles.title}>Subletting History</h2>
         <div className={styles.content}>
           <div className={clsx(styles.tranInfo)}>
             <div className={clsx(styles.heading1)}>Property Name</div>
