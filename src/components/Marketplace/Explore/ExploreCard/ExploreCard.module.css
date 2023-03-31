@@ -1,0 +1,122 @@
+.card {
+    display: flex;
+  }
+  
+  .card:hover .control {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  .link {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px 0;
+    color: #23262F;
+  }
+  
+  :global(.dark-mode) .link {
+    color: #FCFCFD;
+  }
+  
+  .body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .line {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: -13px 13px 26px rgba(230, 230, 230, 0.2), 13px -13px 26px rgba(230, 230, 230, 0.2), -13px -13px 26px rgba(255, 255, 255, 0.9), 13px 13px 33px rgba(230, 230, 230, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(230, 230, 230, 0.5);
+    border-radius: 20px;
+    padding: 22px;
+  }
+  
+  .line:first-child {
+    margin-bottom: 12px;
+  }
+  
+  .line:nth-child(2) {
+    margin-top: auto;
+  }
+  
+  .title {
+    margin-right: auto;
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .desc {
+    font-size: 12px;
+    padding-top: 7px;
+  }
+  
+  .price {
+    flex-shrink: 0;
+    /* margin-left: 8px; */
+    padding: 0 8px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-top: 7px;
+  }
+  .price:active, .price:focus {
+    color: white !important;
+  
+  }
+  
+  .pricetxt{
+    background: -webkit-linear-gradient(60deg, rgba(141, 0, 253, 1) 4%, rgba(231, 13, 140, 1) 49%, rgba(237, 77, 107, 1),
+    rgba(246, 164, 76, 1) 85%, rgba(252, 199, 55, 1) 92%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
+  
+  .btn {
+    position: absolute;
+    bottom: 10px;
+    left: 45%;
+    transform: translate(-35%, 0);
+    width: 150px;
+  
+  }
+  
+  
+  .owner, .username{
+    font-size: 14px;
+  line-height: 16px;
+    margin-bottom: 0;
+  }
+  
+  .username{
+    font-weight: 600;
+  font-size: 14px;
+  }
+  
+  .image{
+    width:100% ;
+    border-radius: 20px;
+  }
+  
+  .creatorImg{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+  }
+  @media(max-width:320px) {
+    .line {
+        padding: clamp(10px, 4.625vw, 15px);
+    }
+}

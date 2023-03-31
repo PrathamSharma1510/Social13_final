@@ -1,0 +1,153 @@
+.registerPage{
+    height: 100vh;
+}
+
+.registerForm{
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+    border-radius: 27px;
+    padding: 10px 50px;
+    border-radius: 25px;
+    width: 60%;
+    margin-bottom: 40px;
+}
+
+.checkBoxTexts{
+    font-size:12px !important;
+    color:#7e7e7e !important;
+    padding-left: 7px;
+}
+
+
+
+.checkBoxTexts input, .checkBoxTexts label{
+    cursor: pointer;
+}
+
+.registerHeaderText{
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    padding: 0 20px;
+    margin-top: 30px;
+    padding-left: 7vw;
+    padding-right: 7vw;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.subtitleText{
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.subtitleText .createAccount{
+   text-decoration: underline;
+
+}
+
+.registerHeaderText, .subtitleText{
+    text-align: center;
+}
+
+.inputs{
+    width: 100%;
+}
+
+.termsLink{
+    color: #7E7E7E;
+}
+
+.forgotPassword{
+    font-size: 12px;
+    line-height: 20px;
+    text-decoration: underline;
+    text-align: end;
+    color: #7E7E7E;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .registerForm{
+        width: 95% !important;
+        margin-top: 3vh;
+    padding: 10px 20px;
+
+    }
+
+    .registerHeaderText{
+        font-size: 32px;
+        letter-spacing: -0.01em;
+        padding: 0;
+    }
+    .registeInputs{
+        flex-direction: column;
+    }
+
+    .checkBoxTexts{
+        margin-top: 8px;
+    }
+  }
+
+  @media only screen and (max-width: 397px){
+    .loginForm{
+        width: 90% !important;
+    }
+    
+    .registerHeaderText{
+        font-size: 32px;
+        padding-left: 1vw !important;
+        padding-right:1vw !important;
+        line-height: 43px;
+
+    }
+
+    .subtitleText{
+        font-size: 13px !important;
+    }
+    
+}
+
+@media only screen and (max-width: 366px){
+
+    .registerPage{
+        width: 90%;
+    }
+
+    .registerHeaderText{
+        font-size: 30px;
+        padding-left:0.5vw !important;
+        padding-right: 0.5vw !important;
+        line-height: 43px;
+
+    }
+
+    .subtitleText{
+        font-size: 13px !important;
+    }
+    
+    
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width:1024px){
+    .registerForm{
+        width: 85%;
+        margin-top: 7vh;
+        padding-bottom: 5vh;
+    }
+}
+
+  @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+    .registerForm{
+        width: 80% !important;
+        margin-top: 8.5vh;
+        padding: 10px 20px;
+
+    }
+
+    .registerHeaderText{
+        font-size: 32px;
+        letter-spacing: -0.01em;
+    }
+  }

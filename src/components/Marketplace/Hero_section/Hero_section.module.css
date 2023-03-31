@@ -1,0 +1,117 @@
+.body {
+    width: 100%;
+    height: max(min(25vw + 0.01em , 500px), 252px);
+    padding: 0 17.5px;
+    margin: 0;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    box-shadow: -5px 5px 10px rgba(230, 230, 230, 0.2), 5px -5px 10px rgba(230, 230, 230, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(230, 230, 230, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(230, 230, 230, 0.5);
+    border-radius: 20px;
+}
+
+.img {
+    object-fit: inherit;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.imgmob {
+    display: none;
+    object-fit: inherit;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.head {
+    position: absolute;
+    top: 5.5%;
+    left: 2.5%;
+}
+
+.h2 {
+    font-style: italic;
+    font-weight: 600;
+    font-size: max(min(2.94vw, 44px), 12.2886px);
+    line-height: max(min(3vw, 44px), 15px);
+    color: #FFFFFF;
+    background: #000;
+    width: max(min(30.8vw, 460px), 126.57px);
+    margin: 0 0 7px 0;
+    padding: 0;
+}
+
+.h1 {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    width: max(min(25.4vw, 366px),  130.69px);
+    font-weight: bold;
+    font-size: max(min(3.889vw, 56px), 19.66px);
+    line-height: max(min(4vw, 56px), 24.58px);
+    background: black;
+    color: #FFFFFF;
+}
+
+.logo {
+    position: absolute;
+    bottom: 0px;
+    right: 25px;
+}
+
+#logoimg {
+    width: max(min(7.25vw, 115px), 73px);
+    height: max(min(7.25vw, 115px), 73px);
+}
+
+
+@media only screen and (max-width:1250px) {
+   .head{
+       left:3%;
+   }
+}
+
+@media only screen and (max-width:1025px) {
+   .head{
+       left:3.75%;
+       top:6%;
+   }
+}
+
+@media only screen and (max-width:700px) {
+    .img {
+        display: none
+    }
+    .head{
+        top:5.5%;
+        left:5%;
+    }
+
+    .body {
+        width: max(min(100vw, 100%), 229px);
+        height: max(min(62.75vw, 439px), 220px);
+    }
+
+    .imgmob {
+        display: block;
+    }
+}
+
+@media only screen and (max-width:550px) {
+    .head{
+        left:7%;
+        
+    }
+ }
+@media only screen and (max-width:350px) {
+    .head{
+        left:9%;
+        
+    }
+ }

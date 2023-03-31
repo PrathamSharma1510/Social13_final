@@ -1,0 +1,14 @@
+.postBtn{
+    font-weight: 600 !important;
+    font-size: 20px ;
+    border: none !important;
+    border-radius: 30px !important;
+    background:  linear-gradient(60deg, rgba(141, 0, 253, 1) 4%, rgba(231, 13, 140, 1) 49%, rgba(237, 77, 107, 1),
+    rgba(246, 164, 76, 1) 85%, rgba(252, 199, 55, 1) 92%) !important;
+    padding: 5px 20px !important;
+}
+
+.PostbtnText{
+    font-size: 14px !important;
+    color: white !important;
+}

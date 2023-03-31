@@ -1,0 +1,12 @@
+.logoImg{
+    width: 181.55px;
+    height: 84px;
+    margin-left: 1.3vw;
+}
+
+@media only screen and (max-width: 767px) {
+    .logoImg{
+        width: 130px;
+        height: 60px;
+    }
+  }

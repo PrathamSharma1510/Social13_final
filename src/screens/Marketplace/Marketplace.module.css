@@ -1,0 +1,8 @@
+.home {
+  background: E5E5E5;
+  display: flex;
+  flex-direction: column;
+  width:94.5%;
+  margin:25px auto;
+  gap: max(min(3.475vw,50px),25px);
+}

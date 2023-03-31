@@ -1,0 +1,65 @@
+.socialLoginText{
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.fb{
+    margin-left: 18px;
+    
+}
+
+.Login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000000;
+    border-radius: 35.5px;
+    padding: 8px 0;
+    margin-bottom: 13px;
+    width: 60% !important ;
+    cursor: pointer;
+    background-color: white;
+}
+.register{
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000000;
+    border-radius: 35.5px;
+    padding: 8px 0;
+    margin-bottom: 13px;
+    background-color: white;
+}
+
+.googleImg{
+    width: 27.34px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .Login{
+        width: 80% !important;
+    }
+
+    .register{
+        width: 80% !important;
+    }
+  }
+
+  
+@media only screen and (max-width: 368px) {
+    .socialLoginText{
+        font-weight: 600;
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    .gl{
+        margin-left: 18px;
+    }
+  }
+
+

@@ -1,0 +1,73 @@
+.modalBg{
+    top: 0;
+    left: 0;
+    background: rgba(79, 79, 79, 0.653);
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
+}
+
+
+.modal{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3rem 4rem;
+    background: #fff;
+    width: 45%;
+    border-radius: 20px;
+}
+
+.giftIcon{
+    background-color: #ED0090;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 13px;
+
+}
+
+.uptoUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heading{
+    font-weight: bold;
+    font-size: 32px;
+    margin-top: 24px;
+}
+
+.desc{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.ownerAndUsername p{
+    margin-bottom: 0;
+    line-height: 20px;
+}
+
+.creatorImg{
+    margin-right: 10px;
+}
+
+.username{
+    font-weight: 600;
+}
+
+
+.checkBoxTexts label{
+    font-size: 16px;
+line-height: 24px;
+}
+
+.checkBoxTexts input{
+    border: none;
+}
+
+.arrow{
+    cursor: pointer;
+}

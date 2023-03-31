@@ -1,0 +1,27 @@
+.options {
+    display: flex;
+    padding: 8px;
+    border-radius: 32px;
+    background: #FCFCFD;
+    border: none;
+    outline: none;
+
+}
+.star {
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+
+}
+@media(min-width:900px){
+    .options:hover>.star{
+        color:rgb(165, 8, 144);
+    }
+}
+@media (max-width: 700px) {
+    .star {
+        width: clamp(25px, 5.714vw, 40px);
+        height: clamp(25px, 5.714vw, 40px);
+    }
+}
+

@@ -1,0 +1,32 @@
+.body {
+   
+    width:100%;
+
+}
+
+/* Responsive  */
+ /* @media only screen and (max-width: 1400px) {
+    .body {
+        padding:36px 150px;
+
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .body {
+        padding: 36px 61px;
+
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .body {
+        padding:36px 24px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .body {
+        padding: 36px 10px;
+    }
+} */

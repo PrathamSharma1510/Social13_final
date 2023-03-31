@@ -1,0 +1,28 @@
+.carousel {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    width: 288px !important;
+    height: 420px !important;
+    margin: 24px 10px !important;
+    cursor: pointer !important;
+}
+
+/* @media screen and (max-width:500px) {
+    .carousel {
+        flex-direction: column;
+        overflow-x: none;
+    }
+
+} */

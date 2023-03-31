@@ -1,0 +1,28 @@
+.add {
+  position: relative;
+}
+
+#btn{
+  border:none;
+  background:transparent;
+}
+
+.add svg {
+  transition: all .2s;
+}
+
+.add svg:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.add.active svg:first-child {
+  opacity: 0;
+}
+
+.add.active svg:nth-child(2) {
+  opacity: 1;
+}

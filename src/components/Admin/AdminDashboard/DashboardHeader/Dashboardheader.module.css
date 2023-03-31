@@ -1,0 +1,36 @@
+.body {
+    width: 93%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: #FEFEFE;
+    border: 1px solid #E3E3E3;
+    border-radius: 20px;
+    justify-content: flex-start;
+    gap:28px;
+    margin:38px auto 0 auto;
+}
+
+.logo {
+    height: 41px;
+    border-right:1px solid #E4E4E4;
+    padding: 0 28px;
+}
+
+.img {
+    object-fit: inherit;
+    height: 41px;
+    width:87px;
+}
+
+.text{
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #797979;
+}
+
+.link{
+    color:inherit !important;
+    text-decoration:none !important;
+}

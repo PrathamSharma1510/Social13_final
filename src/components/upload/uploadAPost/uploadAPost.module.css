@@ -1,0 +1,48 @@
+.uploadAPost{
+    background: white;
+    padding: 30px 0;
+    border-radius: 20px;
+
+}
+.uploadHeading{
+    margin: 10px 30px;
+}
+.heading{
+    font-size: 32px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.icon{
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.inputAndPostBtn{
+    margin: 10px 30px;
+    width: 500px;
+    padding: 10px 20px;
+    background: #FCFBFB;
+    border-radius: 14px;
+}
+
+.inputText{
+    border: none !important;
+    border-bottom: 1px solid #C2C2C2 !important;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
+    margin-bottom: 20px;
+    background: #FCFBFB !important;
+}
+
+.inputText:focus{
+    outline: none !important;
+    box-shadow: none !important;
+
+}
+
+.inputicon{
+    margin-right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}

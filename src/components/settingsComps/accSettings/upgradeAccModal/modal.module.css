@@ -1,0 +1,291 @@
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.modal{
+    background: #FFFFFF;
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    overflow-y: initial !important;
+    overflow: hidden;
+    max-height: 90vh;
+    z-index: 2222;
+
+}
+
+
+.modal::-webkit-scrollbar {
+    display: none;
+  }
+
+
+/* .modalContent{
+    overflow-y: auto;
+
+} */
+
+.cross{
+    /* text-align: right; */
+    padding: 25px 0 10px 0;
+    margin-bottom: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.crossLast, .crossFirst{
+    text-align: right;
+    padding: 25px 0 10px 0;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+
+
+.topTitleDiv{
+    text-align: center;
+}
+
+.gradientTitle{
+    text-align: center;
+    background: linear-gradient(90deg, #ed4d6b,#8d00fd, #e70d8c, #f6a44c);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+    margin-bottom: 0;
+}
+
+.topDesc{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 15vw ;
+    margin-bottom: 0;
+    margin-top: 16px;
+}
+
+
+.sellYourNftDiv{
+    margin-top: 30px;
+}
+
+.sellYourNftTitle{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 17px;
+}
+.sellYourNftdesc{
+    padding-right: 5vw;
+}
+.sellYourNftImg{
+    text-align: center;
+}
+
+.imgWithMoney{
+    width: 100%;
+    max-width:297px;
+}
+
+.analyse{
+    text-align: right;
+    padding-left: 5vw !important;
+    margin-top: 20px !important;
+}
+
+.analyseTitle{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+
+}
+
+.analysedesc{
+    font-size: 16px;
+line-height: 24px;
+}
+
+.bottom{
+    padding: 0 13vw;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.comingSoon{
+    background: linear-gradient(90deg, #ed4d6b,#8d00fd, #e70d8c, #f6a44c);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+}
+
+.comingSoonDesc{
+    margin-bottom: 20px;
+}
+
+.verificationDocumentDiv{
+    margin: 1.25rem 0;
+}
+
+
+.uploadText{
+    font-weight: 500;
+    font-size: 16px;
+    color: #23262F;
+}
+
+.dragndrop{
+    color: #777E91;
+    font-size: 12px;
+}
+
+.dragField{
+    height: 122px;
+    background: #F4F5F6;
+    border-radius: 16px;
+
+}
+
+.dragField i{
+    color: #777E91;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.pngorjpeg{
+    font-size: 12px;
+    color: #777E91;
+    margin-bottom: 0;
+}
+
+@media(max-width:768px) {
+
+    .modal{
+        width: 80vw;
+    padding: 0;
+    }
+
+    .gradientTitle{
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .topDesc{
+        padding: 0;
+        margin-bottom: 24px;
+    }
+
+    .sellYourNftTitle, .analyseTitle{
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+
+    .bottom{
+        padding: 0 0 30px 0;
+    }
+
+    .dragField{
+        height: 200px;
+    }
+
+}
+
+
+/************************* Second Modal ****************************/
+
+.secTopDesc{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 4vw ;
+    margin-bottom: 0;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.step1, .step2{
+    margin-top: 5vh;
+    padding: 0 4vw ;
+    
+
+}
+
+.step1Title{
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.inputs{
+    margin-bottom: 20px;
+}
+
+.modal2Btn{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.select{
+    height: 40px !important;
+    border-radius: 12px !important;
+    color: #23262F;
+    font-weight: 500 !important;
+font-size: 14px !important;
+cursor: pointer;
+}
+
+.select:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+}
+
+.select2{
+    height: 40px !important;
+    border-radius: 12px !important;
+    color: #23262F;
+    font-weight: 500 !important;
+font-size: 14px !important;
+cursor: pointer;
+}
+
+@media(max-width:768px){
+    .savingsAndCurrent{
+        flex-direction: column;
+    } 
+}
+
+
+/* last one */
+
+.gradientTitleLast{
+    background: linear-gradient(90deg, #ed4d6b,#8d00fd, #e70d8c, #f6a44c);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+    margin-bottom: 24px;
+}
+
+
+.thankYouDiv{
+    padding: 0 14px 30px 14px;
+}

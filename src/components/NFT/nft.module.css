@@ -1,0 +1,53 @@
+.Nft {
+    width: 100%; 
+    height:auto;
+}
+
+.navLinks {
+    margin-bottom: 45px;
+}
+@media only screen and (max-width: 767px) {
+    .navLinks {
+      margin-left: 5vw;
+      margin-right: 5vw; } }
+
+.created, .owned {
+    margin-right: 30px !important;
+    color: #8E8E8E;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+/* .active{
+    
+    padding-bottom: 5px;
+    border-bottom: 4.6px solid #000000;
+    color: black;
+} */
+
+.active {
+    position: relative;
+    margin: 0px 10px 0px 0px;
+    text-decoration: none;
+    background-image: url('/public/images/gradient.png') !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    /* Negative height */
+    width: 100%;
+    height: 4px;
+    /* Height of border */
+    background: linear-gradient(60deg, rgba(141, 0, 253, 1) 4%, rgba(231, 13, 140, 1) 49%, rgba(237, 77, 107, 1),
+            rgba(246, 164, 76, 1) 85%, rgba(252, 199, 55, 1) 92%);
+    border-radius: 5rem;
+}

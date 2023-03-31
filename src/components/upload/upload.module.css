@@ -1,0 +1,37 @@
+.uploadDiv{
+    height: 100vh;
+    background: #0000002b;
+    width: 100vw;
+    top: 0;
+    z-index: 99;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.upload{
+    background: white;
+    padding: 30px 0;
+    border-radius: 20px;
+}
+.hide{
+    display: none !important;
+}
+.uploadHeading{
+    margin: 10px 30px;
+}
+.heading{
+    font-size: 32px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.icon{
+    font-size: 35px;
+    cursor: pointer;
+}
+
+
+.firstType, .secondType, .thirdType{
+    margin: 10px 30px;
+    cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.feedRight{
+    background: #fff;
+    border-radius: 30px;
+    padding: 20px 25px;
+}
+
+.feedRight .title{
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 0%;
+}
+
+
+.feedRight .viewMore{
+    margin-bottom: 0%;
+    color: #8F8F8F;
+    font-size: 14px;
+}
+
+.feedRight .readAndUnread{
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.feedRight .readAndUnread span{
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+
+.feedRight .underline{
+    border-bottom: 2px solid #000000;
+}

@@ -1,0 +1,22 @@
+.interest_container{
+    padding:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    width:auto;
+    height:auto;
+    overflow-x:hidden;
+}
+.logo{
+    align-self: flex-start;
+    max-width:175px;
+    height:auto;
+}
+.contain{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+
+}

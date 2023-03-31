@@ -1,0 +1,55 @@
+.gradientBorder{
+    font-weight: bold !important;
+    font-size: 14px !important;
+    border: none !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    font-size: 22px !important;
+    line-height: 32px !important;
+
+
+    position: relative;
+    border: 10px solid;
+    border-radius: 16px;
+    background-color: #F7F9F9 !important;
+    background-clip: padding-box;
+    color: black !important;
+    padding: 6px 10px !important;
+}
+
+.noBorder{
+    /* border-radius: 16px; */
+    border: none !important;
+    background-color: #F7F9F9 !important;
+    /* background-clip: padding-box; */
+    color: black !important;
+    padding: 6px 10px !important;   
+}
+
+.noBorder .btnName{
+    font-weight: 600;
+font-size: 22px;
+line-height: 32px;
+/* identical to box height, or 145% */
+
+text-align: center;
+
+color: #A4A4A4;
+}
+
+.gradientBorder .btnName{
+  background: -webkit-linear-gradient(27deg, rgba(158,1,235,1) 0%, rgba(211,24,126,1) 49%, rgba(243,189,56,1) 100%);
+  /* background-image: url('/public/images/gradient.png') !important; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradientBorder::before{
+    position: absolute;
+    top: -4px; bottom: -4px;
+    left: -4px; right: -4px;
+    background: linear-gradient(27deg, rgba(158,1,235,1) 0%, rgba(211,24,126,1) 49%, rgba(243,189,56,1) 100%) !important;
+    content: '';
+    z-index: -1;
+    border-radius: 30px; 
+}

@@ -1,0 +1,27 @@
+.btnName {
+    background: -webkit-linear-gradient(27deg, rgba(158, 1, 235, 1) 0%, rgba(211, 24, 126, 1) 49%, rgba(243, 189, 56, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.gradientBorder {
+    position: relative !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    font-style: normal !important;
+    text-align: center !important;
+    border: solid 3.5px transparent;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(60deg, rgba(141, 0, 253, 1) 4%, rgba(231, 13, 140, 1) 49%, rgba(237, 77, 107, 1),
+            rgba(246, 164, 76, 1) 85%, rgba(252, 199, 55, 1) 92%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #fff inset ;
+
+}
+
+
+.gradientBorder:active, .gradientBorder:focus, .gradientBorder:hover {
+    box-shadow: 2px 1000px 1px #fff inset !important;
+}

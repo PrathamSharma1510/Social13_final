@@ -1,0 +1,28 @@
+.suggested{
+    padding: 10px 15px;
+    background: #fff;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    z-index: -2;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.subtitle{
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.genre{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.profiles{
+    margin-top: 15px;
+}

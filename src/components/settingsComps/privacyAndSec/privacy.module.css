@@ -1,0 +1,93 @@
+.title{
+    font-weight: bold;
+    font-size: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E3E3E3;
+    padding: 25px 10px 17px 20px;
+}
+
+.mainDiv{
+    background: #fff;
+    border-radius: 20px;
+    z-index: -2;
+
+}
+
+.private{
+    padding: 25px 10px 17px 20px;
+    border-bottom: 1px solid #E3E3E3;
+    margin-bottom: 10px;
+}
+
+.changePs{
+    padding: 25px 10px 17px 20px;
+    margin-bottom: 10px;
+}
+
+.heading{
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.desc{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.descPass{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 0.5vw;
+}
+
+.enableprivate{
+    margin-bottom: 0;
+    margin-right: 40px;
+    font-weight: 600;
+
+}
+
+.enablepvtdiv{
+    margin-bottom: 20px;
+}
+
+.pass{
+    margin-right: 15vw;
+}
+
+@media only screen and (max-width:438px){
+    .enableprivate{
+        font-size: 13px !important;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .enableprivate{
+        font-size: 15px;
+    }
+
+    .descPass{
+        margin-top: 1vh;
+        margin-left: 1.5vw;
+        margin-bottom: 3vh;
+    }
+
+    .avt{
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .pass{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:768px){
+    .avt{
+        margin-left: 30vw;
+    }
+}

@@ -1,0 +1,698 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900");
+* {
+  font-family: "Poppins", sans-serif;
+}
+.part1 {
+  text-align: center;
+  background-image: url("./BG_STARS.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* background-size: cover; */
+  /* background-size: 1300px 500px; */
+}
+
+.mainDiv{
+  background-image: url('/public/images/bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* z-index: -1; */
+}
+.hypr {
+  margin-top: 70px !important;
+  height: 36px !important;
+  line-height: 36px;
+  /* font-weight: 700; */
+  font-size: 24px;
+}
+.gradient {
+  background: linear-gradient(90deg, #8d00fd, #e70d8c, #ed4d6b, #f6a44c);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.hypr span {
+  background: linear-gradient(90deg, #8d00fd, #e70d8c, #ed4d6b, #f6a44c);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.hypr a {
+  /* color: #D82D84; */
+  font-weight: 700 !important;
+}
+.Revolution {
+  margin-bottom: 18px;
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 96px;
+  letter-spacing: -4px;
+}
+
+@media only screen and (min-device-width:407px) and (max-device-width:415px){
+  .Revolution{
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+
+}
+@media only screen and (min-device-width:415px) and (max-device-width:500px){
+  .Revolution{
+    margin-left: 7vw;
+    margin-right: 7vw;
+  }
+
+}
+.SocialNetwork {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 35px;
+}
+.Revolution span {
+  background: linear-gradient(90deg, #8d00fd, #e70d8c, #ed4d6b, #f6a44c);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  /* animation: example 5s ease infinite; */
+  background-size: 400% 400%;
+  animation: gradient 4s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes example {
+  0% {
+    background: linear-gradient(90deg, #e70d8c, #8d00fd, #ed4d6b, #f6a44c);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  15% {
+    background: linear-gradient(
+      90deg,
+      #e70d8c,
+      #8d00fd,
+      #e70d8c,
+      #8d00fd,
+      #e70d8c
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  25% {
+    background: linear-gradient(90deg, #8d00fd, #e70d8c, #8d00fd, #e70d8c);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  50% {
+    background: linear-gradient(90deg, #ed4d6b, #8d00fd, #e70d8c, #f6a44c);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  100% {
+    background: linear-gradient(90deg, #f6a44c, #8d00fd, #e70d8c, #ed4d6b);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+}
+
+
+/* @keyframes mymove {
+  from {
+    background: linear-gradient(90deg, #8d00fd, #e70d8c, #ed4d6b, #f6a44c);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  to {
+    background: linear-gradient(90deg, #ed4d6b, #f6a44c, #8d00fd, #e70d8c);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+} */
+/* button {
+  width: 200px;
+  height: 58px;
+} */
+.postBtna {
+  width: 281px;
+  height: 61px;
+  font-weight: 700 !important;
+  font-size: 30px;
+  border: none !important;
+  border-radius: 30px !important;
+  background: linear-gradient(
+    60deg,
+    rgba(141, 0, 253, 1) 4%,
+    rgba(231, 13, 140, 1) 49%,
+    rgba(237, 77, 107, 1),
+    rgba(246, 164, 76, 1) 85%,
+    rgba(252, 199, 55, 1) 92%
+  ) !important;
+  padding: 0px 20px !important;
+  margin-bottom: 35px;
+}
+
+.PostbtnTexta {
+  font-size: 20px !important;
+  color: white !important;
+}
+
+@media (max-width: 768px) {
+  .hypr {
+    font-size: 24px;
+  }
+  .Revolution {
+    margin-top: 18px;
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: -2px;
+  }
+  .SocialNetwork {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  .postBtna {
+    width: 204px;
+    height: 54px;
+    padding: 0 0 10px 0;
+  }
+  .PostbtnTexta{
+    font-size: 18px !important;
+  }
+}
+
+/* title */
+
+
+.creativity .title {
+  font-weight: bold;
+  font-size: 64px;
+  letter-spacing: -0.02em;
+  line-height: 64px;
+}
+
+.creativity {
+  background-color: #FEFEFE;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  /* background: var(--bg-2); */
+  transition: all 0.2s linear;
+  transition: all 0.2s linear 0s;
+  width: 75%;
+  height: 600px;
+  padding: 70px 30px 250px 60px;
+  margin: 20px 0;
+  margin-bottom: 10px;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  position: relative;
+}
+@media only screen and (min-device-width:300px) and (max-device-width:768px){
+  .creativity{
+    padding-left: 5vw;
+    padding-right: 5vw;
+  border-radius: 35px;
+
+  }
+  .desc{
+    font-size: 16.5px !important;
+  }
+
+}
+.margin{
+  margin-top: 100px;
+}
+.creativity .desc {
+  padding-right: 15vw;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  margin-top: 30px;
+}
+
+.card {
+  position: absolute;
+  width: 37%;
+  text-align: center;
+  background: #fefefe;
+  padding: 30px 20px 50px;
+  border-radius: 20px;
+  z-index: 2;
+  filter: drop-shadow(7px 7px 15px rgba(0, 0, 0, 0.25));
+  height: 226px;
+}
+.thanks {
+  bottom: -140px;
+}
+.CreatorStore {
+  bottom: -140px;
+  left: 45%;
+}
+
+.nftWithPerks {
+  right: -270px;
+  top: 5%;
+}
+
+.membership {
+  right: -270px;
+  top: 60%;
+}
+
+.card h3 {
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.card p {
+  color: #23262f;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.cardImg {
+  width: 76px;
+  height: 76px;
+}
+
+.cardInside {
+  position: relative;
+}
+
+.imgDiv {
+  background: #fefefe;
+  position: absolute;
+  top: -130px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 4;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+
+.cardmob{
+  text-align: center;
+  border-radius: 20px;
+  position: relative;
+  margin: 0 35px;
+  
+}
+
+.cardmob h3{
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.cardmob p{
+  font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+}
+
+.cardImgmob{
+  display: unset !important;
+  width: 76px;
+  height: 76px;
+}
+
+.cardInsidemob{
+  padding: 30px 20px 50px;
+  background: #fefefe;
+  margin-top: 75px;
+  filter: drop-shadow(7px 7px 15px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+.imgDivmob{
+  background: #fefefe;
+  position: absolute;
+  padding: 30px;
+  border-radius: 50%;
+  top: -46px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.imgDivmob{
+  text-align: center !important;
+}
+
+.mobileonly{
+  display: none;
+}
+
+@media (max-width: 991px) {
+
+  .desktopcards{
+    display: none;
+  }
+
+  .mobileonly{
+    display: unset;
+  }
+  .creativity {
+    width: auto;
+    padding-bottom: 20vh;
+    height: auto;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .creativity .title {
+    font-weight: bold;
+    font-size: 32px ;
+    line-height: 30px;
+    letter-spacing: -0.02em;
+
+  }
+
+  .creativity .desc{
+    padding: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .card{
+    position: unset;
+    width: auto;
+    
+  }
+}
+
+
+/* nft */
+
+.buyNFT {
+  background-color: #FEFEFE;
+  margin-top: 20vh;
+  /* margin-bottom: 20vh; */
+  /* background: chocolate; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  padding: 20px 70px;
+  text-align: right;
+  width: 75%;
+  margin-left: auto;
+  margin-right: 0;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+  position: relative;
+  margin-bottom: 150px;
+}
+
+@media only screen and (min-device-width:300px) and (max-device-width:768px){
+  .buyNFT{
+  padding-left: 6vw;
+  padding-right: 6vw;
+  border-radius: 35px;
+  }
+  .forthefirsttime{
+    font-size: 18px !important;
+  }
+  .buyNFTwithUPI{
+    margin-bottom: 0.7vh !important;
+  }
+
+}
+
+.forthefirsttime {
+  margin-top: 40px;
+  background: linear-gradient(90deg, #ed4d6b,#8d00fd, #e70d8c, #f6a44c);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.buyNFTwithUPI {
+  font-size: 64px;
+  line-height: 96px;
+  letter-spacing: -0.02em;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.buyNFTdesc {
+  padding-left: 27vw;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.paymentSec {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+  margin-top: 50px;
+}
+
+.visaImg {
+  /* margin-left: 40px; */
+  width: 87px;
+}
+.mastercardImg {
+  /* margin-left: 40px; */
+  width: 68px;
+}
+.upiImg {
+  /* margin-left: 40px; */
+  width: 91px;
+}
+
+.visaImg,
+.mastercardImg,
+.upiImg {
+  margin-right: 30px;
+}
+
+.nftcards {
+  position: absolute;
+  bottom: -87px;
+  left: -252px;
+  width: 626px;
+}
+
+@media (max-width: 991px) {
+  /* .forthefirsttime{
+    font-size: 20px;
+  } */
+  .buyNFT {
+    margin: 20px;
+    width: auto !important;
+    border-radius: 35px;
+    text-align: center;
+    padding-bottom: 150px;
+    margin-bottom: 300px;
+  }
+
+  .forthefirsttime {
+    margin-bottom: 0;
+    font-size: 22px;
+    line-height: 46px;
+  }
+
+  .buyNFTwithUPI {
+    font-size: 32px !important;
+    margin-bottom: 0;
+    line-height: 46px;
+  }
+  .buyNFTdesc {
+    padding-left: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .nftcards {
+    width: 100%;
+    bottom: -33%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .visaImg {
+    width: 45px;
+  }
+
+  .mastercardImg {
+    width: 35px;
+  }
+
+  .upiImg {
+    width: 47px;
+  }
+
+  .rupayImg {
+    /* margin-left: 40px; */
+    width: 80px;
+  }
+
+  .visaImg,
+  .mastercardImg,
+  .upiImg {
+    margin-right: 10px;
+  }
+}
+
+/* Get your social game */
+.game{
+  background: linear-gradient(90deg, #ed4d6b,#8d00fd, #e70d8c, #f6a44c);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  letter-spacing: -0.1rem;
+}
+.getYourSocialGame {
+  background-color: #FEFEFE;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  padding: 20px 60px 20px 0;
+  text-align: right;
+  width: 80%;
+  margin-left: auto;
+  margin-right: 0;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+  position: relative;
+  margin-bottom: 150px;
+  margin-top: 40vh;
+
+  display: flex;
+}
+@media only screen and (min-device-width:300px) and (max-device-width:768px){
+  .getSocialHeader{
+    font-size: 40px !important;
+    margin-top: 0.5vh !important;
+  }
+  .getSocialDesc{
+    font-size: 16px !important;
+    margin-top: 3vh !important;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+}
+
+.getSocialHeader {
+  margin-top: 46px;
+  font-weight: bold;
+  font-size: 66px;
+  line-height: 64px;
+  letter-spacing: -0.1rem;
+  /* padding-left: 20vw; */
+}
+
+
+
+.getSocialDesc {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  /* padding-left: 30vw; */
+  margin-top: 45px;
+}
+
+.button {
+  margin-top: 52px;
+  /* width: 280.77px;
+  height: 52px; */
+}
+
+/* .getSocialGameImgDiv {
+} */
+
+.getSocialGameImg {
+  border-radius: 35px;
+  width: 70vh;
+}
+
+.getSocialGameImgPhone {
+  display: none;
+}
+
+/* Gradient Buttons */
+.postBtn {
+  width: 280px;
+  height: 52px;
+  font-weight: 600 !important;
+  border: none !important;
+  border-radius: 30px !important;
+  background: linear-gradient(
+    60deg,
+    rgba(141, 0, 253, 1) 4%,
+    rgba(231, 13, 140, 1) 49%,
+    rgba(237, 77, 107, 1),
+    rgba(246, 164, 76, 1) 85%,
+    rgba(252, 199, 55, 1) 92%
+  ) !important;
+  padding: 5px 25px !important;
+}
+
+
+.PostbtnText {
+  font-size: 24px !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+@media (max-width: 991px) {
+  .getYourSocialGame {
+  border-radius: 35px;
+
+    width: auto;
+    flex-direction: column;
+    padding: 0;
+    padding-top: 10px;
+    margin: 20px;
+    margin-top: 10vh;
+  }
+  .getSocialGameImg {
+    width: 100%;
+    display: none;
+  }
+
+  .getSocialGameImgDiv {
+    order: 2;
+  }
+
+  .getSocialGameImgPhone {
+    display: block;
+  }
+  .getSocialGameContent {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .getSocialGameContent .forthefirsttime {
+    padding: 0 10px;
+  }
+
+  .getSocialHeader {
+    font-size: 44px;
+    line-height: 56px;
+  }
+
+  .getSocialGameImgPhone {
+    margin-top: 30px;
+    margin-left: 6vw ;
+    margin-right: 6vw ;
+    width: 90%;
+  }
+
+  .PostbtnText {
+    font-size: 18px !important;
+  }
+}

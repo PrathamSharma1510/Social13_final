@@ -1,0 +1,15 @@
+.loader{
+    position:fixed;
+    background-color:white;
+    display: grid;
+    place-items: center;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 100000000;
+}
+.spinner{
+    width:clamp(50px,6.667vw,100px) !important;
+    height:clamp(50px,6.667vw,100px) !important;
+}

@@ -1,0 +1,33 @@
+.messagePreviewBox{
+    background: #F7F9F9;
+    border-radius: 20px;
+    padding: 15px ;
+    margin-bottom: 10px;
+}
+
+.messagePreviewBox p{
+    margin-bottom: 0;
+}
+
+.messagePreviewBox .msgimg{
+    width: 43px;
+    height: 43px;
+    margin-right: 10px;
+}
+
+.messagePreviewBox .nameAndMessage .name{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.messagePreviewBox .nameAndMessage .messagePreview{
+    font-size: 12px;
+}
+
+.messagePreviewBox .nameAndMessage .lightGray{
+    color: #888888;
+}
+
+.messagePreviewBox .nameAndMessage .darkGray{
+    color: #777777;
+}

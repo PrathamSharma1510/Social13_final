@@ -1,0 +1,31 @@
+
+.mainDiv{
+    background: #FFFFFF;
+    border: 0.5px solid #E7E7E7;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 80px !important;
+    margin-top: 45px;
+   
+
+}
+.heading{
+    font-weight: bold;
+    font-size: 24px;
+    padding: 25px 10px 17px 25px;
+    border-bottom: 1px solid #E3E3E3;
+
+}
+
+.transactions{
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin: 7px 10px;
+    background: #FCFCFC;
+    cursor: pointer;
+    
+}
+
+.content{
+    border-bottom: 1px solid #E3E3E3;
+}

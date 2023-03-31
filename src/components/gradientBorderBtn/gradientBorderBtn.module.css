@@ -1,0 +1,85 @@
+.btnName{
+  font-weight: bold;
+font-size: 16px;
+    background: -webkit-linear-gradient(60deg, rgba(141, 0, 253, 1) 4%, rgba(231, 13, 140, 1) 49%, rgba(237, 77, 107, 1),
+    rgba(246, 164, 76, 1) 85%, rgba(252, 199, 55, 1) 92%);
+  /* background-image: url('/public/images/gradient.png') !important; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.gradientBorder {
+  position: relative;
+  border-radius: 100rem;
+  justify-content: center !important;
+  align-items: center !important;
+  /* margin-right: -2vw; */
+  padding: 0px 15px !important;
+  font-size: 22px !important;
+  line-height: 32px !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  letter-spacing: 0em !important;
+  text-align: center !important;
+  border-radius: 30px !important;
+  border: solid 3.5px transparent !important;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(60deg, rgba(141, 0, 253, 1) 4%, rgba(231, 13, 140, 1) 49%, rgba(237, 77, 107, 1),
+  rgba(246, 164, 76, 1) 85%, rgba(252, 199, 55, 1) 92%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #fff inset;
+}
+
+.gradientBorder:active, .gradientBorder:focus {
+  color: white !important;
+  background: none !important;
+
+}
+
+@media only screen and (max-device-width: 768px){
+  .gradientBorder{
+    cursor: pointer;
+    border: 4px solid rgba(231, 13, 140, 1) !important;
+    border-radius: 20px;
+    background-color: transparent !important;
+    background-image: none !important;
+    color:rgba(231, 13, 140, 1) !important ;
+    font-weight: 600;
+    font-size: 18px;
+}
+  .btnName{
+    color:rgba(231, 13, 140, 1) !important;
+    background: -webkit-linear-gradient(60deg, rgba(231, 13, 140, 1) 49%, rgba(231, 13, 140, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 13.5px;
+  }
+}
+
+/* .gradientBorder{
+    border: none !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    font-size: 22px !important;
+    line-height: 32px !important;
+
+
+    position: relative;
+    border: 10px solid;
+    border-radius: 16px;
+    background-color: #FFFFFF !important;
+    background-clip: padding-box;
+    color: black !important;
+    padding: 0px 20px !important;
+}
+
+.gradientBorder::before{
+  position: absolute;
+    top: -4px; bottom: -4px;
+    left: -4px; right: -4px;
+    background: linear-gradient(27deg, rgba(158,1,235,1) 0%, rgba(211,24,126,1) 49%, rgba(243,189,56,1) 100%) !important;
+    content: '';
+    z-index: -1;
+    border-radius: 30px; 
+} */

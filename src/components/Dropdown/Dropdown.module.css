@@ -1,0 +1,95 @@
+.dropdown {
+    position: relative;
+    z-index: 3;
+}
+
+.dropdown.active {
+    z-index: 10;
+}
+
+.dropdown.active #down {
+    transform: rotate(180deg);
+}
+
+.dropdown.active .body {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.head {
+    position: relative;
+    padding: 0 10px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: inset 0 0 0 2px #E6E8EC;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 48px;
+    cursor: pointer;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    -webkit-tap-highlight-color: transparent;
+    transition: box-shadow .2s;
+}
+
+.head:hover {
+    box-shadow: inset 0 0 0 2px #777E90;
+}
+
+.selection {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* flex: .85; */
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px #E6E8EC;
+    /* transform: translateY(-50%); */
+}
+.head:hover>.arrow>#down {
+    color: #777E90;
+}
+
+#down {
+    color: #b6b6b6;
+    transition: transform .2s;
+    padding:0;
+    margin:0;
+}
+
+.body {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    padding: 8px 0;
+    border-radius: 12px;
+    background: #FCFCFD;
+    box-shadow: inset 0 0 0 2px #E6E8EC, 0 4px 12px rgba(35, 38, 47, 0.1);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(3px);
+    transition: all .2s;
+}
+
+.option {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color .2s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.option:hover, .option.selectioned {
+    color: #3772FF;
+}

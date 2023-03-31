@@ -1,0 +1,32 @@
+.title{
+    font-weight: bold;
+    font-size: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E3E3E3;
+    padding: 25px 10px 17px 20px;
+}
+
+
+.mainDiv{
+    background: #fff;
+    border-radius: 20px;
+    z-index: -2;
+
+}
+
+.readioInput{
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.readioLables{
+    margin-left: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+}
+.content{
+    padding: 25px 10px 17px 20px;
+
+}

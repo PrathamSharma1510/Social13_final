@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+}
+
+
+.arrowLeft {
+    font-size: 30px;
+    color: black;
+}
+
+
+.link {
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#back1 {
+    margin-left: -450px;
+    margin-bottom: -30px;
+}
+
+.card_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 580px;
+    height: 584px;
+    padding: 40px 0;
+    background: #FFFFFF;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+    border-radius: 27px;
+}
+
+.card_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-top: -5px;
+    width: 349px;
+    height: 96px;
+}
+
+.card_title>h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.card_subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 419px;
+    height: 48px;
+}
+
+.card_subtitle>p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #23262F;
+}
+
+.card_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-basis: 33.333333%;
+    margin-top: 20px;
+    padding: 0 25px;
+}
+
+/* Continue Button */
+.Card_continuebutton {
+    margin-top: 20px;
+}
+
+/* Button */
+#Interestbtn{
+    color: black !important;
+}
+
+#Interestbtn>img {
+    width: 17px !important;
+    height: auto !important;    
+}
+
+#Interestbtn:hover {
+    box-shadow: 1px 1px 1.5px rgb(0, 0, 0, .25) !important;
+    cursor: pointer !important;
+}
+
+#Interestbtn:focus, #Interestbtn:active {
+    outline: none!important;
+}
+
+#Interestbtn>.textNormal {
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    letter-spacing: 0.01em !important;
+    color: black !important;
+    margin-left: 5px!important;
+}
+
+#Interestbtn>.textBold {
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    letter-spacing: 0.01em !important;
+    color: black !important;
+    margin-left: 5px!important;
+}
+
+/*Individual Button styling */
+.buttonWhole {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: 1px solid #A5A5A5 !important;
+    box-sizing: border-box !important;
+    border-radius: 45px !important;
+    padding: 0 8px !important;
+    margin: 5px !important;
+    height: 37px !important;
+    text-align: center !important;
+    flex-wrap: nowrap !important;
+    transition: width 30ms ease-in-out !important;
+    color:black !important;
+}
+
+.buttonWhole.Comedy {
+    gap: 5px !important;
+    width: 110px !important;
+}
+
+.buttonWhole.Graphic_Design {
+    gap: 5px !important;
+    width: 195px !important;
+}
+
+.buttonWhole.Music {
+    gap: 5px !important;
+    width: 110px !important;
+}
+
+.buttonWhole.Photography {
+    gap: 5px !important;
+    width: 150px !important;
+}
+
+.buttonWhole.Youtube {
+    gap: 5px !important;
+    width: 139px !important;
+}
+
+.buttonWhole.Beauty {
+    gap: 5px !important;
+    width: 129px !important;
+}
+
+.buttonWhole.Gaming {
+    gap: 5px !important;
+    width: 139px !important;
+    margin-left: 31px !important;
+}
+
+.buttonWhole.Cryptocurrency {
+    gap: 5px !important;
+    width: 176px !important;
+    margin-right: 6px !important;
+}
+
+.buttonWhole.Technology {
+    gap: 5px !important;
+    width: 165px !important;
+    margin-left: 9px !important;
+}
+
+.buttonWhole.Art {
+    gap: 5px !important;
+    width: 80px !important;
+}
+
+.buttonWhole.Sports {
+    gap: 5px !important;
+    width: 100px !important;
+}
+
+/* Selected Button  styling*/
+.borderBlack {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    box-sizing: border-box !important;
+    border-radius: 45px !important;
+    padding: 0 8px !important;
+    margin: 5px !important;
+    height: 37px !important;
+    text-align: center !important;
+    flex-wrap: nowrap !important;
+    border: 2px solid hsl(0, 0%, 0%) !important;
+    font-weight: bold !important;
+    transition: width 30ms ease-in-out !important;
+    cursor: pointer !important;
+    color:black !important;
+}
+
+.borderBlack.Comedy {
+    gap: 5px !important;
+    width: 145px !important;
+}
+
+.borderBlack.Graphic_Design {
+    gap: 3px !important;
+    width: 225px !important;
+}
+
+.borderBlack.Music {
+    gap: 5px !important;
+    width: 125px !important;
+}
+
+.borderBlack.Photography {
+    gap: 5px !important;
+    width: 160px !important;
+}
+
+.borderBlack.Youtube {
+    gap: 5px !important;
+    width: 144px !important;
+}
+
+.borderBlack.Beauty {
+    gap: 5px !important;
+    width: 144px !important;
+}
+
+.borderBlack.Gaming {
+    gap: 5px !important;
+    width: 144px !important;
+    margin-left: 31px !important;
+}
+
+.borderBlack.Cryptocurrency {
+    gap: 5px !important;
+    width: 183px !important;
+    margin-right: 6px !important;
+}
+
+.borderBlack.Technology {
+    gap: 8px !important;
+    width: 173px !important;
+    margin-left: 9px !important;
+}
+
+.borderBlack.Art {
+    gap: 5px !important;
+    width: 92px !important;
+}
+
+.borderBlack.Sports {
+    gap: 5px !important;
+    width: 112px !important;
+}
+
+
+@media(max-width:1020px) {
+    /* Responsive card */
+    #back1 {
+        display: none;
+    }
+    
+    .card_body {
+        width: 360px;
+        height: 584px;
+        padding: 10px;
+    }
+    
+    .card_title {
+        width: 285.31px;
+        height: 80px;
+        margin-top: 20px;
+        text-align: center;
+        color: #000000;
+    }
+    
+    .card_title>h2 {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 40px;
+        letter-spacing: -0.01em;
+    }
+    
+    .card_subtitle {
+        width: 285px;
+        height: 72px;
+        text-align: center;
+        color: #23262F;
+    }
+    
+    .card_subtitle>p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .card_content {
+        display: flex;
+        flex-basis: 50%;
+        padding: 0 3px;
+        margin-top:0;
+    }
+    /* Continue button */
+    .Card_continuebutton {
+        margin-top: 12px;
+    }
+     
+    /* Button Styling */
+    .buttonWhole {      
+        margin: 1px 3px  !important;       
+        flex-wrap: nowrap !important;        
+    }
+    
+    .buttonWhole.Comedy {
+        gap: 5px !important;
+        width: 110px !important;
+    }
+
+    .buttonWhole.Graphic_Design {
+        gap: 5px !important;
+        width: 185px !important;
+    }
+
+    .buttonWhole.Music {
+        gap: 5px !important;
+        width: 110px !important;
+    }
+
+    .buttonWhole.Photography {
+        gap: 5px !important;
+        width: 150px !important;
+    }
+
+    .buttonWhole.Youtube {
+        gap: 5px !important;
+        width: 130px !important;
+    }
+
+    .buttonWhole.Beauty {
+        gap: 5px !important;
+        width: 119px !important;
+    }
+
+    .buttonWhole.Gaming {
+        gap: 5px !important;
+        width: 115px !important;
+        margin-left:0!important;
+    }
+
+    .buttonWhole.Cryptocurrency {
+        gap: 5px !important;
+        width: 150px !important;
+        margin-right: 0 !important;
+
+    }
+
+    .buttonWhole.Technology {
+        gap: 5px !important;
+        width: 150px !important;
+        margin-left: 0px !important;
+    }
+
+    .buttonWhole.Art {
+        gap: 5px !important;
+        width: 80px !important;        
+    }
+
+    .buttonWhole.Sports {
+        gap: 5px !important;
+        width: 100px !important;
+    }
+
+    /* Selected Button  styling*/
+
+    .borderBlack {
+        margin: 1px 3px  !important;
+        flex-wrap: nowrap !important;       
+    }
+
+    .borderBlack.Comedy {
+        gap: 5px !important;
+        width: 115px !important;
+    }
+    .borderBlack.Comedy>img{
+        height:15px !important;
+        width:15px !important;
+    }
+    .buttonWhole.Comedy>img{
+        height:15px !important;
+        width:15px !important;
+    }
+
+    .borderBlack.Graphic_Design {
+        gap: none !important;
+        width: 200px !important;        
+    }
+
+    .borderBlack.Graphic_Design>img{
+        height:15px !important;
+        width:15px !important;
+    }
+    .buttonWhole.Graphic_Design>img{
+        height:15px !important;
+        width:15px !important;
+    }
+
+    .borderBlack.Music {
+        gap: 5px !important;
+        width: 115px !important;
+    }
+
+    .borderBlack.Photography {
+        gap: 5px !important;
+        width: 160px !important;
+    }
+
+    .borderBlack.Youtube {
+        gap: 5px !important;
+        width: 140px !important;
+    }
+
+    .borderBlack.Beauty {
+        gap: 5px !important;
+        width: 144px !important;
+    }
+
+    .borderBlack.Gaming {
+        gap: 5px !important;
+        width: 121px !important;
+        margin-left: 0 !important;
+    }
+
+    .borderBlack.Cryptocurrency {
+        gap: 5px !important;
+        width: 162px !important;
+        margin-right:0px!important;
+    }
+
+    .borderBlack.Technology {
+        gap: 8px !important;
+        width: 165px !important;
+        margin-left: 0px !important;
+    }
+
+    .borderBlack.Art {
+        gap: 5px !important;
+        width: 92px !important;
+    }
+
+    .borderBlack.Sports {
+        gap: 5px !important;
+        width: 112px !important;
+    }
+
+    .textNormal {
+        font-size:9px !important;;
+    }
+    .textBold {
+        font-size: 9px !important;       
+    }
+    
+}
+
+
+
+

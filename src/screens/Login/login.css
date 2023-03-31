@@ -1,0 +1,189 @@
+.loginPage {
+  height: 100vh;
+}
+
+.loginForm {
+  padding: 10px 70px 20px;
+  border-radius: 25px;
+  width: 46%;
+  margin-bottom: 40px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.forgotPasswordDiv{
+  padding: 10px 70px 20px;
+  border-radius: 25px;
+  width: 46%;
+  margin-bottom: 40px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.forgotPasswordDiv .leftArr{
+  font-size: 32px;
+}
+
+.forgotPasswordDiv .key{
+  background-color: #ED0090;
+  color: #fff;
+  padding: 15px;
+  border-radius: 13px;
+}
+
+
+.forgotPasswordDiv .forgotPasstext{
+  font-weight: bold;
+  font-size: 30px;
+  color: #010101;
+  margin: 2.2rem 0;
+}
+
+.forgotPasswordDiv p{
+  color: #010101;
+}
+
+.loginHeaderText {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 48px;
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.subtitleText {
+  font-weight: 500;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.subtitleText .createAccount {
+  text-decoration: underline;
+}
+
+.loginHeaderText,
+.subtitleText {
+  text-align: center;
+}
+
+.inputs {
+  width: 100%;
+}
+
+.forgotPassword {
+  font-size: 12px;
+  line-height: 20px;
+  text-decoration: underline;
+  text-align: end;
+  color: #7e7e7e;
+  margin-right: 8px;
+  margin-top: 1.5vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .loginForm {
+    width: 95% !important;
+    margin-top: 3vh;
+    padding: 10px 50px;
+  }
+
+  .forgotPasswordDiv{
+    width: 95% !important;
+    margin-top: 3vh;
+    padding: 10px 29px;
+  }
+
+  .loginHeaderText {
+    font-size: 35px;
+    letter-spacing: -0.01em;
+  }
+}
+
+
+@media only screen and (max-width: 397px){
+    .loginForm{
+        width: 90% !important;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .loginHeaderText{
+        font-size: 30px;
+        margin-left: 0vw !important;
+        margin-right:0vw !important;
+        line-height: 43px;
+
+    }
+
+    .subtitleText{
+        font-size: 13px !important;
+    }
+
+}
+
+@media screen and (max-width:368px){
+  .loginForm{
+    width: 90% !important;
+}
+  
+
+  .loginHeaderText{
+    font-size: 30px;
+    margin-left: 0vw !important;
+    margin-right: 0vw !important;
+  }
+
+  .social{
+    padding-left: 7vw;
+    padding-right: 7vw;
+  }
+  
+}
+
+@media only screen and (min-device-width:1024px) and (max-device-width:1024px){
+  .loginForm{
+    width: 75%;
+    margin-top: 7vh;
+    padding-bottom: 5vh;
+
+  }
+
+  .forgotPasswordDiv{
+    width: 75%;
+    margin-top: 7vh;
+
+  }
+
+  .loginHeaderText{
+    font-size: 47px;
+    padding-top: 1.5vh;
+    padding-bottom: 0.5vh;
+  }
+
+  .subtitleText{
+    font-size: 20px !important;
+    padding-bottom: 2.5vh;
+  }
+  .social{
+    margin-top: 3vh;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .loginForm {
+    width: 80% !important;
+    margin-top: 8.5vh;
+    padding: 10px 60px 20px;
+  }
+
+  .forgotPasswordDiv{
+    width: 80% !important;
+    margin-top: 8.5vh;
+
+  }
+
+  .loginHeaderText {
+    font-size: 37px;
+    letter-spacing: -0.01em;
+  }
+}
+

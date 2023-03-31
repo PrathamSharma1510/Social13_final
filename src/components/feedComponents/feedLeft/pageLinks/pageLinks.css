@@ -1,0 +1,76 @@
+.feedLeft {
+    background: #FFFFFF;
+    border-radius: 20px;
+    /* margin: 0 30px; */
+    margin-bottom: 20px;
+
+}
+.feedLeft .profilePic{
+    width: 149px;
+    height: 149px;
+}
+
+.feedLeft .pencilIcon{
+    /* width: 21px;
+    height: 21px; */
+    cursor: pointer;
+    padding: 6px 10px;
+    bottom: 5px;
+    right: 5px;
+    background: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.feedLeft .nameAndUserName{
+    margin-top: 12px;
+    text-align: center;
+}
+
+.feedLeft .nameAndUserName h1{
+    margin: 0;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.feedLeft .nameAndUserName p{
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 9px;
+    text-align: center;
+    color: #6A6A6A;
+}
+
+.feedLeft .justButton{
+    margin-top: 20px;
+}
+
+.feedLeft .pageLinks{
+    margin: 20px 0;
+}
+
+.feedLeft .singlePageLink{
+    margin-left: 25px;
+
+}
+
+.feedLeft .borderRight{
+    border-right: 3px solid black;
+}
+
+
+.feedLeft .singlePageLinkDiv{
+    padding: 10px 0; 
+    /* border-bottom: 0.5px solid #E6E6E6; */
+    /* margin-right: 10px; */
+}
+
+.pageLinks hr{
+    /* width: 95%; */
+    margin: 0 10px;
+    
+}

@@ -1,0 +1,301 @@
+.profile{
+  background: #FCFCFC;
+}
+.head {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 250px;
+  padding: 32px 0;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  overflow: hidden; 
+  border-radius: 20px;
+  margin: 20px 2.9vw 0 2.9vw;
+}
+  @media only screen and (max-width: 1023px) {
+    .head {
+      height: 260px;
+      padding-bottom: 64px; 
+    } 
+
+  }
+  @media only screen and (max-width: 767px) {
+    /* .head {
+      height: 260px;
+      padding-bottom: 56px; } */
+    /* .btns{
+      margin-bottom: 13vh;
+    }  */
+  }
+
+  @media only screen and (max-width: 991px) {
+    .btns{
+      position: absolute;
+      top: 10%;
+      right: 5%;
+    } 
+  }
+
+
+  .head .container {
+    display: flex;
+    justify-content: flex-end; }
+  .head.active .btns {
+    opacity: 0; }
+  .head.active .file {
+    opacity: 1;
+    visibility: visible; }
+
+.btns {
+  transition: opacity .2s; 
+}
+  .btns .button {
+    /* box-shadow: 0 0 0 2px #777E90 inset; */
+    color: #FCFCFD; 
+    padding: 5px 10px;
+    background: transparent;
+    border: 2px solid #FFFFFF;
+    border-radius: 90px;
+  }
+    @media only screen and (max-width: 767px) {
+      .btns .button {
+        flex-grow: 1;
+        padding: 0 10px; } }
+    .btns .button svg {
+      fill: #FCFCFD; }
+    .btns .button:not(:last-child) {
+      margin-right: 16px; }
+
+.file {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #FCFCFD;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s; }
+  @media only screen and (max-width: 767px) {
+    .file {
+      align-items: flex-start;
+      padding-top: 40px; } }
+  .file:before, .file:after {
+    content: "";
+    position: absolute; }
+  .file:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 20, 22, 0.6); }
+  .file:after {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 2px dashed #E6E8EC;
+    border-radius: 12px; }
+  .file input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* z-index: 3; */
+    font-size: 1400px;
+    opacity: 0; }
+  .file svg {
+    margin-bottom: 24px;
+    fill: #FCFCFD; }
+    @media only screen and (max-width: 767px) {
+      .file svg {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 12px; } }
+  .file .button {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 1;
+   }
+    @media only screen and (max-width: 1023px) {
+      .file .button {
+        bottom: 48px; } }
+    @media only screen and (max-width: 767px) {
+      .file .button {
+        right: 50%;
+        transform: translateX(50%); } }
+
+.wrap {
+  position: relative;
+  z-index: 0; }
+
+.info {
+  font-size: 24px;
+  line-height: 1.33333;
+  font-weight: 600; }
+  @media only screen and (max-width: 767px) {
+    .info {
+      font-size: 16px; } }
+
+.text {
+  font-size: 16px;
+  line-height: 1.5; }
+  @media only screen and (max-width: 767px) {
+    .text {
+      font-size: 12px; } }
+
+.body {
+  position: relative;
+  /* z-index: 3; */
+  padding: 80px 0; }
+  @media only screen and (max-width: 1023px) {
+    .body {
+      padding-top: 0; } }
+  @media only screen and (max-width: 767px) {
+    .body {
+      padding: 0 0 64px; } }
+  .body .container {
+    display: flex;
+    align-items: flex-start; }
+    @media only screen and (max-width: 1200px) {
+      .body .container {
+        display: block; } }
+
+.user {
+  flex-shrink: 0;
+  margin-left: -2vw;
+  width: 25%;
+  margin-top: -52px; }
+  @media only screen and (max-width: 1200px) {
+    .user {
+      width: 100%;
+      margin: -32px 0 48px; } }
+
+      @media only screen and (max-width: 767px) {
+        .user {
+          width: 90%;
+          margin-left: 5vw;
+          margin-right: 5vw; } }
+
+
+.wrapper {
+  flex: 0 0 calc(100% - 256px);
+  width: calc(100% - 256px);
+  padding-left: 64px; }
+  @media only screen and (max-width: 1339px) {
+    .wrapper {
+      padding-left: 32px; } }
+  @media only screen and (max-width: 1200px) {
+    .wrapper {
+      width: 100%;
+      padding-left: 0; } }
+
+    .posts{
+      display: flex;
+      justify-content: center;
+      
+    }
+
+    .postSection{
+      width: 70%;
+
+    }
+
+
+  
+    @media only screen and (max-width: 767px) {
+      .wrapper {
+        width: 100%;
+        padding-left: 4vw;
+        margin-left: 1vw; } }
+  
+   
+
+.nav {
+  display: flex;
+  margin: 0 -6px 32px; }
+  @media only screen and (max-width: 767px) {
+    .nav {
+      margin: 0 -32px 32px;
+      overflow: auto;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch; }
+      .nav::-webkit-scrollbar {
+        display: none; }
+      .nav:before, .nav:after {
+        content: "";
+        flex-shrink: 0;
+        width: 32px;
+        height: 1px; } }
+
+.link {
+  flex-shrink: 0;
+  margin: 0 12px;
+  padding: 6px 0;
+  font-weight: 600;
+  font-size: 20px;
+  background: transparent;
+  line-height: 1.14286;
+  font-weight: 700;
+  color: #777E90;
+  border: none;
+  transition: all .2s; 
+}
+  @media only screen and (max-width: 767px) {
+    .link {
+      margin: 0; } }
+  .link:hover {
+    color: #353945; }
+    :global(.dark-mode) .link:hover {
+      color: #E6E8EC; }
+
+  /* .link.active {
+    padding-bottom: 5px;
+    border-bottom: 3.5px solid;
+    border-radius: 3px;
+    color: #000; 
+  } */
+
+  .link.active {
+    position: relative; /* This is the reference for the after psuedo-element*/
+    margin: 0px 10px 0px 0px;
+    text-decoration: none;
+    background-image: url('/public/images/gradient.png') !important;
+    -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  }
+  
+  .link.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Negative height */
+    width: 100%;
+    height: 4px; /* Height of border */
+    background: linear-gradient(60deg, rgba(141, 0, 253, 1) 4%, rgba(231, 13, 140, 1) 49%, rgba(237, 77, 107, 1),
+    rgba(246, 164, 76, 1) 85%, rgba(252, 199, 55, 1) 92%);
+    border-radius: 10rem; 
+  }
+  
+    :global(.dark-mode) .link.active {
+      background: #FCFCFD;
+      color: #23262F; }
+  @media only screen and (max-width: 767px) {
+    .link:not(:last-child) {
+      margin-right: 12px; } }
+
+.following,
+.followers {
+  padding-top: 16px; }
+  @media only screen and (max-width: 767px) {
+    .following,
+    .followers {
+      padding-top: 0; } }

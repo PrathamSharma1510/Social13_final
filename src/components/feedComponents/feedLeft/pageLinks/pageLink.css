@@ -1,0 +1,21 @@
+
+
+
+.pageLink p{
+    /* font-weight: 600; */
+    font-size: 16px;
+    margin-bottom: 0;
+    /* background: -webkit-linear-gradient(27deg, rgba(158,1,235,1) 0%, rgba(211,24,126,1) 49%, rgba(243,189,56,1) 100%); */
+ 
+}
+
+.selected{
+    background-image: url('/public/images/Asset16.png') !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pageLink .bi{
+    font-size: 20px;
+    margin-right: 15px;
+}

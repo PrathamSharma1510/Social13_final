@@ -1,0 +1,208 @@
+
+/* 
+.pfImage{
+    width: 64px;
+    height: 64px;
+    margin-right: 15px;
+    border-radius: 50%;
+} */
+
+.statusMob{
+    display: none;
+}
+
+.statusDesk{
+    line-height: 40px;
+    list-style-type:none;
+    width:95px;
+    word-wrap:break-word;
+}
+.boldTitle{
+    margin-top: 10px ;
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.boldTitle2{
+    margin-bottom: 0;
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+.boldTitleDesk{
+    font-size: 16px;
+    line-height: 40px;
+    text-decoration: underline;
+    list-style-type:none;
+    max-width:109px;
+    word-wrap:break-word;
+}
+.transDesk{
+    margin-left: -5px;
+    font-size: 16px;
+    line-height: 40px;
+    width: 140px;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis ;
+}
+
+.date{
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 0;
+    margin-top: 10px;
+
+}
+
+.dateDesk{
+    font-size: 16px;
+    line-height: 40px;
+
+}
+
+/* .username{
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 10px;
+} */
+
+.price{
+    font-size: 16px;
+    line-height: 40px;
+    width: 80px;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis ;
+}
+
+.mainDiv{
+    border: 1px solid #E3E3E3;
+}
+
+.nameUsernamePrice{
+    flex: 1;
+}
+
+.nameAndPrice{
+    width: 25vw;
+    display: none;
+}
+
+@media only screen and (max-width:404px){
+    .pfImage{
+        width: 50px !important;
+        height: 50px !important;
+        margin-left: -3vw;
+    }
+
+    .boldTitle{
+        font-size: 10px !important;
+        line-height: 10px;
+    }
+
+    
+    .date{
+        font-size: 8px !important;
+    }
+    .price{
+        font-size: 12px !important;
+        margin-right: -2vw;
+        color: black;
+        font-weight: 700;
+    }
+
+}
+@media only screen and (max-width:440px){
+    .pfImage{
+        width: 55px;
+        height: 55px;
+        margin-left: -3vw;
+    }
+
+    .boldTitle{
+        font-size: 12px;
+    }
+    
+    .date{
+        font-size: 10px;
+    }
+    .price{
+        font-size: 14px;
+        margin-right: -2vw;
+        color: black;
+        font-weight: 700;
+    }
+
+}
+
+@media only screen and (max-width:565px){
+    .pfImage{
+        width: 60px;
+        height: 60px;
+        margin-left: -3vw;
+    }
+
+    .boldTitle{
+        font-size: 14px;
+    }
+    
+    .price{
+        font-size: 14px;
+        margin-right: -2vw;
+        color: black;
+        font-weight: 700;
+    }
+
+}
+
+
+@media only screen and (max-width:768px){
+    .username{
+        display: none;
+    }
+    
+    .statusDesk{
+        display: none;
+    }
+    
+    .statusMob{
+        display: contents;
+    }
+    .boldTitle2{
+        display: none;
+    }
+    .dateDesk{
+        display: none;
+    }
+
+    .nameAndPrice{
+        display: block;
+    }
+    .mainDiv{
+        border-bottom: 1px solid #E3E3E3 !important;
+        border: none;
+    }
+    .price{
+        color: black;
+        font-weight: 700;
+    }
+
+    .transDesk{
+        display: none !important;
+    }
+}
+
+
+.elem{
+    padding: 10px 0;
+}

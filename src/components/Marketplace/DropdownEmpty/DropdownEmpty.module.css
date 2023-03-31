@@ -1,0 +1,127 @@
+.dropdown {
+  position: relative;
+  z-index: 3;
+}
+
+.dropdown.active {
+  z-index: 10;
+}
+
+.dropdown.active .head {
+  background: #FCFCFD;
+  color: #3772FF;
+  
+}
+
+
+.dropdown.active .head svg {
+  transform: translateY(-50%) rotate(180deg);
+  fill: #3772FF;
+}
+
+.dropdown.active .body {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.head {
+  position: relative;
+  width:min-content;
+  height: 64px;
+  padding: 0 64px 0 24px;
+  border-radius: 32px;
+  background: transparent;
+  font-size: 30px;
+  font-weight:600;
+  line-height: 64px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: all .2s;
+}
+
+@media only screen and (max-width: 767px) {
+  .head {
+    height: 56px;
+    font-size: 32px;
+    line-height: 56px;
+  }
+}
+
+.head svg {
+  position: absolute;
+  top: 50%;
+  right: 27px;
+  transform: translateY(-50%);
+  fill: #23262F;
+  transition: all .2s;
+}
+
+.head:hover {
+  background: #FCFCFD;
+  color: #3772FF;
+}
+
+.head:hover svg {
+  fill: #3772FF;
+}
+
+:global(.dark-mode) .head:hover {
+  background: #141416;
+}
+
+.selection {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: -1vw;
+  white-space: nowrap;
+}
+
+.body {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  padding:18px;
+  border-radius: 24px;
+  background: #FCFCFD;
+  box-shadow: 0px 40px 64px -32px rgba(15, 15, 15, 0.15);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(3px);
+  transition: all .2s;
+}
+
+:global(.dark-mode) .body {
+  background: #141416;
+  box-shadow: inset 0 0 0 2px #353945, 0 4px 12px rgba(20, 20, 22, 0.1);
+}
+
+.option {
+  /* font-family: 'DM Sans', sans-serif; */
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #777E90;
+  transition: color .2s;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media only screen and (max-width: 767px) {
+  .option {
+    font-size: 32px;
+  }
+}
+
+.option:hover, .option.selectioned {
+  color: #23262F;
+}
+
+:global(.dark-mode) .option:hover, :global(.dark-mode) .option.selectioned {
+  color: #FCFCFD;
+}
+
+.option:not(:last-child) {
+  margin-bottom: 8px;
+}

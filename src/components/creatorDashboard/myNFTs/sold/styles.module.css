@@ -1,0 +1,89 @@
+  .main2{
+        box-sizing: border-box;
+        margin-top: 27px;
+  }
+
+
+  .heading{
+    background-color: #FAFAFA;
+    padding: 20px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 1px solid #E3E3E3;
+
+
+  }
+
+
+  .heading1, .heading2, .heading3, .heading4{
+      width: 25%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+  }
+
+  .elemm{
+      padding: 10px 0;
+      border-bottom: 1px solid #E3E3E3;;
+      border-left: 1px solid #E3E3E3;;
+      border-right: 1px solid #E3E3E3;;
+  }
+  
+  .elemm:last-child{
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+  }
+
+  .elem{
+    width: 25%;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .bold{
+    font-weight: 600;
+    margin-bottom: 0 !important;
+    text-decoration: underline;
+    cursor: pointer;
+
+  }
+
+  .Pricebold{
+    font-weight: 600;
+    margin-bottom: 0 !important;
+  }
+
+  .id{
+      margin-bottom: 0 !important;
+  }
+
+  .owner{
+      text-align: start;
+  }
+
+  .owner, .username{
+    font-size: 14px;
+    margin-bottom: 0;
+    line-height: 16px;
+
+  }
+  
+  .username{
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .creatorImg{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+  }
+
+  .circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}

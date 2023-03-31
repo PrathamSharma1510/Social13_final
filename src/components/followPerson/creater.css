@@ -1,0 +1,86 @@
+.creater{
+    border-bottom: 1px solid #DFDFDF;
+    padding-bottom: 24px;
+
+}
+
+.creater .name, .creater .bio, .creater .username, .creater .bio{
+    margin-bottom: 0 !important;
+}
+
+.creater .name{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.creater .username{
+    font-size: 14px;
+    line-height: 20px;
+    color: #7A7A7A;
+}
+
+.creater .bio{
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+.creater .followbtnPlacement{
+    right: 10px;
+}
+
+.creater .followBottom{
+    display: none;
+}
+
+.creater .createrImg{
+    width: 88px;
+    height: 88px;
+    margin-right: 10px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .creater{
+        border-bottom: 1px solid #DFDFDF;
+        padding-bottom: 40px !important;
+    }
+    .creater .createrImg{
+        width: 58px;
+        height: 58px;
+    }
+    .creater .followbtnPlacement{
+        /* display: none !important; */
+        bottom: -26px;
+        left: 0;
+    }
+
+.followBottom{
+    /* display: block; */
+}
+  }
+
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+    .creater .followbtnPlacement{
+        /* display: none !important; */
+        bottom: -26px;
+        left: 0;
+    }
+
+    .creater{
+        border-bottom: 1px solid #DFDFDF;
+        padding-bottom: 40px !important;
+    }
+
+  }
+/* 
+
+  @media only screen and (min-device-width: 992px) and (max-device-width: 1200px) {
+    .followSubtitle{
+        padding: 10px !important;
+    }
+
+  } */

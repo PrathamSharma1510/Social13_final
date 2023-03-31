@@ -1,0 +1,111 @@
+.boldTitleID {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 8px;
+  margin-bottom: 10px;
+}
+
+.mainDiv{
+  margin-bottom: 10px;
+}
+.boldTitle {
+  padding-top: 5px;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: underline;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: #a5a5a5;
+}
+
+.price {
+  font-size: 16px;
+  line-height: 60px;
+  font-weight: 600;
+}
+
+
+
+.nameUsernamePrice {
+  flex: 1;
+}
+
+.nameAndPrice {
+  width: 50%;
+}
+
+@media only screen and (max-width: 404px) {
+  .boldTitle {
+    font-size: 10px !important;
+    line-height: 10px;
+  }
+  .boldTitleID {
+    font-size: 10px !important;
+    line-height: 10px;
+  }
+
+  .date {
+    font-size: 8px !important;
+  }
+  .price {
+    font-size: 12px !important;
+    margin-right: -2vw;
+    color: black;
+    font-weight: 700;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .boldTitle {
+    font-size: 12px;
+  }
+  .boldTitleID {
+    font-size: 12px;
+  }
+
+  .date {
+    font-size: 10px;
+  }
+  .price {
+    font-size: 14px;
+    margin-right: -2vw;
+    color: black;
+    font-weight: 700;
+  }
+}
+
+@media only screen and (max-width: 565px) {
+  .boldTitle {
+    font-size: 14px;
+  }
+  .boldTitleID {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 14px;
+    margin-right: -2vw;
+    color: black;
+    font-weight: 700;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .mainDiv {
+    border-bottom: 1px solid #e3e3e3 !important;
+    border: none;
+  }
+  .price {
+    color: black;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,64 @@
+.mainDiv{
+    background: #fff;
+    border-radius: 20px;
+    z-index: -2;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E3E3E3;
+    padding: 25px 10px 17px 20px;
+}
+
+.content{
+    padding: 25px 10px 37px 20px;
+}
+
+.lableText{
+    color: #B1B5C4;
+    font-weight: 600 !important;
+    margin-bottom: 5px !important;
+    font-size: 12px ;
+}
+
+
+.textarea{
+    border-radius: 12px !important;
+    margin: 5px 0px !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: #777E91 !important;
+
+}
+
+.messageDIv{
+    padding: 0 7px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width:770px){
+    .contact{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .avt{
+        justify-content: center !important;
+        margin-top: 25px;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:770px){
+    .contact{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .avt{
+        justify-content: center !important;
+        margin-top: 25px;
+        margin-left: 30vw;
+    }
+}

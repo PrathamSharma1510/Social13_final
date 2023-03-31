@@ -1,0 +1,29 @@
+.container{
+    position:fixed;
+    display: flex;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.text{
+    align-self: center;
+    justify-self:flex-start;
+}
+.h1{
+    font-weight: bold;
+    font-size:70px;
+}
+.p{
+    font-size:32px;
+}
+.btn{
+    background-color: transparent;
+    border-radius: 32px;
+    width:200px;
+    height:50px;
+}

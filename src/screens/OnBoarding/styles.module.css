@@ -1,0 +1,161 @@
+
+
+.mainDiv{
+    background-image: url('/public/images/onBoard/gradientBG.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pfIMg{
+    width: 100%;
+}
+
+.imgDiv{
+    text-align: end;
+    padding-right: 0 !important;
+    margin-right: 0;
+}
+
+.topSection{
+    width: 100vw;
+    padding-top: 3rem;
+    margin: 0;
+}
+
+.creatorNFTS{
+    font-size: 96px;
+    line-height: 96px;
+    color: #000000;
+    font-weight: bold;
+
+}
+
+
+.textMain{
+    padding: 10rem 1rem 5rem 4rem !important;
+
+}
+
+.textMain p{
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
+}
+
+.brandsSection{
+    margin-top: 3rem;
+}
+.brandsSection p{
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.brandsSection .imgDiv{
+    padding: 0 6rem;
+    margin: 0 3rem;
+
+}
+
+.line{
+    height: 1px;
+    width: 40%;
+    background: #D2D2D2;
+    margin: 4rem 0;
+}
+
+.brandsSection .imgDiv img{
+    width: 150px;
+}
+
+.whyChoose{
+    text-align: center;
+}
+
+.whyChoose h2{
+    font-weight: bold;
+font-size: 56px;
+line-height: 56px;
+letter-spacing: -0.02em;
+}
+
+.whyChoose p{
+    font-weight: normal;
+font-size: 24px;
+line-height: 32px;
+margin-top: 1rem;
+}
+
+.lunchYourFirstDiv{
+    margin: 0;
+    width: 100vw;
+    align-items: center
+}
+
+.LunchYourFirstText .texts{
+    padding: 0 5rem !important;
+}
+
+.LunchYourFirstText h3, .LunchYourFirstText2 h3{
+    font-size: 48px;
+line-height: 56px;
+/* or 117% */
+font-weight: bold;
+letter-spacing: -0.01em;
+}
+
+.LunchYourFirstText p {
+    font-size: 20px;
+line-height: 30px;
+}
+.LunchYourFirstText2 p{
+    padding-left: 4rem;
+    font-size: 20px;
+line-height: 30px;
+}
+
+.LunchYourFirstText2{
+    padding: 2rem 5rem;
+    text-align: right;
+}
+
+.LunchYourFirstImg img{
+    width: 100%;
+}   
+
+
+.gradientText{
+    background: linear-gradient(90deg, #8d00fd, #e70d8c, #ed4d6b, #f6a44c);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+
+/*  */
+
+@media (max-width: 768px) {
+    .creatorNFTS{
+        font-size: 62px;
+        line-height: 63px;
+        color: #000000;
+        font-weight: bold;
+    
+    }
+
+.textMain{
+    padding: 1rem 1rem 5rem 4rem !important;
+
+}
+    
+    .brandsSection .imgDiv img{
+        width: 70px;
+    }
+
+    .brandsSection .imgDiv{
+        padding: 0;
+        margin: 0 1rem;
+    }
+
+  }
+  

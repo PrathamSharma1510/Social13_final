@@ -1,0 +1,42 @@
+.fullWidth{
+    width: 100%;
+    padding: 0 7px;
+}
+
+.halfWidth{
+    width: 50% !important;
+    padding: 0 7px;
+}
+
+label {
+    /* margin-bottom: 4px !important; */
+    font-size: 12px ;
+    font-weight: 500 ;
+
+}
+
+.grayBold{
+    color: #B1B5C4;
+    font-weight: bold!important;
+    margin-bottom: 5px;
+}
+
+.inputItself{
+    border-radius: 12px !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: #777E91 !important;
+    height: 40px;
+}
+
+.form-control:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .halfWidth{
+        width: 100% !important;
+    }
+  }

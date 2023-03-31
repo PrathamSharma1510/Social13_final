@@ -1,0 +1,66 @@
+.creatorHeading{
+    font-weight: bold;
+    font-size: 32px;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+.select{
+    border:none !important;
+    background: #FCFCFC !important;
+}
+
+
+.select:focus{
+    outline:none !important;
+    outline-width: none !important;
+    box-shadow: none !important;
+}
+
+.text{
+    font-weight: 600;
+font-size: 12px;
+line-height: 16px;
+color: rgba(237, 0, 144, 0.47);
+margin-top: 12px;
+}
+
+.cards{
+    gap: 6rem;
+}
+
+.card{
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: -12.0815px 12.0815px 24.1631px rgba(230, 230, 230, 0.2), 12.0815px -12.0815px 24.1631px rgba(230, 230, 230, 0.2), -12.0815px -12.0815px 24.1631px rgba(255, 255, 255, 0.9), 12.0815px 12.0815px 30.2038px rgba(230, 230, 230, 0.9), inset 0.862967px 0.862967px 1.72593px rgba(255, 255, 255, 0.3), inset -0.862967px -0.862967px 1.72593px rgba(230, 230, 230, 0.5);
+    border-radius: 17.2593px;
+    width: 28%;
+}
+
+.icon{
+    padding: 10px ;
+    border-radius: 13px;
+    color: white;
+    background: linear-gradient(
+        60deg,
+        rgba(141, 0, 253, 1) 4%,
+        rgba(231, 13, 140, 1) 49%,
+        rgba(237, 77, 107, 1),
+        rgba(246, 164, 76, 1) 85%,
+        rgba(252, 199, 55, 1) 92%
+      ) !important;
+
+
+}
+
+
+.price{
+    font-weight: 600;
+font-size: 26.7931px;
+line-height: 38px;
+/* or 143% */
+
+
+color: #000000;
+
+}

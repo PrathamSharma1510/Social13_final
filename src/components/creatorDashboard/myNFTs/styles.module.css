@@ -1,0 +1,61 @@
+.mainDiv{
+    margin-top: 100px;
+}
+
+
+
+.heading{
+    font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 32px;
+}
+
+.createdAndSold{
+    margin-top: 1.5rem;
+}
+
+.createdAndSold span{
+    font-weight: 600;
+    font-size: 20px;
+    color: #8E8E8E;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.active{
+    color: #000 !important;
+    border-bottom: 3px solid #000;
+}
+
+.createdNfts{
+    margin-top: 0.3rem !important;
+    background: #FEFEFE;
+    padding: 3rem ;
+    border: 1px solid #E3E3E3;
+    box-sizing: border-box;
+    border-radius: 20px;
+    column-gap: 2.5rem;
+    overflow-x: auto;
+}
+
+.createdNfts::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+.selectDiv{
+    width: 25%;
+}
+
+.selectDiv select{
+    border-radius: 12px;
+
+}
+
+.selectDiv select:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+
+}

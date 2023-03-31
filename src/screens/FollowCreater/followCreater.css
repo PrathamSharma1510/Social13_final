@@ -1,0 +1,81 @@
+.followHeader{
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    padding: 0 20px;
+}
+
+.followSubtitle{
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0 20vw 6vh 20vw;
+    
+}
+
+.followCreater{
+    margin-top: 5vh  !important;
+}
+
+.followCreatersCard{
+    /* border: 1px solid black; */
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+
+    padding: 10px 50px;
+    border-radius: 25px;
+    width: 90%;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+}
+
+.followCreatersCard .arrowLeft{
+    font-size: 30px;
+    color: black;
+}
+
+.followHeader, .followSubtitle{
+    text-align: center;
+}
+
+
+.followCreater .skip{
+    text-align: center;
+    text-decoration: underline;
+    color: #8C8C8C;
+    margin-top: 10px;
+    font-size: 14px;
+
+}
+@media only screen and (max-width: 768px) {
+
+    .followCreatersCard .arrowLeft{
+        font-size: 24px;
+    }
+    .followSubtitle{
+        padding-top: 1px;
+        padding-left: 3.5vw !important;
+        padding-right:3.5vw !important;
+        padding-bottom: 25px;
+    }
+    .partOfHeader::before{
+        content: "\a";
+        white-space: pre;
+    }
+    
+    .followHeader{
+        font-size: 32px;
+        letter-spacing: -0.01em;
+    }
+    .followCreatersCard{
+        width: 95% !important;
+        margin-top: -3vh;
+        padding: 10px 20px;
+
+    }
+  }
+
+  @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+    .followSubtitle{
+        padding: 10px !important;
+    }
+
+  }

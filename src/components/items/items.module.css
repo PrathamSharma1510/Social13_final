@@ -1,0 +1,46 @@
+.items{
+  width:100%;
+  height:auto;
+}
+
+.list{
+  width:100%;
+  height:auto;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  /* gap: 10px; */
+}
+.card{
+  /* width: 274px !important;;
+  height:438px !important; */
+}
+
+.firstUpload{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.firstUpload .icon{
+  padding: 20px;
+    border-radius: 13px;
+    color: white;
+    background: linear-gradient(
+        60deg,
+        rgba(141, 0, 253, 1) 4%,
+        rgba(231, 13, 140, 1) 49%,
+        rgba(237, 77, 107, 1),
+        rgba(246, 164, 76, 1) 85%,
+        rgba(252, 199, 55, 1) 92%
+      ) !important;
+}
+
+.firstUpload h2{
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  margin-top: 20px;
+}

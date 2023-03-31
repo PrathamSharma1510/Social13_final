@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+
+
+    padding: 0;
+}
+
+.SkipButton{
+    width: 106px;
+    height: 36px;
+    background: #FFFFFF;
+    border:none !important;
+    outline:none;
+    box-sizing: border-box;
+
+    margin:3%;
+    margin-bottom:10px;
+}
+.SkipButton>p{
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+
+text-align: center;
+text-decoration-line: underline;
+
+color: #8C8C8C;
+}
+
+.SkipButton>p:hover, .SkipButton>p:focus{
+    text-shadow: 1.5px 1.5px rgb(78, 76, 76,.2);
+     cursor:pointer;
+     font-weight: 545;
+}
+@media(max-width:1200px) {
+    .SkipButton{
+        width: 37.96px;
+height: 20px;
+
+    }
+    .SkipButton>p{
+        font-size: 14px;
+    }
+
+}
