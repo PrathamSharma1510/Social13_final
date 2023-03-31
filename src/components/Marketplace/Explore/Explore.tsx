@@ -9,8 +9,8 @@ import ExploreCard from "./ExploreCard/ExploreCard";
 
 const dateOptions = ["Recently added", "Long Added"];
 const navLinks = ["All", "Subleasing"];
-const priceOptions = ["Highest Rating", "Low Rating"];
-const likesOptions = ["Safest Place", "Less Safe Place"];
+const priceOptions = ["All", "1+", "2+", "3+", "4+", "5"];
+const likesOptions = ["All", "1+", "2+", "3+", "4+", "5"];
 const creatorOptions = ["High Rating", "All", "Most liked"];
 
 interface explore {
@@ -143,7 +143,7 @@ const Explore = ({ items }: explore) => {
             />
           </div>
           <div className={styles.cell}>
-            <div className={styles.label}>Rating</div>
+            <div className={styles.label}>Overall Rating</div>
             <Dropdown
               className={styles.dropdown_1}
               value={price}
@@ -153,7 +153,7 @@ const Explore = ({ items }: explore) => {
             />
           </div>
           <div className={styles.cell}>
-            <div className={styles.label}>safety</div>
+            <div className={styles.label}>Safety Rating</div>
             <Dropdown
               className={styles.dropdown_1}
               value={likes}
