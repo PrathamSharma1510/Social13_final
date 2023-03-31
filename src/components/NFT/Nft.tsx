@@ -78,18 +78,18 @@ const Nft = ({ star, profile, user, owned, created }: any) => {
   return (
     <div className={styles.Nft}>
       <p className={styles.navLinks}>
-        <span
+        {/* <span
           onClick={createdClick}
           className={clsx(styles.created, createdSel && styles.active)}
         >
           Created
-        </span>
-        <span
+        </span> */}
+        {/* <span
           onClick={ownedClick}
           className={clsx(styles.owned, ownedSel && styles.active)}
         >
           Owned
-        </span>
+        </span> */}
         {uid === user?.uid && (
           <span
             onClick={staredClick}

@@ -168,10 +168,10 @@ const User = ({
           ))}
         </div>
         <hr className={styles.hr} />
-        <div className={styles.note}>
+        {/* <div className={styles.note}>
           <i className={cn("bi bi-calendar-week", styles.calendarIcon)}></i>
           Member since {joiningDate}
-        </div>
+        </div> */}
       </div>
 
       {/* MODAL */}

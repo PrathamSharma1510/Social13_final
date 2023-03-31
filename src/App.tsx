@@ -79,24 +79,7 @@ function App() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(user);
-        if (user?.emailVerified) {
-          dispatch(UserDataActions.login(user));
-        } else {
-          sendEmailVerification(user)
-            .then((result) => {
-              console.log(
-                "Verification Mail Sent! please verify email to continue"
-              );
-            })
-            .catch((error) => {
-              if (error.code === "auth/too-many-requests") {
-                console.log("Verify Email to continue further");
-                return;
-              } else {
-                console.log("Something went wrong verification mail");
-              }
-            });
-        }
+        dispatch(UserDataActions.login(user));
       } else {
         dispatch(UserDataActions.logout());
       }
@@ -107,7 +90,7 @@ function App() {
   useEffect(() => {
     const run = async () => {
       if (loggedIn && uid) {
-        await getDoc(doc(db, "hyprUsers", uid))
+        await getDoc(doc(db, "users", uid))
           .then((docSnap) => {
             if (docSnap.exists()) {
               logEvent(analytics, "login");
@@ -128,35 +111,35 @@ function App() {
   }, [dispatch, loggedIn, uid, db, userData]);
 
   //fetch user profile photo from
-  useEffect(() => {
-    const run = async () => {
-      if (loggedIn && uid) {
-        const storagePFref = ref(storage, "users/" + uid + "/profile.jpg");
-        await getDownloadURL(ref(storagePFref))
-          .then((url) => {
-            dispatch(UserDataActions.updateUserDp({ profilePhotoUrl: url }));
-          })
-          .catch((err) => {
-            if (err.code === "storage/object-not-found") {
-              dispatch(
-                UserDataActions.updateUserDp({
-                  profilePhotoUrl: "/images/content/avatar-big.jpg",
-                })
-              );
-            } else {
-              dispatch(
-                UserDataActions.updateUserDp({
-                  profilePhotoUrl: "/images/content/avatar-big.jpg",
-                })
-              );
-            }
-          });
-      } else {
-        console.log("Logged Out profile one");
-      }
-    };
-    run();
-  }, [loggedIn, uid, storage, dispatch]);
+  // useEffect(() => {
+  //   const run = async () => {
+  //     if (loggedIn && uid) {
+  //       const storagePFref = ref(storage, "users/" + uid + "/profile.jpg");
+  //       await getDownloadURL(ref(storagePFref))
+  //         .then((url) => {
+  //           dispatch(UserDataActions.updateUserDp({ profilePhotoUrl: url }));
+  //         })
+  //         .catch((err) => {
+  //           if (err.code === "storage/object-not-found") {
+  //             dispatch(
+  //               UserDataActions.updateUserDp({
+  //                 profilePhotoUrl: "/images/content/avatar-big.jpg",
+  //               })
+  //             );
+  //           } else {
+  //             dispatch(
+  //               UserDataActions.updateUserDp({
+  //                 profilePhotoUrl: "/images/content/avatar-big.jpg",
+  //               })
+  //             );
+  //           }
+  //         });
+  //     } else {
+  //       console.log("Logged Out profile one");
+  //     }
+  //   };
+  //   run();
+  // }, [loggedIn, uid, storage, dispatch]);
 
   return (
     <Router>

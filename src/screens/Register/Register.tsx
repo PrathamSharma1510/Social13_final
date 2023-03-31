@@ -99,7 +99,7 @@ const Register = () => {
     } else {
       try {
         const q = query(
-          collection(db, "hyprUsers"),
+          collection(db, "users"),
           where("username", "==", e.target.value)
         );
         const docSnap = await getDocs(q);
@@ -219,12 +219,10 @@ const Register = () => {
                 current.getMonth() + 1
               }/${current.getFullYear()}`;
 
-              await setDoc(doc(db, "hyprUsers", uid), {
+              await setDoc(doc(db, "users", uid), {
                 name: data.name,
                 email: data.email,
                 username: data.username,
-                profileViewsCount: 0,
-                phone: data.phone,
                 uid: uid,
                 newsletterSubscription: promotionalMails,
                 category: "",
@@ -235,16 +233,9 @@ const Register = () => {
                 coverPhotoUrl: "", // add firebase storage function url here
                 profilePhotoUrl: "", // add firebase storage function here
                 bio: "",
-                isNsfw: false,
                 verified: false,
                 interests: [],
-                creatorApproval: {
-                  approvalStatus: "Not Applied",
-                  comments: "",
-                },
-                isCreator: false,
-                dateOfJoining: date, // todo add todays date
-                isKycDone: false,
+                isAdmin: false,
                 socials: {
                   portfolioUrl: "",
                   instagramUsername: "",
@@ -252,31 +243,14 @@ const Register = () => {
                   facebookProfileUrl: "",
                   youtubeProfileUrl: "",
                 },
-                savedNfts: [],
-                soldNfts: [],
-                followers: [],
-                following: [],
-                followerCount: 0,
-                followingCount: 0,
-                posts: {
-                  createdPosts: [],
-                  savedPosts: [],
-                },
-                bankAccountDetails: {
-                  accountHolderName: "",
-                  accountType: "",
-                  ifscCode: "",
-                  accountNumber: "",
-                  branchName: "",
-                  accountHolderPhoneNumber: "",
-                },
+                savedProperty: [],
               });
 
               setSuccMess("Account created");
               setSuccess(true);
               console.log("Account Created : ", user);
 
-              logEvent(analytics, "new_user_register", data);
+              // logEvent(analytics, "new_user_register", data);
             } catch (error) {
               console.error(error);
             }
@@ -302,7 +276,7 @@ const Register = () => {
         // const photoUrl = userCredentials.user.photoURL;
         let phone = userCredentials.user.phoneNumber;
 
-        getDoc(doc(db, "hyprUsers", uid))
+        getDoc(doc(db, "users", uid))
           .then((querySnapshot) => {
             if (querySnapshot.exists()) {
               console.log("User Data Exits");
@@ -312,7 +286,7 @@ const Register = () => {
               }
               const username = name?.replaceAll(" ", "") + makeRandomString(5);
               console.log("Set Doc");
-              setDoc(doc(db, "hyprUsers", uid), {
+              setDoc(doc(db, "users", uid), {
                 name: name,
                 email: email,
                 username: username, //add username here
@@ -391,7 +365,7 @@ const Register = () => {
           current.getMonth() + 1
         }/${current.getFullYear()}`;
 
-        getDoc(doc(db, "hyprUsers", uid))
+        getDoc(doc(db, "users", uid))
           .then((querySnapshot) => {
             if (querySnapshot.exists()) {
               console.log("User Data Exits");
@@ -401,7 +375,7 @@ const Register = () => {
               }
               console.log("Set Doc");
               const username = name?.replaceAll(" ", "") + makeRandomString(5);
-              setDoc(doc(db, "hyprUsers", uid), {
+              setDoc(doc(db, "users", uid), {
                 name: name,
                 email: email,
                 username: "hello3", //add username here
@@ -466,6 +440,8 @@ const Register = () => {
   };
 
   useEffect(() => {
+    console.log(loggedIn);
+    console.log(userData);
     if (loggedIn && userData.username) {
       navigate("/" + userData.username);
 

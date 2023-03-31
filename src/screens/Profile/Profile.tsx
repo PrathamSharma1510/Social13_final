@@ -53,7 +53,7 @@ const Profile = () => {
   const fetchData = async (username: any) => {
     if (username) {
       const q = query(
-        collection(db, "hyprUsers"),
+        collection(db, "users"),
         where("username", "==", username)
       );
       const querySnapshot = await getDocs(q);
@@ -64,28 +64,19 @@ const Profile = () => {
             if (docs.id !== uid) {
               setMyProfile(false);
             } else {
-              updateDoc(doc(db, "hyprUsers", docs.id), {
-                profileViewsCount: docs.data().profileViewsCount + 1,
-              })
-                .then(() => {
-                  console.log("+1");
-                })
-                .catch((error) => {
-                  console.log(error);
-                });
             }
           } else {
             console.log("User Doesn't exists");
           }
           setProfileData(docs.data());
-          GetOwnedNFT(docs.id);
-          GetCreatedNFT(docs.id, docs.data().isCreator);
-          GetProfilePhoto(docs.id);
-          GetCoverPhoto(docs.id);
+          // GetOwnedNFT(docs.id);
+          // GetCreatedNFT(docs.id, docs.data().isCreator);
+          // GetProfilePhoto(docs.id);
+          // GetCoverPhoto(docs.id);
 
           console.log(docs.data());
           setLoading(false);
-          logEvent(analytics, "page_view");
+          // logEvent(analytics, "page_view");
         });
       } else {
         console.log("No User Found");
@@ -95,108 +86,6 @@ const Profile = () => {
     }
   };
 
-  const GetOwnedNFT = async (uid: any) => {
-    if (uid) {
-      await getDocs(query(collection(db, "nfts"), where("ownerUid", "==", uid)))
-        .then((querySnapShot) => {
-          let nftIds: string[] = [];
-          if (querySnapShot) {
-            querySnapShot.forEach((element) => {
-              if (element) {
-                nftIds.push(element.id);
-                console.log(nftIds);
-              } else {
-              }
-            });
-          } else {
-            return;
-          }
-          setOwnedNft(nftIds);
-        })
-        .catch((error) => {
-          console.error(error.code);
-        });
-    } else {
-    }
-  };
-
-  const GetCreatedNFT = async (uid: any, creator: any) => {
-    if (uid && creator) {
-      await getDocs(
-        query(collection(db, "nfts"), where("creatorUid", "==", uid))
-      )
-        .then((querySnapShot) => {
-          let nftIds: string[] = [];
-          if (querySnapShot) {
-            querySnapShot.forEach((element) => {
-              if (element) {
-                nftIds.push(element.id);
-                console.log(nftIds);
-              } else {
-              }
-            });
-          } else {
-            return;
-          }
-          setCreatedNft(nftIds);
-        })
-        .catch((error) => {
-          console.error(error.code);
-        });
-    } else {
-    }
-  };
-
-  const GetProfilePhoto = async (uid: any) => {
-    try {
-      // console.log(uid);
-      const storagePFref = ref(storage, "users/" + uid + "/profile.jpg");
-
-      const url = await getDownloadURL(ref(storagePFref));
-
-      setProfilePhoto(url);
-    } catch (err: any) {
-      if (err.code === "storage/object-not-found") {
-        setProfilePhoto("/images/content/avatar-big.jpg");
-      } else {
-        console.error(err.code);
-      }
-    }
-  };
-  const GetCoverPhoto = async (uid: any) => {
-    try {
-      // console.log(uid);
-      const storageCoverRef = ref(storage, "users/" + uid + "/cover.jpg");
-
-      const coverUrl = await getDownloadURL(ref(storageCoverRef));
-      setCoverPhoto(coverUrl);
-    } catch (error: any) {
-      if (error.code === "storage/object-not-found") {
-        setCoverPhoto("images/bg-img.png");
-      } else {
-        console.error(error.code);
-      }
-    }
-  };
-  const handleFileChange = async (event: any) => {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    console.log(file.size);
-    if (file.size >= 5242880) {
-      console.log("File Size Too Big");
-    } else {
-      const storagePFref = ref(storage, "users/" + userData.uid + "/cover.jpg");
-      await uploadBytesResumable(storagePFref, file)
-        .then((result) => {
-          console.log(result.state);
-          window.location.reload();
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  };
   const checkMyProfile = (id: any) => {
     if (id === uid) {
       setMyProfile(true);

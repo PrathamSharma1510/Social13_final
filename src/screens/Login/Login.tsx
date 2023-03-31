@@ -79,7 +79,7 @@ const Login = () => {
         const photoUrl = userCredentials.user.photoURL;
         let phone = userCredentials.user.phoneNumber;
 
-        getDoc(doc(db, "hyprUsers", uid))
+        getDoc(doc(db, "users", uid))
           .then((querySnapshot) => {
             if (querySnapshot.exists()) {
               console.log("User Data Exits");
@@ -89,7 +89,7 @@ const Login = () => {
               }
               console.log("Set Doc");
               const username = name?.replaceAll(" ", "") + makeRandomString(5);
-              setDoc(doc(db, "hyprUsers", uid), {
+              setDoc(doc(db, "users", uid), {
                 name: name,
                 email: email,
                 username: username, //add username here
@@ -166,7 +166,7 @@ const Login = () => {
           current.getMonth() + 1
         }/${current.getFullYear()}`;
 
-        getDoc(doc(db, "hyprUsers", uid))
+        getDoc(doc(db, "users", uid))
           .then((querySnapshot) => {
             if (querySnapshot.exists()) {
               console.log("User Data Exits");
@@ -176,7 +176,7 @@ const Login = () => {
               }
               console.log("Set Doc");
               const username = name?.replaceAll(" ", "") + makeRandomString(5);
-              setDoc(doc(db, "hyprUsers", uid), {
+              setDoc(doc(db, "users", uid), {
                 name: name,
                 email: email,
                 username: username, //add username here
@@ -288,105 +288,104 @@ const Login = () => {
       <Logo />
       <div className="container loginPage">
         <div className="d-flex justify-content-center">
-          {!forgotPass && <div className="loginForm">
-            <h1 className="loginHeaderText">
-              Join the Next Big Social Revolution
-            </h1>
-            <p className="subtitleText">
-              New to HyprClub?{" "}
-              <span className="createAccount">
-                {" "}
-                <Link to="/register" className="link">
-                  Create Account
-                </Link>{" "}
-              </span>
-            </p>
-            <Form
-              action="#"
-              onSubmit={(e: React.FormEvent<any>) => {
-                handleSubmit(e);
-              }}
-            >
-              <InputField
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  updateState(e)
-                }
-                typeOfInput="email"
-                half={false}
-                name="email"
-                lableText={"Email Address"}
-                required
-              />
-              <InputField
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  updateState(e)
-                }
-                typeOfInput="password"
-                name="password"
-                half={false}
-                lableText={"Password"}
-                required
-              />
-              <p className="forgotPassword">
-                <a onClick={() => setForgotPass(true)} className="link">
-                  Forgot Password?
-                </a>
+          {!forgotPass && (
+            <div className="loginForm">
+              <h1 className="loginHeaderText">
+                Join the Next Big Social Revolution
+              </h1>
+              <p className="subtitleText">
+                New to Social13?{" "}
+                <span className="createAccount">
+                  {" "}
+                  <Link to="/register" className="link">
+                    Create Account
+                  </Link>{" "}
+                </span>
               </p>
-              <ButtonItself
-                onClick={(e: React.FormEvent<HTMLInputElement>) =>
-                  handleSubmit(e)
-                }
-                btnPurpose={"Login"}
-              />
-            </Form>
-            <div className="social">
-              <SocialLogins
-                loginGoogle={googleSignIn}
-                loginFacebook={facebookSignIn}
-                login={true}
-                purpose={"Login"}
-              />
-            </div>
-
-          </div>}
-          {forgotPass && (
-              <div className="forgotPasswordDiv">
-                <i
-                  onClick={() => setForgotPass(false)}
-                  className="leftArr bi bi-arrow-left"
-                ></i>
-                <div className="d-flex flex-column justify-content-center align-items-center">
-                  <Key className="key" size={64} weight="bold" />
-                  <h3 className="forgotPasstext text-center">
+              <Form
+                action="#"
+                onSubmit={(e: React.FormEvent<any>) => {
+                  handleSubmit(e);
+                }}
+              >
+                <InputField
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    updateState(e)
+                  }
+                  typeOfInput="email"
+                  half={false}
+                  name="email"
+                  lableText={"Email Address"}
+                  required
+                />
+                <InputField
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    updateState(e)
+                  }
+                  typeOfInput="password"
+                  name="password"
+                  half={false}
+                  lableText={"Password"}
+                  required
+                />
+                <p className="forgotPassword">
+                  <a onClick={() => setForgotPass(true)} className="link">
                     Forgot Password?
-                  </h3>
-                  <p className="text-center">
-                    Dont worry, it happens! Please enter your registered email
-                    and we will send you a link to reset your password.
-                  </p>
-                  <form className="w-100" action="#">
-                    <InputField
-                      required
-                      lableText="ENTER EMAIL ID"
-                      typeOfInput="email"
-                      garyBold
-                      placeholder="example@hyprclub.com"
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setResetEmail(e.target.value)
-                      }
-                    />
-                    <ButtonItself
-                      className="my-4 p-2"
-                      full
-                      btnPurpose={"Reset Password"}
-                      onClick={(e: React.FormEvent<HTMLInputElement>) =>
-                        resetPassword(e)
-                      }
-                    />
-                  </form>
-                </div>
+                  </a>
+                </p>
+                <ButtonItself
+                  onClick={(e: React.FormEvent<HTMLInputElement>) =>
+                    handleSubmit(e)
+                  }
+                  btnPurpose={"Login"}
+                />
+              </Form>
+              <div className="social">
+                <SocialLogins
+                  loginGoogle={googleSignIn}
+                  loginFacebook={facebookSignIn}
+                  login={true}
+                  purpose={"Login"}
+                />
               </div>
-            )}
+            </div>
+          )}
+          {forgotPass && (
+            <div className="forgotPasswordDiv">
+              <i
+                onClick={() => setForgotPass(false)}
+                className="leftArr bi bi-arrow-left"
+              ></i>
+              <div className="d-flex flex-column justify-content-center align-items-center">
+                <Key className="key" size={64} weight="bold" />
+                <h3 className="forgotPasstext text-center">Forgot Password?</h3>
+                <p className="text-center">
+                  Dont worry, it happens! Please enter your registered email and
+                  we will send you a link to reset your password.
+                </p>
+                <form className="w-100" action="#">
+                  <InputField
+                    required
+                    lableText="ENTER EMAIL ID"
+                    typeOfInput="email"
+                    garyBold
+                    placeholder="example@hyprclub.com"
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setResetEmail(e.target.value)
+                    }
+                  />
+                  <ButtonItself
+                    className="my-4 p-2"
+                    full
+                    btnPurpose={"Reset Password"}
+                    onClick={(e: React.FormEvent<HTMLInputElement>) =>
+                      resetPassword(e)
+                    }
+                  />
+                </form>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       {success && (

@@ -31,31 +31,31 @@ const Marketplace = () => {
   );
   const userData = useSelector((state: RootStateOrAny) => state.userData);
 
-  useEffect(() => {
-    const run = async () => {
-      setLoading(true);
-      await getDocs(query1)
-        .then((querySnapShot) => {
-          let nftIds: string[] = [];
-          querySnapShot.forEach((element) => {
-            nftIds.push(element.id);
-            console.log(nftIds);
-            // dispatch(
-            //   UserDataActions.nftTokenId({
-            //     nftIds: nftIds,
-            //   })
-            // );
-          });
-          dispatch(UserDataActions.nftTokenId({ nftIds }));
-          console.log(userData?.nftIds);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error(error.code);
-        });
-    };
-    run();
-  }, [db, dispatch]);
+  // useEffect(() => {
+  //   const run = async () => {
+  //     setLoading(true);
+  //     await getDocs(query1)
+  //       .then((querySnapShot) => {
+  //         let nftIds: string[] = [];
+  //         querySnapShot.forEach((element) => {
+  //           nftIds.push(element.id);
+  //           console.log(nftIds);
+  //           // dispatch(
+  //           //   UserDataActions.nftTokenId({
+  //           //     nftIds: nftIds,
+  //           //   })
+  //           // );
+  //         });
+  //         dispatch(UserDataActions.nftTokenId({ nftIds }));
+  //         console.log(userData?.nftIds);
+  //         setLoading(false);
+  //       })
+  //       .catch((error) => {
+  //         console.error(error.code);
+  //       });
+  //   };
+  //   run();
+  // }, [db, dispatch]);
 
   return (
     <>
