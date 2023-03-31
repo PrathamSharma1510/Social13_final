@@ -14,28 +14,26 @@ import {
 } from "firebase/firestore";
 import { RootStateOrAny, useSelector } from "react-redux";
 
-const Transaction = ({ transactionData }: any) => {
+const Transaction = ({ subletRequestData }: any) => {
   return (
     <>
       <div className={styles.mainDiv}>
         <h2 className={styles.title}>Transaction History</h2>
         <div className={styles.content}>
-          <div className={clsx( styles.tranInfo)}>
-            <div className={clsx(styles.heading1)}>Product</div>
+          <div className={clsx(styles.tranInfo)}>
+            <div className={clsx(styles.heading1)}>Property Name</div>
             <div className={clsx(styles.heading2)}>Date</div>
-            <div className={clsx(styles.heading3)}>Transaction ID</div>
+            <div className={clsx(styles.heading3)}>Request ID</div>
             <div className={clsx(styles.heading4)}>Status</div>
-            <div className={clsx(styles.heading5)}>Order Total</div>
+            {/* <div className={clsx(styles.heading5)}>Order Total</div> */}
           </div>
 
-          {transactionData.map((e: any, index: number) => (
+          {subletRequestData.map((e: any, index: number) => (
             <SingleTransaction
-              price={`${e.amount}`}
-              transactionID={e.razorpayPaymentId}
-              date={e.timestamp.slice(4, 15)}
-              success={e.transactionSuccess}
-              nftUid={e.purchasedNftUID}
-              itemName={e.transactionType}
+              requestID={e.requestId}
+              date={e.applyDate}
+              status={e.state}
+              propertyName={e.propertyName}
             />
           ))}
         </div>

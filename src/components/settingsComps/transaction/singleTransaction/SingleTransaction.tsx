@@ -5,20 +5,17 @@ import styles from "./singleTransaction.module.css";
 
 interface Transaction {
   success?: any;
-  itemName: string;
-  transactionID: string;
+  propertyName: string;
+  requestID: string;
   date: Date | string;
-  price: string;
-  nftUid: any;
+  status: string;
 }
 
 const SingleTransaction = ({
-  success,
-  itemName,
-  transactionID,
+  status,
+  propertyName,
+  requestID,
   date,
-  price,
-  nftUid,
 }: Transaction) => {
   return (
     <>
@@ -32,37 +29,20 @@ const SingleTransaction = ({
             )}
           >
             <div className={styles.nameAndPrice}>
-              {itemName === "Creator Support" && (
-                <p className={styles.boldTitle}>{itemName}</p>
-              )}
-              {itemName === "NFT Purchase" && (
+              {/* {itemName === "Creator Support" && ( */}
+              <p className={styles.boldTitle}>{propertyName}</p>
+
+              {/* {itemName === "NFT Purchase" && (
                 <Link to={`/nft/${nftUid}`}>
                   <p className={styles.boldTitle}>{itemName}</p>
                 </Link>
-              )}
-              <p className={styles.boldTitle}>{transactionID}</p>
+              )} */}
+              <p className={styles.boldTitle}>{requestID}</p>
               <p className={styles.date}>{date}</p>
             </div>
-
-            {itemName === "Creator Support" && (
-              <p className={styles.boldTitle2}>{itemName}</p>
-            )}
-            {itemName === "NFT Purchase" && (
-              <Link to={`/nft/${nftUid}`}>
-                <p className={styles.boldTitle2}>{itemName}</p>
-              </Link>
-            )}
             <p className={styles.dateDesk}>{date}</p>
-            <p className={styles.transDesk}>{transactionID}</p>
-            <li className={styles.statusDesk}>
-              {success === "success" ? "🟢 Success" : "🔴 Failed"}
-            </li>
-            <p className={styles.price}>
-              <span className={styles.statusMob}>
-                {success === "success" ? "🟢" : "🔴"}
-              </span>{" "}
-              INR {price}
-            </p>
+            <p className={styles.transDesk}>{requestID}</p>
+            <li className={styles.statusDesk}>{status}</li>
           </div>
         </div>
       </div>

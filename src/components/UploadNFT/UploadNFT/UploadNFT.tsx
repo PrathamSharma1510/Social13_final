@@ -5,6 +5,7 @@ import { FileUploader } from "react-drag-drop-files";
 // import Collection from "./Collection_Categories/Collection";
 import { getFirestore, setDoc, doc } from "firebase/firestore";
 import { FileArrowUp, Plus, X } from "phosphor-react";
+import { useNavigate } from "react-router-dom";
 import Loader from "../../Loader/Loader";
 import { Form } from "react-bootstrap";
 import InputField from "../../inputField/Input";
@@ -21,8 +22,8 @@ import { RootStateOrAny, useSelector } from "react-redux";
 import SuccPopup from "../../popups/SuccPopup";
 import ErrPopup from "../../popups/ErrPopup";
 
-const fileTypes = ["GIF", "PNG", "WEBP", "MP4", "MP3", "JPEG", "JPG"];
-const Categories = ["Art", "Bleh", "Blehh", "Blehh"];
+const fileTypes = ["GIF", "PNG", "JPEG", "JPG"];
+// const Categories = ["Art", "Bleh", "Blehh", "Blehh"];
 
 const items = [
   {
@@ -44,19 +45,22 @@ const items = [
 ];
 
 const UploadNFT = () => {
-  const [category, setCategory] = useState(Categories[0]);
+  // const [category, setCategory] = useState(Categories[0]);
   const [perks, setPerks]: any[] = useState(() => new Set());
+  const navigate = useNavigate();
+  const [community, setCommunity]: any[] = useState(() => new Set());
   const userData = useSelector((state: RootStateOrAny) => state.userData);
   // const [file, setFile] = useState(null);
-  const [itemname, setItemname] = useState("");
-  // const [coll, setCollection] = useState("");
-  const [cred, setCred] = useState(100);
+  const [propertyName, setPropetyName] = useState("");
+  const [Utility, setUtility] = useState(0);
+  const [cred, setRent] = useState(100);
   const perksarray = [...perks];
-  const [nft, setNft] = useState("");
+  const communityArray = [...community];
+  const [propertyImage, setPropertyImage] = useState("");
   const [desc, setDesc] = useState("");
-  const db = getFirestore(firebaseApp);
+
   const [loading, setLoading] = useState(false);
-  // const [itemname, setItemname]=useState('');
+  // const [propertyName, setPropetyName]=useState('');
 
   // Error Handling components
   const [success, setSuccess] = useState(false);
@@ -73,11 +77,13 @@ const UploadNFT = () => {
   };
 
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const inputRef2 = useRef<HTMLInputElement | null>(null);
   // const textRef =useRef<HTMLTextAreaElement | null>(null);
   // console.log(perks);
   // const capitalise = {};
 
   const [perks1, setPerks1]: any[] = useState(() => new Set());
+  const [perks2, setPerks2]: any[] = useState(() => new Set());
 
   const addPerk = () => {
     if (inputRef!.current!.value === "") {
@@ -101,11 +107,38 @@ const UploadNFT = () => {
     console.log(inputRef!.current!.value);
     inputRef!.current!.value = "";
   };
+  const addPerk2 = () => {
+    if (inputRef2!.current!.value === "") {
+      setErrorMessage("Please add a Amenity");
+      setOpenErrMsg(true);
+      // alert("Please add a perk");
+      return;
+    }
+    // setPerks([...perks, inputRef!.current!.value]); prevState:any)=> new Set(prevState).add(inputRef!.current!.value)
+
+    if (perks2.has(inputRef2!.current!.value!.toLowerCase())) {
+      setErrorMessage("Duplicate Amenity Not Allowed");
+      setOpenErrMsg(true);
+      // alert("Duplicate Perks Not Allowed");
+      return;
+    }
+
+    setPerks2(
+      new Set([...community, inputRef2!.current!.value!.toLowerCase()])
+    );
+
+    setCommunity(new Set([...community, inputRef2!.current!.value!]));
+    console.log(inputRef2!.current!.value);
+    inputRef2!.current!.value = "";
+  };
   const enterPerk = (e: any) => {
     if (e.key === "Enter") addPerk();
   };
+  const enterPerk2 = (e: any) => {
+    if (e.key === "Enter") addPerk2();
+  };
 
-  const makeNftId = (len: number) => {
+  const makeSubletId = (len: number) => {
     let result = "";
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -116,15 +149,13 @@ const UploadNFT = () => {
     return result;
   };
 
-  let nftid = "NFT" + makeNftId(26);
+  let subletid = "NFT" + makeSubletId(26);
 
-  const storage = getStorage(firebaseApp);
   const current = new Date();
   const [isVideo, setVideo] = useState(false);
   const date = `${current.getDate()}/${
     current.getMonth() + 1
   }/${current.getFullYear()}`;
-  const storageNFTref = ref(storage, "nftRequest/" + nftid + "/nft.jpg");
 
   const handleChange = async (e: any) => {
     setLoading(true);
@@ -137,103 +168,110 @@ const UploadNFT = () => {
       return;
     }
     console.log(file.size);
-    if (file.size >= 157286400) {
-      setErrorMessage("File Size too Big Max Size 150Mb");
-      setOpenErrMsg(true);
-      // console.log("File Size too Big Max Size 150Mb");
-    } else {
-      if (file.type.split("/")[0] !== "video") {
-        setVideo(false);
-      } else {
-        console.log("video");
-        setVideo(true);
-      }
-      await uploadBytesResumable(storageNFTref, file)
-        .then((result) => {
-          console.log(result.state);
-        })
-        .then(() => {
-          getDownloadURL(storageNFTref)
-            .then((url) => {
-              setNft(url);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        })
-        .then(() => {
-          setSuccMess("Successfully uploaded");
-          setSuccess(true);
-          // console.log("Success");
-          setLoading(false);
-        })
-        .catch((error) => {
-          setErrorMessage("Failed to upload");
-          setOpenErrMsg(true);
-          console.log(error);
-        });
-    }
+    console.log("Hey");
+
+    const storage = getStorage(firebaseApp);
+    const storageNFTref = ref(storage, "sublet/" + subletid + "/room.jpg");
+    await uploadBytesResumable(storageNFTref, file)
+      .then((result) => {
+        console.log(result.state);
+      })
+      .then(() => {
+        getDownloadURL(storageNFTref)
+          .then((url) => {
+            setPropertyImage(url);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .then(() => {
+        setSuccMess("Successfully uploaded");
+        setSuccess(true);
+        // console.log("Success");
+        setLoading(false);
+      })
+      .catch((error) => {
+        setErrorMessage("Failed to upload");
+        setOpenErrMsg(true);
+        console.log(error);
+      });
   };
 
-  const nftRequest = async () => {
-    let perksList: any = [];
+  const SubletRequest = async () => {
+    let roomAmenities: any = [];
+    let communityAmenities: any = [];
     for (let i = 0; i < perksarray.length; i++) {
-      perksList.push({ description: perksarray[i], isAvailed: false });
+      roomAmenities.push({ description: perksarray[i], isAvailed: false });
+    }
+    for (let i = 0; i < communityArray.length; i++) {
+      communityAmenities.push({
+        description: communityArray[i],
+        isAvailed: false,
+      });
     }
 
-    console.log(nft);
+    console.log(propertyImage);
     if (
-      itemname === "" ||
-      nft === "" ||
+      propertyName === "" ||
+      propertyImage === "" ||
       desc === "" ||
-      perksList.length === 0
+      roomAmenities.length === 0 ||
+      communityAmenities.length == 0
     ) {
-      if (itemname === "") {
-        setErrorMessage("Please Add Title to nft");
+      if (propertyName === "") {
+        setErrorMessage("Please Add Property Name");
         setOpenErrMsg(true);
         // console.log("Please Add Title to nft");
-      } else if (nft === "") {
+      } else if (propertyImage === "") {
         setErrorMessage("Some problem with internet");
         setOpenErrMsg(true);
         // console.log("Problem with Internet");
       } else if (desc === "") {
-        setErrorMessage("Add description for the NFT");
+        setErrorMessage("Add description for the Property");
         setOpenErrMsg(true);
         // console.log("Please describe the nft");
-      } else if (perksList.length === 0) {
-        setErrorMessage("Please add atleast One Perk");
+      } else if (roomAmenities.length === 0) {
+        setErrorMessage("Please add atleast One Room Amenity");
+        setOpenErrMsg(true);
+        // console.log("Please add atleast one perk");
+      } else if (communityAmenities.length === 0) {
+        setErrorMessage("Please add atleast One Community Amenity");
         setOpenErrMsg(true);
         // console.log("Please add atleast one perk");
       }
     } else {
-      const reqID = "REQNFT" + makeNftId(24);
-      await setDoc(doc(db, "nftRequest", reqID), {
-        creatorName: userData?.name,
-        creatorEmail: userData?.email,
-        creatorPhone: userData?.phone,
-        creatorUsername: userData?.username,
-        creatorUid: userData?.uid,
+      console.log(propertyImage);
+      console.log(propertyName);
+      const db = getFirestore(firebaseApp);
+      const reqID = "REQNFT" + makeSubletId(24);
+      await setDoc(doc(db, "subletRequest", reqID), {
+        tentName: userData?.name,
+        tentEmail: userData?.email,
+        // creatorPhone: userData?.phone,
+        tentUsername: userData?.username,
+        tentUid: userData?.uid,
         requestId: reqID,
-        nftMedia: nft,
+        propertyImg: propertyImage,
         applyDate: date,
-        isMinted: false,
+        // isMinted: false,
         isApproved: false,
-        video: isVideo,
+        // video: isVideo,
         state: "PENDING",
-        perks: perksList,
-        price: cred,
+        roomAmenities: perksarray,
+        communityAmenities: communityArray,
+        rent: cred,
+        utilityCost: Utility,
         description: desc,
-        title: itemname,
-        collectionTag: userData?.uid,
-        category: category,
+        propertyName: propertyName,
       })
         .then(() => {
-          setSuccMess("NFT request sent");
+          setSuccMess("Sublet Request Sent");
           setSuccess(true);
-          // console.log("REQ SENT!");
+          navigate("/");
         })
         .catch((error) => {
-          setErrorMessage("Request not sent");
+          setErrorMessage("Some Error Occured");
           setOpenErrMsg(true);
           console.log(error);
         });
@@ -249,13 +287,22 @@ const UploadNFT = () => {
     setPerks(updatedPerks);
     setPerks1(updatedPerks1);
   };
-
+  const removePerk2 = (e: any) => {
+    const updatedPerks = new Set(community);
+    const updatedPerks1 = new Set(perks2);
+    updatedPerks.delete(e);
+    updatedPerks1.delete(e.toLowerCase());
+    setSuccMess("perk removed successfully");
+    setSuccess(true);
+    setCommunity(updatedPerks);
+    setPerks2(updatedPerks1);
+  };
   return (
     <>
       <div className={styles.wrapper}>
         <div className={styles.section}>
           <h1 className={styles.title}> Create a Subletting Request</h1>
-          {loading === false && (
+          {loading === false && !propertyImage && (
             <div className={styles.Upload}>
               <h4 className={styles.upldFile}>Upload file</h4>
               <h6 className={styles.drag}>
@@ -267,38 +314,51 @@ const UploadNFT = () => {
                 types={fileTypes}
               >
                 <FileArrowUp size={24} id={styles.Filearrow} />
-                <h6 className={styles.fileTypes}>PNG, JPEG.</h6>
+                <h6 className={styles.fileTypes}>PNG, JPEG, JPG</h6>
               </FileUploader>
             </div>
           )}
+          {loading === false && propertyImage && (
+            <div className={styles.Upload}>
+              <h4 className={styles.upldFile}>File Uploaded</h4>
+              <button
+                onClick={(e) => {
+                  setPropertyImage("");
+                }}
+                className={styles.Previewbtn}
+              >
+                <p className={styles.btnText}>Upload Again</p>
+              </button>
+            </div>
+          )}
           {loading && <Loader />}
-          <div className={styles.ItemName}>
+          <div className={styles.propertyName}>
             {/* <h6 className={styles.Heading}>Enter Item Name</h6> */}
             <InputField
               typeOfInput="text"
               lableText="Enter Property Name"
               garyBold={true}
               className={styles.Input}
-              onChange={(e: any) => setItemname(e.target.value)}
+              onChange={(e: any) => setPropetyName(e.target.value)}
             />
           </div>
           <div className={styles.Item_stck_prc}>
-            {/* <div className={styles.ItemCred}>
+            <div className={styles.ItemCred}>
               <InputField
-                typeOfInput="text"
-                lableText="ENTER COLLECTION NAME"
+                typeOfInput="Number"
+                lableText="Enter Utility Amount ($)"
                 garyBold={true}
                 className={styles.Input}
-                onChange={(e: any) => setCollection(e.target.value)}
+                onChange={(e: any) => setUtility(e.target.value)}
               />
-            </div> */}
+            </div>
             <div className={styles.ItemCred}>
               <InputField
                 typeOfInput="text"
-                lableText="Enter Base Rent"
+                lableText="Enter Base Rent Amount ($)"
                 garyBold={true}
                 className={styles.Input}
-                onChange={(e: any) => setCred(e.target.value)}
+                onChange={(e: any) => setRent(e.target.value)}
               />
             </div>
           </div>
@@ -359,21 +419,21 @@ const UploadNFT = () => {
             </div>
             <input
               type="text"
-              onKeyDown={enterPerk}
+              onKeyDown={enterPerk2}
               className={styles.Input}
-              ref={inputRef}
+              ref={inputRef2}
             />
             <div className={styles.PerkBody}>
-              <button onClick={addPerk} className={styles.Plus}>
+              <button onClick={addPerk2} className={styles.Plus}>
                 <Plus size={20} className={styles.perkicon} />
               </button>
               <h5 className={styles.AddPerk}>Add more community Amenities</h5>
-              {perksarray &&
-                perksarray.map((e: any) => (
+              {communityArray &&
+                communityArray.map((e: any) => (
                   <div className={styles.addedPerk} key={e}>
                     <button
                       className={styles.Plus}
-                      onClick={() => removePerk(e)}
+                      onClick={() => removePerk2(e)}
                     >
                       <X size={20} className={styles.perkicon} />{" "}
                     </button>
@@ -382,7 +442,7 @@ const UploadNFT = () => {
                 ))}
             </div>
           </div>
-          <div className={styles.dropdown}>
+          {/* <div className={styles.dropdown}>
             <h6 className={styles.Heading}>Category</h6>
             <Form.Select
               aria-label="Default select example"
@@ -392,7 +452,7 @@ const UploadNFT = () => {
                 <option key={index}>{x} </option>
               ))}
             </Form.Select>
-          </div>
+          </div> */}
         </div>
         <div className={styles.Bottom}>
           {/* <div className={styles.Collection}>
@@ -405,8 +465,8 @@ const UploadNFT = () => {
           <div className={styles.btns}>
             <GradBorder
               className={styles.Gradbtn}
-              text="SEND NFT REQUEST"
-              onClick={nftRequest}
+              text="Upload Request"
+              onClick={SubletRequest}
             />
             {/* <button type="submit" className={styles.Previewbtn}>
               <p className={styles.btnText}> Preview NFT</p>

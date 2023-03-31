@@ -26,7 +26,7 @@ import {
 import Transaction from "../../components/settingsComps/transaction/Transaction";
 const Settings = () => {
   const location = useLocation();
-  const [transactionData, setTransactionData] = useState<any>([]);
+  const [subletRequestData, SetSubletRequest] = useState<any>([]);
   const path = location.pathname;
   const navigate = useNavigate();
   const { loggedIn, uid } = useSelector(
@@ -42,28 +42,28 @@ const Settings = () => {
   }, [loggedIn, uid, navigate]);
 
   const GetTransactionHistory = async () => {
-    let transactions: any = [];
+    let subletRequest: any = [];
     if (uid && loggedIn) {
       // console.log(uid);
       // console.log(loggedIn);
       await getDocs(
-        query(collection(db, "paymentRecords"), where("buyerUID", "==", uid))
+        query(collection(db, "subletRequest"), where("tentUid", "==", uid))
       )
         .then((snapshot) => {
           snapshot.forEach((docs) => {
             if (docs.exists()) {
-              transactions.push(docs.data());
+              subletRequest.push(docs.data());
             } else {
-              transactions.push("Null");
+              subletRequest.push("Null");
             }
           });
-          console.log(transactions);
-          setTransactionData(transactions);
+          console.log(subletRequest);
+          SetSubletRequest(subletRequest);
         })
         .catch((error) => {
           console.log(error);
         });
-      // console.log(transactions[0].amount)
+      // console.log(subletRequest[0].amount)
     } else {
       console.log("Not Logged In");
     }
@@ -114,7 +114,7 @@ const Settings = () => {
               <Accordion.Item className={styles.change} eventKey="4">
                 <Accordion.Header>Transaction History</Accordion.Header>
                 <Accordion.Body>
-                  <Transaction transactionData={transactionData} />
+                  <Transaction subletRequestData={subletRequestData} />
                 </Accordion.Body>
               </Accordion.Item>
 
@@ -139,7 +139,7 @@ const Settings = () => {
             {path === "/settings/theme" && <Theme />}
             {path === "/settings/privacyandsecurity" && <Privacy />}
             {path === "/settings/transactionhistory" && (
-              <Transaction transactionData={transactionData} />
+              <Transaction subletRequestData={subletRequestData} />
             )}
             {path === "/settings/help" && <Help />}
             {path === "/settings/contact" && <Contact />}
