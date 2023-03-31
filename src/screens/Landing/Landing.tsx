@@ -254,33 +254,24 @@ const Landing = () => {
           <div className={styles.getSocialGameImgDiv}>
             <img
               className={styles.getSocialGameImg}
-              src="images/profil.png"
-              alt=""
-            />
-            <img
-              className={styles.getSocialGameImgPhone}
-              src="images/profil.png"
+              src="images/house.jpeg"
               alt=""
             />
           </div>
           <div className={styles.getSocialGameContent}>
             <p className={styles.forthefirsttime}>
-              FOR THE FIRST TIME IN INDIA
+              Find Your Dream Home Effortlessly
             </p>
             <h1 className={styles.getSocialHeader}>
-              Get your Social <span className={styles.game}>GAME</span> going.
+              Innovative Features and
+              <span className={styles.game}>Easy Navigation</span>
             </h1>
             <p className={styles.getSocialDesc}>
-              Level up by gaining Experience,<br></br> Get Virtual Currency or
-              Gems <br></br>which can be used to purchase<br></br> various items
-              in our Store like,<br></br> Power Ups, Boosts and Amazing Deals.{" "}
+              Our platform makes searching for your dream home easy with
+              interactive design and user-friendly features. Whether you're a
+              student, a professional, or a retiree, our accessible platform is
+              here to help you find the perfect home.
             </p>
-
-            <div className={styles.button}>
-              <Button className={styles.postBtn}>
-                <span className={styles.PostbtnText}>Get Early Access</span>
-              </Button>
-            </div>
           </div>
         </div>
       </div>
