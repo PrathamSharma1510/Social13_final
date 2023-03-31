@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.7.2",
+    "axios": "^0.25.0",
+    "firebase": "^9.6.6"
+  }
+  ,"scripts": {
+    "start": "node your-script.js"
+}
+}
