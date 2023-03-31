@@ -34,8 +34,7 @@ const Landing = () => {
             </span>
           </div>
           <div className={styles.Revolution}>
-            Effortlessly find your dream home in{" "}
-            <span>Gainesville.</span>
+            Effortlessly find your dream home in <span>Gainesville.</span>
           </div>
           <div className={styles.SocialNetwork}>
             Welcome to the streamlined housing search <br></br> experience in
@@ -48,30 +47,19 @@ const Landing = () => {
           {/* <PostButton btnText='Get Early Access' small={false}></PostButton></div> */}
         </div>
         <div className={styles.buyNFT}>
-          <p className={styles.forthefirsttime}>FOR THE FIRST TIME IN INDIA</p>
-          <p className={styles.buyNFTwithUPI}>Buy NFTs with UPI.</p>
-          <p className={styles.buyNFTdesc}>
-            It is no longer difficult or complex to be a part of the metaverse.
-            Easily Buy or Sell NFTs through existing transaction methods like
-            UPI,
-            <br /> Credit/Debit & BNPL.
+          <p className={styles.forthefirsttime}>
+            Streamline Your Home Search in Gainesville
           </p>
-          <div>
-            <p className={styles.paymentSec}>Payments secured through</p>
-            <img src="images/razorpay.png" alt="" />
-          </div>
-          <div>
-            <img className={styles.visaImg} src="images/visa.png" alt="" />
-            <img
-              className={styles.mastercardImg}
-              src="images/mastercard.png"
-              alt=""
-            />
-            <img className={styles.upiImg} src="images/upi.png" alt="" />
-            <img className={styles.rupayImg} src="images/rupay.png" alt="" />
-          </div>
-
-          <img className={styles.nftcards} src="images/nft cards.png" alt="" />
+          <p className={styles.buyNFTwithUPI}>
+            Find Your Perfect Home in Gainesville
+          </p>
+          <p className={styles.buyNFTdesc}>
+            Finding the perfect home can be a daunting task, but our platform is
+            here to make it easy and efficient for everyone. Our user-friendly
+            website offers a convenient and dynamic experience, making the
+            process of finding Gainesville houses a breeze.
+          </p>
+          <img className={styles.nftcards} src="images/house.png" alt="" />
         </div>
 
         <div className={clsx(styles.creativity)}>
