@@ -153,7 +153,7 @@ function App() {
             <Route path="/market" element={<Marketplace />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/settings/:test" element={<Settings />} />
-            <Route path="/uploadnft" element={<UploadNft />} />
+            <Route path="/roomDetailUpload" element={<UploadNft />} />
             <Route path="/adminlogin" element={<AdminLogin />} />
             <Route path="/admindashboard" element={<Admindash />} />
             <Route path="/nft/:docId" element={<NFTS></NFTS>} />
@@ -168,7 +168,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/:username" element={<Profile />} />
             <Route path="/settings/:test" element={<Settings />} />
-            <Route path="/uploadnft" element={<UploadNft />} />
+            {/* <Route path="/uploadnft" element={<UploadNft />} /> */}
             <Route path="/admin" element={<Admindash />} />
             <Route path="/creator" element={<Creator />} />
             <Route path="/onboard" element={<CreatorOnboard />} />

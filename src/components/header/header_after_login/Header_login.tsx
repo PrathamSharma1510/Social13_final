@@ -100,10 +100,10 @@ const Header_login = () => {
                 </button>
               </form> */}
               {/* //upload button only of creater */}
-              {loggedIn && userData?.isCreator && (
+              {loggedIn && (
                 // <Link to="#">
                 <button className={styles.up} onClick={uploadNft}>
-                  <span className={styles.uptxt}>Upload</span>
+                  <span className={styles.uptxt}>Sublet Listing</span>
                 </button>
                 // </Link>
               )}

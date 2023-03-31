@@ -433,7 +433,7 @@ const Register = () => {
         <div className="d-flex justify-content-center">
           <div className="registerForm">
             <h1 className="registerHeaderText">
-              Join the Next Big Social Revolution
+              Join our platform for finding easy housing
             </h1>
             <p className="subtitleText">
               Already have an account?{" "}
@@ -545,7 +545,7 @@ const Register = () => {
                     }}
                   />
                   <label className="ms-2" htmlFor="newsletter">
-                    I would like to receive promotional emails from HyprClub
+                    I would like to receive promotional emails from Social13
                   </label>
                 </div>
                 <div className="mt-3">

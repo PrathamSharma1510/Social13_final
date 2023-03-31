@@ -267,10 +267,10 @@ const Login = () => {
           {!forgotPass && (
             <div className="loginForm">
               <h1 className="loginHeaderText">
-                Join the Next Big Social Revolution
+                Join our platform for finding easy housing
               </h1>
               <p className="subtitleText">
-                New to Social13?{" "}
+                New to Social13 ?{" "}
                 <span className="createAccount">
                   {" "}
                   <Link to="/register" className="link">

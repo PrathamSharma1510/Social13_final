@@ -254,7 +254,7 @@ const UploadNFT = () => {
     <>
       <div className={styles.wrapper}>
         <div className={styles.section}>
-          <h1 className={styles.title}> Create an NFT</h1>
+          <h1 className={styles.title}> Create a Subletting Request</h1>
           {loading === false && (
             <div className={styles.Upload}>
               <h4 className={styles.upldFile}>Upload file</h4>
@@ -267,9 +267,7 @@ const UploadNFT = () => {
                 types={fileTypes}
               >
                 <FileArrowUp size={24} id={styles.Filearrow} />
-                <h6 className={styles.fileTypes}>
-                  PNG, JPEG , GIF, WEBP, MP4 or MP3. Max 150MB.
-                </h6>
+                <h6 className={styles.fileTypes}>PNG, JPEG.</h6>
               </FileUploader>
             </div>
           )}
@@ -278,7 +276,7 @@ const UploadNFT = () => {
             {/* <h6 className={styles.Heading}>Enter Item Name</h6> */}
             <InputField
               typeOfInput="text"
-              lableText="ENTER ITEM NAME"
+              lableText="Enter Property Name"
               garyBold={true}
               className={styles.Input}
               onChange={(e: any) => setItemname(e.target.value)}
@@ -297,7 +295,7 @@ const UploadNFT = () => {
             <div className={styles.ItemCred}>
               <InputField
                 typeOfInput="text"
-                lableText="ENTER PRICE"
+                lableText="Enter Base Rent"
                 garyBold={true}
                 className={styles.Input}
                 onChange={(e: any) => setCred(e.target.value)}
@@ -305,7 +303,9 @@ const UploadNFT = () => {
             </div>
           </div>
           <div className={styles.ItemDesc}>
-            <h6 className={styles.Heading}>Enter Item Description</h6>
+            <h6 className={styles.Heading}>
+              Enter Room Description example: Proximity to University,etc.
+            </h6>
             <textarea
               onChange={(e: any) => setDesc(e.target.value)}
               className={styles.Input_Description}
@@ -314,7 +314,9 @@ const UploadNFT = () => {
           </div>
           <div className={styles.Perks}>
             <div className={styles.PerkHead}>
-              <h6 className={styles.Heading}>ADD Perk</h6>
+              <h6 className={styles.Heading}>
+                Add Apartment Amenities like chair, bed,etc.
+              </h6>
               {/* <div className={styles.transferable}>
                 <h6 className={styles.Heading_transfer}>Make Transferable</h6>
                 <ToggleBtn />
@@ -330,7 +332,42 @@ const UploadNFT = () => {
               <button onClick={addPerk} className={styles.Plus}>
                 <Plus size={20} className={styles.perkicon} />
               </button>
-              <h5 className={styles.AddPerk}>Add Perk</h5>
+              <h5 className={styles.AddPerk}>Add more Amenities</h5>
+              {perksarray &&
+                perksarray.map((e: any) => (
+                  <div className={styles.addedPerk} key={e}>
+                    <button
+                      className={styles.Plus}
+                      onClick={() => removePerk(e)}
+                    >
+                      <X size={20} className={styles.perkicon} />{" "}
+                    </button>
+                    <h6 className={styles.AddPerk}>{e}</h6>
+                  </div>
+                ))}
+            </div>
+          </div>
+          <div className={styles.Perks}>
+            <div className={styles.PerkHead}>
+              <h6 className={styles.Heading}>
+                Add Community Amenities like gym, swimming pool,etc.
+              </h6>
+              {/* <div className={styles.transferable}>
+                <h6 className={styles.Heading_transfer}>Make Transferable</h6>
+                <ToggleBtn />
+              </div> */}
+            </div>
+            <input
+              type="text"
+              onKeyDown={enterPerk}
+              className={styles.Input}
+              ref={inputRef}
+            />
+            <div className={styles.PerkBody}>
+              <button onClick={addPerk} className={styles.Plus}>
+                <Plus size={20} className={styles.perkicon} />
+              </button>
+              <h5 className={styles.AddPerk}>Add more community Amenities</h5>
               {perksarray &&
                 perksarray.map((e: any) => (
                   <div className={styles.addedPerk} key={e}>

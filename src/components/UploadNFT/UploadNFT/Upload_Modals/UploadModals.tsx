@@ -43,7 +43,7 @@ const UploadModals = () => {
   };
   const Redirect = () => {
     if (cont === 1) {
-      navigate("/uploadnft");
+      navigate("/roomDetailUpload");
       closeModal();
       // setCont(0);
     } else if (cont === 2) {
@@ -115,10 +115,10 @@ const UploadModals = () => {
           <div className={styles.upload_icon}>
             <UploadSimple size={32} weight="bold" />
           </div>
-          <h3 className={styles.heading}>Upload NFT</h3>
-          <p className={styles.p}>
+          <h3 className={styles.heading}>Sublet Listing</h3>
+          {/* <p className={styles.p}>
             Please choose one of the following upload options:
-          </p>
+          </p> */}
         </div>
         <div className={styles.box_body}>
           <div
@@ -128,12 +128,12 @@ const UploadModals = () => {
             )}
             onClick={() => setCont(1)}
           >
-            <h4 className={styles.selection_heading}>Upload Single NFT</h4>
+            <h4 className={styles.selection_heading}>Upload Room Details</h4>
             <p className={styles.selection_subheading}>
-              Upload a single NFT or add piece to collection.
+              Upload Room Details for public display
             </p>
           </div>
-          <div
+          {/* <div
             className={clsx(
               styles.selection,
               cont === 2 ? styles.border : styles.borderless
@@ -144,7 +144,7 @@ const UploadModals = () => {
             <p className={styles.selection_subheading}>
               Get assisted in design and upload a collection of NFTs
             </p>
-          </div>
+          </div> */}
           <div className={styles.buttons}>
             <button className={styles.btn_white} onClick={closeModal}>
               <p className={styles.btn_white_text}>Cancel</p>
