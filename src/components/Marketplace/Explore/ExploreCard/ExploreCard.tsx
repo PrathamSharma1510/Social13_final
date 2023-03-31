@@ -65,7 +65,10 @@ const ExploreCard = ({ className, items: itemFromProps }: any) => {
     <div className={cn(styles.card, className)}>
       {loading && <Loader />}
       {loading === false && (
-        <Link className={styles.link} to={`/nft/${itemFromProps.requestId}`}>
+        <Link
+          className={styles.link}
+          to={`/property/${itemFromProps.requestId}`}
+        >
           <div className={styles.body}>
             <div className={styles.line}>
               <div

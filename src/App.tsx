@@ -156,7 +156,7 @@ function App() {
             <Route path="/roomDetailUpload" element={<UploadNft />} />
             <Route path="/adminlogin" element={<AdminLogin />} />
             <Route path="/admindashboard" element={<Admindash />} />
-            <Route path="/nft/:docId" element={<NFTS></NFTS>} />
+            <Route path="/property/:docId" element={<NFTS></NFTS>} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<Register />} />
