@@ -8,10 +8,10 @@ import Dropdown from "../../Dropdown/Dropdown";
 import ExploreCard from "./ExploreCard/ExploreCard";
 
 const dateOptions = ["Recently added", "Long Added"];
-const navLinks = ["All items", "Art", "Beauty", "Photography", "Comedy"];
-const priceOptions = ["Highest price", "The lowest price"];
-const likesOptions = ["Most liked", "Least liked"];
-const creatorOptions = ["Verified only", "All", "Most liked"];
+const navLinks = ["All", "Subleasing"];
+const priceOptions = ["Highest Rating", "Low Rating"];
+const likesOptions = ["Safest Place","Less Safe Place"];
+const creatorOptions = ["High Rating", "All", "Most liked"];
 
 interface explore {
   items: any;
@@ -98,17 +98,8 @@ const Explore = ({ items }: explore) => {
   const MAX = 10;
   return (
     <div className={styles.wrapper}>
-      <h2 className={styles.grad}>Explore Brand New NFTS </h2>
+      <h2 className={styles.grad}>Find Your Perfect Home with Ease </h2>
       <div className={styles.head}>
-        <div className={styles.dropdown}>
-          <Dropdown
-            className={styles.dropdown_1}
-            value={date}
-            setValue={setDate}
-            options={dateOptions}
-            height=" max(min(3.35vw,48px),40px)"
-          />
-        </div>
         <div className={styles.Navbar}>
           {navLinks.map((x: any, index: number) => (
             <button
