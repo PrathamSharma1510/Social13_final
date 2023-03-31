@@ -216,10 +216,10 @@ const NFTS = ({ Video }: Props) => {
   const handleStarred = async () => {
     console.log("Hello");
     if (loggedIn && uid && docId) {
-      console.log(userData?.savedNfts);
-      if (userData?.savedNfts.includes(docId)) {
-        await updateDoc(doc(db, "hyprUsers", uid), {
-          savedNfts: arrayRemove(docId),
+      console.log(userData?.savedProperty);
+      if (userData?.savedProperty.includes(docId)) {
+        await updateDoc(doc(db, "users", uid), {
+          savedProperty: arrayRemove(docId),
         })
           .then(() => {
             setSuccMess("REMOVED");
@@ -229,8 +229,8 @@ const NFTS = ({ Video }: Props) => {
             console.log(error);
           });
       } else {
-        await updateDoc(doc(db, "hyprUsers", uid), {
-          savedNfts: arrayUnion(docId),
+        await updateDoc(doc(db, "users", uid), {
+          savedProperty: arrayUnion(docId),
         })
           .then(() => {
             setSuccMess("SAVED");
@@ -245,49 +245,49 @@ const NFTS = ({ Video }: Props) => {
     }
   };
 
-  const handlePayment = async () => {
-    if (loggedIn && uid) {
-      try {
-        const paymentProps: paymentDetailsSchema = {
-          buyerUID: userData?.uid,
-          buyerUsername: userData?.username,
-          buyerEmail: userData?.email,
-          buyerName: userData?.name,
-          buyerPhoto: userData?.profilePhotoUrl,
-          buyerPhoneNumber: userData?.phone,
-          recipientData: {
-            reciepientUID: ownerData?.uid,
-            recipientUsername: ownerData?.username,
-            recipientEmail: ownerData?.email,
-          },
-          amount: itemPrice,
-          transactionType: "NFT Purchase",
-          transactionSuccess: "in process",
-          purchasedNftUID: docId,
-          purchasedNftData: {
-            nftContractAddress: contractAddress,
-            nftName: item.name,
-            nftDescription: item.description,
-          },
-        };
-        // console.log(paymentProps);
-        // this will return payment status - Payment Successful | Payment Failed
-        displayRazorpay(paymentProps)
-          .then((result) => {
-            console.log(result);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        // navigate(`/${userData?.username}`);
-      } catch (error) {
-        console.log("nft paymentprops: ", error);
-      }
-    } else {
-      console.log("Please Login TO continue");
-      navigate("/login");
-    }
-  };
+  // const handlePayment = async () => {
+  //   if (loggedIn && uid) {
+  //     try {
+  //       const paymentProps: paymentDetailsSchema = {
+  //         buyerUID: userData?.uid,
+  //         buyerUsername: userData?.username,
+  //         buyerEmail: userData?.email,
+  //         buyerName: userData?.name,
+  //         buyerPhoto: userData?.profilePhotoUrl,
+  //         buyerPhoneNumber: userData?.phone,
+  //         recipientData: {
+  //           reciepientUID: ownerData?.uid,
+  //           recipientUsername: ownerData?.username,
+  //           recipientEmail: ownerData?.email,
+  //         },
+  //         amount: itemPrice,
+  //         transactionType: "NFT Purchase",
+  //         transactionSuccess: "in process",
+  //         purchasedNftUID: docId,
+  //         purchasedNftData: {
+  //           nftContractAddress: contractAddress,
+  //           nftName: item.name,
+  //           nftDescription: item.description,
+  //         },
+  //       };
+  //       // console.log(paymentProps);
+  //       // this will return payment status - Payment Successful | Payment Failed
+  //       displayRazorpay(paymentProps)
+  //         .then((result) => {
+  //           console.log(result);
+  //         })
+  //         .catch((err) => {
+  //           console.log(err);
+  //         });
+  //       // navigate(`/${userData?.username}`);
+  //     } catch (error) {
+  //       console.log("nft paymentprops: ", error);
+  //     }
+  //   } else {
+  //     console.log("Please Login TO continue");
+  //     navigate("/login");
+  //   }
+  // };
 
   return (
     <>
@@ -335,13 +335,13 @@ const NFTS = ({ Video }: Props) => {
                   />
                 </div>
 
-                {forSale && (
+                {/* {forSale && (
                   <GradBorder
                     text="Buy Now"
                     className={styles.buy}
                     onClick={handlePayment}
                   />
-                )}
+                )} */}
 
                 <div className={styles.Description_Perks}>
                   <h3 className={styles.subHeading}>Description</h3>

@@ -21,6 +21,7 @@ const initialState = {
     portfolioUrl: undefined,
   },
   savedProperty: [],
+  propertyIds: [],
 };
 
 export const userDataSlice = createSlice({
@@ -57,9 +58,9 @@ export const userDataSlice = createSlice({
     updateUserDp: (state, { payload }) => {
       state.profilePhotoUrl = payload?.profilePhotoUrl;
     },
-    // nftTokenId: (state, { payload }) => {
-    //   state.nftIds = payload?.nftIds;
-    // },
+    propertyIds: (state, { payload }) => {
+      state.propertyIds = payload?.propertyIds;
+    },
   },
 });
 

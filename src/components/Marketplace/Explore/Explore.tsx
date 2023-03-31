@@ -253,9 +253,13 @@ const Explore = ({ items }: explore) => {
       </div>
       <div className={styles.body}>
         <div className={styles.grid}>
-          {card_items?.map((x: any, index: any) => (
-            <ExploreCard className={styles.card} items={x} key={index} />
-          ))}
+          {/* {card_items?.map((x: any, index: any) => (
+            <ExploreCard className={styles.card} items={} key={index} />
+          ))} */}
+          {navlinks === "Subleasing" &&
+            card_items?.map((x: any, index: any) => (
+              <ExploreCard className={styles.card} items={x} key={index} />
+            ))}
         </div>
       </div>
     </div>

@@ -201,7 +201,16 @@ const UploadNFT = () => {
         console.log(error);
       });
   };
-
+  const makePropertyId = (len: number) => {
+    let result = "";
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const characterLengths = characters.length;
+    for (let i = 0; i < len; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characterLengths));
+    }
+    return result;
+  };
   const SubletRequest = async () => {
     Geocode.setApiKey("AIzaSyApeXIBszsayq36Kzn5p1o7-eW6qvR7fq0");
     Geocode.setLanguage("en");
@@ -275,6 +284,7 @@ const UploadNFT = () => {
             // isMinted: false,
             isApproved: false,
             // video: isVideo,\
+            propertyUid: "PROP" + makePropertyId(20),
             overallRating: parseFloat(overallRating),
             securityRating: parseFloat(securityRating),
             ApartmentCat: ApartmentType,

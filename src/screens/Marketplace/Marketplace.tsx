@@ -14,6 +14,7 @@ import {
   getFirestore,
   collection,
   orderBy,
+  where,
   query,
 } from "firebase/firestore";
 import { firebaseApp } from "../../firebaseConfig";
@@ -24,38 +25,40 @@ import Loader from "../../components/Loader/Loader";
 const Marketplace = () => {
   const db = getFirestore(firebaseApp);
   const dispatch = useDispatch();
+  const [subletIds, setSubletIds] = useState<Array<string>>([]);
   const [loading, setLoading] = useState(false);
   const query1 = query(
-    collection(db, "nfts"),
-    orderBy("approvingTime", "desc")
+    collection(db, "subletRequest"),
+    where("state", "==", "PENDING")
   );
   const userData = useSelector((state: RootStateOrAny) => state.userData);
 
-  // useEffect(() => {
-  //   const run = async () => {
-  //     setLoading(true);
-  //     await getDocs(query1)
-  //       .then((querySnapShot) => {
-  //         let nftIds: string[] = [];
-  //         querySnapShot.forEach((element) => {
-  //           nftIds.push(element.id);
-  //           console.log(nftIds);
-  //           // dispatch(
-  //           //   UserDataActions.nftTokenId({
-  //           //     nftIds: nftIds,
-  //           //   })
-  //           // );
-  //         });
-  //         dispatch(UserDataActions.nftTokenId({ nftIds }));
-  //         console.log(userData?.nftIds);
-  //         setLoading(false);
-  //       })
-  //       .catch((error) => {
-  //         console.error(error.code);
-  //       });
-  //   };
-  //   run();
-  // }, [db, dispatch]);
+  useEffect(() => {
+    const run = async () => {
+      setLoading(true);
+      await getDocs(query1)
+        .then((querySnapShot) => {
+          let propertyIds: string[] = [];
+          querySnapShot.forEach((element) => {
+            propertyIds.push(element.id);
+            // dispatch(
+            //   UserDataActions.propertyId({
+            //     propertyIds: propertyIds,
+            //   })
+            // );
+          });
+          console.log(propertyIds);
+          setSubletIds(propertyIds);
+          dispatch(UserDataActions.propertyIds({ propertyIds }));
+          console.log(userData?.propertyIds);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error(error.code);
+        });
+    };
+    run();
+  }, [db]);
 
   return (
     <>
@@ -63,7 +66,7 @@ const Marketplace = () => {
       <div className={styles.home}>
         {loading && <Loader />}
         {loading === false && <Hero_section />}
-        {loading === false && <Explore items={userData?.nftIds} />}
+        {loading === false && <Explore items={subletIds} />}
       </div>
     </>
   );
