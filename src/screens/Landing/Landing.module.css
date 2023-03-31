@@ -265,7 +265,10 @@
   right: -270px;
   top: 60%;
 }
-
+.last_person{
+  right: 150px;
+  top: -10%;
+}
 .card h3 {
   margin-top: 50px;
   font-weight: bold;
@@ -485,6 +488,7 @@ line-height: 24px;
   left: -252px; */
   width: 100%;
   border-radius: 30px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 991px) {
@@ -518,12 +522,12 @@ line-height: 24px;
     line-height: 21px;
   }
 
-  .nftcards {
+  /* .nftcards {
     width: 100%;
     bottom: -33%;
     left: 50%;
     transform: translate(-50%, 0);
-  }
+  } */
 
   .visaImg {
     width: 45px;

@@ -54,14 +54,14 @@ const Landing = () => {
             Find Your Perfect Home in Gainesville
           </p>
           <div className="row">
-            <div className="col-6">
+            <div className="col-lg-6 col-sm-12">
               <img
                 className={styles.nftcards}
                 src="images/housing_landing .jpeg"
                 alt=""
               />
             </div>
-            <div className="col-6">
+            <div className="col-lg-6 col-sm-12">
               <p className={styles.buyNFTdesc}>
                 Finding the perfect home can be a daunting task, but our
                 platform is here to make it easy and efficient for everyone. Our
@@ -134,6 +134,22 @@ const Landing = () => {
               </div>
             </div>
             <div className={clsx(styles.card, styles.membership)}>
+              <div className={styles.cardInside}>
+                <div className={styles.imgDiv}>
+                  <img
+                    className={styles.cardImg}
+                    src="images/shoping.png"
+                    alt=""
+                  />
+                </div>
+                <h3 className={styles.cardTitle}>Memberships</h3>
+                <p>
+                  Buy NFTs from your favorite creators and unlock special perks
+                  curated exclusively!
+                </p>
+              </div>
+            </div>
+            <div className={clsx(styles.card, styles.last_person)}>
               <div className={styles.cardInside}>
                 <div className={styles.imgDiv}>
                   <img
