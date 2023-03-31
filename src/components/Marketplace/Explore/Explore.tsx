@@ -256,8 +256,8 @@ const Explore = ({ items }: explore) => {
           {/* {card_items?.map((x: any, index: any) => (
             <ExploreCard className={styles.card} items={} key={index} />
           ))} */}
-          {navlinks === "Subleasing" &&
-            card_items?.map((x: any, index: any) => (
+          {activeIndex === 1 &&
+            items?.map((x: any, index: any) => (
               <ExploreCard className={styles.card} items={x} key={index} />
             ))}
         </div>

@@ -31,65 +31,65 @@ const ExploreCard = ({ className, items: itemFromProps }: any) => {
     console.log("hey");
   };
 
-  // useEffect(() => {
-  //   console.log(itemFromProps);
-  //   const run = async () => {
-  //     setLoading(true);
-  //     if (itemFromProps) {
-  //       await getDoc(doc(db, "nfts", itemFromProps)).then((docs) => {
-  //         if (docs.exists()) {
-  //           setPrice(docs.data().price);
-  //           setCollectionTag(docs.data().collectionTag);
-  //           setIdToken(docs.data().token);
+  useEffect(() => {
+    console.log(itemFromProps);
+    const run = async () => {
+      setLoading(true);
+      if (itemFromProps) {
+        await getDoc(doc(db, "subletRequest", itemFromProps)).then((docs) => {
+          if (docs.exists()) {
+            setPrice(docs.data().rent);
+            // setCollectionTag(docs.data().collectionTag);
+            setIdToken(docs.data().token);
 
-  //           setVideo(docs.data().video);
-  //           axios
-  //             .get(
-  //               "https://cdn.hyprclub.com/" +
-  //                 docs.data().collectionTag +
-  //                 "/" +
-  //                 docs.data().token
-  //             )
-  //             .then((repns) => {
-  //               setItem(repns.data);
-  //             })
-  //             .catch((error) => {
-  //               console.error(error);
-  //             });
-  //           getDoc(doc(db, "hyprUsers", docs.data().creatorUid))
-  //             .then((document) => {
-  //               if (document.exists()) {
-  //                 setCreatorUsername(document?.data()?.username);
-  //                 const creatorPhotoRef = ref(
-  //                   storage,
-  //                   "users/" + docs.data().creatorUid + "/profile.jpg"
-  //                 );
-  //                 getDownloadURL(ref(creatorPhotoRef))
-  //                   .then((url) => {
-  //                     setCreatorPhoto(url);
-  //                   })
-  //                   .catch((err) => {
-  //                     if (err.code === "storage/object-not-found") {
-  //                       setCreatorPhoto("/images/content/avatar-big.jpg");
-  //                     } else {
-  //                       console.error(err.code);
-  //                     }
-  //                   });
-  //               }
-  //             })
-  //             .catch((err) => {
-  //               console.error(err);
-  //             });
-  //         }
-  //       });
-  //       setLoading(false);
-  //     } else {
-  //       setLoading(false);
-  //       return;
-  //     }
-  //   };
-  //   run();
-  // }, [db, itemFromProps]);
+            // setVideo(docs.data().video);
+            axios
+              .get(
+                "https://cdn.hyprclub.com/" +
+                  docs.data().collectionTag +
+                  "/" +
+                  docs.data().token
+              )
+              .then((repns) => {
+                setItem(repns.data);
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+            getDoc(doc(db, "users", docs.data().tentUid))
+              .then((document) => {
+                if (document.exists()) {
+                  setCreatorUsername(document?.data()?.username);
+                  const creatorPhotoRef = ref(
+                    storage,
+                    "users/" + docs.data().tentUid + "/profile.jpg"
+                  );
+                  getDownloadURL(ref(creatorPhotoRef))
+                    .then((url) => {
+                      setCreatorPhoto(url);
+                    })
+                    .catch((err) => {
+                      if (err.code === "storage/object-not-found") {
+                        setCreatorPhoto("/images/content/avatar-big.jpg");
+                      } else {
+                        console.error(err.code);
+                      }
+                    });
+                }
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          }
+        });
+        setLoading(false);
+      } else {
+        setLoading(false);
+        return;
+      }
+    };
+    run();
+  }, [db, itemFromProps]);
   return (
     <div className={cn(styles.card, className)}>
       {loading && <Loader />}

@@ -95,123 +95,123 @@ const NFTS = ({ Video }: Props) => {
       profile: "/" + creatorData.username,
     },
   ];
-  useEffect(() => {
-    // const idToken = new URLSearchParams(window?.location?.search).get("idToken");
-    const run = async () => {
-      setLoading(true);
-      if (docId) {
-        await getDoc(doc(db, "nfts", docId))
-          .then((QuerySnapshot) => {
-            // console.log("1");
-            if (QuerySnapshot.exists()) {
-              setItemPrice(QuerySnapshot.data().price);
-              setPerksData(QuerySnapshot.data().perks);
-              setPerkState(QuerySnapshot.data().nftPerkState);
-              setContractAddress(QuerySnapshot.data().contractAddress);
-              setForSale(QuerySnapshot.data().forSale);
-              //   let Perk_list: any = [];
-              axios
-                .get(
-                  "https://cdn.hyprclub.com/" +
-                    QuerySnapshot.data().collectionTag +
-                    "/" +
-                    QuerySnapshot.data().token
-                ) // add custom uri settings here.
-                .then((result) => {
-                  if (result) {
-                    setItem(result.data);
-                    if (
-                      result.data.image.split().pop() === "mp4" ||
-                      result.data.animation_url
-                    ) {
-                      setVideo(true);
-                      console.log(true);
-                    } else {
-                      setVideo(false);
-                      console.log(false);
-                    }
-                  } else {
-                    console.log("No Data");
-                  }
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-              getDoc(doc(db, "hyprUsers", QuerySnapshot.data().ownerUid))
-                .then((snapshotOwner) => {
-                  if (snapshotOwner.exists()) {
-                    if (QuerySnapshot.data().ownerUid === userData?.uid) {
-                      setBought(true);
-                    } else {
-                      setBought(false);
-                    }
-                    const storageOwnerRef = ref(
-                      storage,
-                      "users/" + snapshotOwner.id + "/profile.jpg"
-                    );
-                    getDownloadURL(ref(storageOwnerRef))
-                      .then((url) => {
-                        setOwnerImage(url);
-                      })
-                      .catch((err) => {
-                        if (err.code === "storage/object-not-found") {
-                          setOwnerImage("./images/content/avatar-big.jpg");
-                        } else {
-                          console.log(err);
-                          setOwnerImage("./images/content/avatar-big.jpg");
-                        }
-                      });
-                    setOwnerData(snapshotOwner.data());
-                  } else {
-                    return;
-                  }
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
+  // useEffect(() => {
+  //   // const idToken = new URLSearchParams(window?.location?.search).get("idToken");
+  //   const run = async () => {
+  //     setLoading(true);
+  //     if (docId) {
+  //       await getDoc(doc(db, "subletRequest", docId))
+  //         .then((QuerySnapshot) => {
+  //           // console.log("1");
+  //           if (QuerySnapshot.exists()) {
+  //             setItemPrice(QuerySnapshot.data().price);
+  //             setPerksData(QuerySnapshot.data().perks);
+  //             setPerkState(QuerySnapshot.data().nftPerkState);
+  //             setContractAddress(QuerySnapshot.data().contractAddress);
+  //             setForSale(QuerySnapshot.data().forSale);
+  //             //   let Perk_list: any = [];
+  //             // axios
+  //             //   .get(
+  //             //     "https://cdn.hyprclub.com/" +
+  //             //       QuerySnapshot.data().collectionTag +
+  //             //       "/" +
+  //             //       QuerySnapshot.data().token
+  //             //   ) // add custom uri settings here.
+  //             //   .then((result) => {
+  //             //     if (result) {
+  //             //       setItem(result.data);
+  //             //       if (
+  //             //         result.data.image.split().pop() === "mp4" ||
+  //             //         result.data.animation_url
+  //             //       ) {
+  //             //         setVideo(true);
+  //             //         console.log(true);
+  //             //       } else {
+  //             //         setVideo(false);
+  //             //         console.log(false);
+  //             //       }
+  //             //     } else {
+  //             //       console.log("No Data");
+  //             //     }
+  //             //   })
+  //             //   .catch((err) => {
+  //             //     console.log(err);
+  //             //   });
+  //             getDoc(doc(db, "users", QuerySnapshot.data().ownerUid))
+  //               .then((snapshotOwner) => {
+  //                 if (snapshotOwner.exists()) {
+  //                   if (QuerySnapshot.data().ownerUid === userData?.uid) {
+  //                     setBought(true);
+  //                   } else {
+  //                     setBought(false);
+  //                   }
+  //                   const storageOwnerRef = ref(
+  //                     storage,
+  //                     "users/" + snapshotOwner.id + "/profile.jpg"
+  //                   );
+  //                   getDownloadURL(ref(storageOwnerRef))
+  //                     .then((url) => {
+  //                       setOwnerImage(url);
+  //                     })
+  //                     .catch((err) => {
+  //                       if (err.code === "storage/object-not-found") {
+  //                         setOwnerImage("./images/content/avatar-big.jpg");
+  //                       } else {
+  //                         console.log(err);
+  //                         setOwnerImage("./images/content/avatar-big.jpg");
+  //                       }
+  //                     });
+  //                   setOwnerData(snapshotOwner.data());
+  //                 } else {
+  //                   return;
+  //                 }
+  //               })
+  //               .catch((err) => {
+  //                 console.log(err);
+  //               });
 
-              getDoc(doc(db, "hyprUsers", QuerySnapshot.data().creatorUid))
-                .then((snapshotCreator) => {
-                  if (snapshotCreator.exists()) {
-                    setCreatorData(snapshotCreator.data());
-                    console.log("Creator : " + snapshotCreator.data());
-                    const storageCreatorRef = ref(
-                      storage,
-                      "users/" + snapshotCreator.id + "/profile.jpg"
-                    );
-                    getDownloadURL(ref(storageCreatorRef))
-                      .then((url) => {
-                        setCreatorImage(url);
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                        if (err.code === "storage/object-not-found") {
-                          setCreatorImage("./images/content/avatar-big.jpg");
-                        } else {
-                          console.log(err);
-                          setCreatorImage("./images/content/avatar-big.jpg");
-                        }
-                      });
-                  }
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-            } else {
-              console.log("No snapshot");
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        setLoading(false);
-      } else {
-        return;
-        setLoading(false);
-      }
-    };
-    run();
-  }, [docId, db, storage]);
+  //             getDoc(doc(db, "users", QuerySnapshot.data().creatorUid))
+  //               .then((snapshotCreator) => {
+  //                 if (snapshotCreator.exists()) {
+  //                   setCreatorData(snapshotCreator.data());
+  //                   console.log("Creator : " + snapshotCreator.data());
+  //                   const storageCreatorRef = ref(
+  //                     storage,
+  //                     "users/" + snapshotCreator.id + "/profile.jpg"
+  //                   );
+  //                   getDownloadURL(ref(storageCreatorRef))
+  //                     .then((url) => {
+  //                       setCreatorImage(url);
+  //                     })
+  //                     .catch((err) => {
+  //                       console.log(err);
+  //                       if (err.code === "storage/object-not-found") {
+  //                         setCreatorImage("./images/content/avatar-big.jpg");
+  //                       } else {
+  //                         console.log(err);
+  //                         setCreatorImage("./images/content/avatar-big.jpg");
+  //                       }
+  //                     });
+  //                 }
+  //               })
+  //               .catch((err) => {
+  //                 console.log(err);
+  //               });
+  //           } else {
+  //             console.log("No snapshot");
+  //           }
+  //         })
+  //         .catch((err) => {
+  //           console.log(err);
+  //         });
+  //       setLoading(false);
+  //     } else {
+  //       return;
+  //       setLoading(false);
+  //     }
+  //   };
+  //   run();
+  // }, [docId, db, storage]);
 
   const handleStarred = async () => {
     console.log("Hello");
@@ -308,7 +308,7 @@ const NFTS = ({ Video }: Props) => {
                   {video ? (
                     <video
                       id={styles.video}
-                      src={item.animation_url || item.image}
+                      src={"item.animation_url || item.image"}
                       loop
                       autoPlay
                       controls
@@ -317,21 +317,21 @@ const NFTS = ({ Video }: Props) => {
                   ) : (
                     <img id={styles.img} src={item.image} alt="NFT" />
                   )}
-                  <Option
+                  {/* <Option
                     onClick={handleStarred}
                     className={styles.options}
                     isSaved={userData?.savedNfts.includes(docId)}
-                  />
+                  /> */}
                 </div>
               </div>
 
               <div className={styles.details}>
-                <h1 className={styles.title}>{item.name}</h1>
+                <h1 className={styles.title}>{"item.name"}</h1>
                 <div className={styles.cost}>
                   <GradBorder
                     className={styles.price}
                     disable={true}
-                    text={`INR ${itemPrice}`}
+                    text={"USD 200"}
                   />
                 </div>
 
@@ -345,12 +345,12 @@ const NFTS = ({ Video }: Props) => {
 
                 <div className={styles.Description_Perks}>
                   <h3 className={styles.subHeading}>Description</h3>
-                  {item.description}
+                  {"item.description"}
                 </div>
 
                 <div className={styles.Description_Perks}>
                   <h3 className={styles.subHeading}>Perks</h3>
-                  <Perks
+                  {/* <Perks
                     item={perks}
                     Bought={bought}
                     nftDet={docId}
@@ -359,7 +359,7 @@ const NFTS = ({ Video }: Props) => {
                     perkState={perkState}
                     nftDetail={item}
                     ownerPht={ownerImage}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
