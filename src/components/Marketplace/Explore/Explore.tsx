@@ -10,7 +10,7 @@ import Explore_Card1 from "./ExploreCard/Explore_Card1";
 import Items_1 from "../../../Items_house.json";
 const dateOptions = ["Recently added", "Long Added"];
 const navLinks = ["All", "Subleasing"];
-const priceOptions = ["1", "2", "3", "4", "5"];
+const priceOptions = ["5", "4", "3", "2", "1"];
 const likesOptions = ["5", "4", "3", "2", "1"];
 const creatorOptions = ["High Rating", "All", "Most liked"];
 
@@ -262,11 +262,11 @@ const Explore = ({ items }: explore) => {
               <ExploreCard className={styles.card} items={x} key={index} />
             ))}
           {activeIndex === 0 &&
-            Items_1?.filter(
-              (x) => Number(x.security_rating) <= Number(likes)
-            ).map((x: any, index: any) => (
-              <Explore_Card1 className={styles.card} items={x} key={index} />
-            ))}
+            Items_1?.filter((x) => Number(x.security_rating) <= Number(likes))
+              .filter((x) => Number(x.customer_rating) <= Number(price))
+              .map((x: any, index: any) => (
+                <Explore_Card1 className={styles.card} items={x} key={index} />
+              ))}
         </div>
       </div>
     </div>
