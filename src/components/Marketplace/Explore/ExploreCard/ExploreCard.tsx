@@ -67,7 +67,7 @@ const ExploreCard = ({ className, items: itemFromProps }: any) => {
       {loading === false && (
         <Link
           className={styles.link}
-          to={`/property/${itemFromProps.requestId}`}
+          to={`/property/${itemFromProps.requestId}/sublet`}
         >
           <div className={styles.body}>
             <div className={styles.line}>

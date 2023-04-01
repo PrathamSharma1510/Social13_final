@@ -18,72 +18,72 @@ interface explore {
   items: any;
 }
 
-const card_items = [
-  {
-    title: "Amazing digital art",
-    price: "INR 10,753",
-    image: "images/nftImg.png",
-    creatorImg: "images/pfx.png",
-    creatorUsername: "chootalks",
-    url: "/",
-  },
-  {
-    title: "Amazing digital art",
-    price: "INR 10,753",
-    image: "images/nftImg.png",
-    creatorImg: "images/pfx.png",
-    creatorUsername: "chootalks",
-    url: "/",
-  },
-  {
-    title: "Amazing digital art",
-    price: "INR 10,753",
-    image: "images/nftImg.png",
-    creatorImg: "images/pfx.png",
-    creatorUsername: "chootalks",
-    url: "/",
-  },
-  {
-    title: "Amazing digital art",
-    price: "INR 10,753",
-    image: "images/nftImg.png",
-    creatorImg: "images/pfx.png",
-    creatorUsername: "chootalks",
-    url: "/",
-  },
-  {
-    title: "Amazing digital art",
-    price: "INR 10,753",
-    image: "images/nftImg.png",
-    creatorImg: "images/pfx.png",
-    creatorUsername: "chootalks",
-    url: "/",
-  },
-  {
-    title: "Amazing digital art",
-    price: "INR 10,753",
-    image: "images/nftImg.png",
-    creatorImg: "images/pfx.png",
-    creatorUsername: "chootalks",
-    url: "/",
-  },
-  {
-    title: "Amazing digital art",
-    price: "INR 10,753",
-    image: "images/nftImg.png",
-    creatorImg: "images/pfx.png",
-    creatorUsername: "chootalks",
-    url: "/",
-  },
-  {
-    title: "Amazing digital art",
-    price: "INR 10,753",
-    image: "images/nftImg.png",
-    creatorImg: "images/pfx.png",
-    creatorUsername: "chootalks",
-    url: "/",
-  },
-];
+// const card_items = [
+//   {
+//     title: "Amazing digital art",
+//     price: "INR 10,753",
+//     image: "images/nftImg.png",
+//     creatorImg: "images/pfx.png",
+//     creatorUsername: "chootalks",
+//     url: "/",
+//   },
+//   {
+//     title: "Amazing digital art",
+//     price: "INR 10,753",
+//     image: "images/nftImg.png",
+//     creatorImg: "images/pfx.png",
+//     creatorUsername: "chootalks",
+//     url: "/",
+//   },
+//   {
+//     title: "Amazing digital art",
+//     price: "INR 10,753",
+//     image: "images/nftImg.png",
+//     creatorImg: "images/pfx.png",
+//     creatorUsername: "chootalks",
+//     url: "/",
+//   },
+//   {
+//     title: "Amazing digital art",
+//     price: "INR 10,753",
+//     image: "images/nftImg.png",
+//     creatorImg: "images/pfx.png",
+//     creatorUsername: "chootalks",
+//     url: "/",
+//   },
+//   {
+//     title: "Amazing digital art",
+//     price: "INR 10,753",
+//     image: "images/nftImg.png",
+//     creatorImg: "images/pfx.png",
+//     creatorUsername: "chootalks",
+//     url: "/",
+//   },
+//   {
+//     title: "Amazing digital art",
+//     price: "INR 10,753",
+//     image: "images/nftImg.png",
+//     creatorImg: "images/pfx.png",
+//     creatorUsername: "chootalks",
+//     url: "/",
+//   },
+//   {
+//     title: "Amazing digital art",
+//     price: "INR 10,753",
+//     image: "images/nftImg.png",
+//     creatorImg: "images/pfx.png",
+//     creatorUsername: "chootalks",
+//     url: "/",
+//   },
+//   {
+//     title: "Amazing digital art",
+//     price: "INR 10,753",
+//     image: "images/nftImg.png",
+//     creatorImg: "images/pfx.png",
+//     creatorUsername: "chootalks",
+//     url: "/",
+//   },
+// ];
 
 const Explore = ({ items }: explore) => {
   const [date, setDate] = useState(dateOptions[0]);

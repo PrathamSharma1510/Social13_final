@@ -39,6 +39,7 @@ import Loader from "../../components/Loader/Loader";
 import { paymentDetailsSchema } from "../../razorpay/payment.saveData";
 import SuccPopup from "../../components/popups/SuccPopup";
 import ErrPopup from "../../components/popups/ErrPopup";
+import Items_1 from "../../Items_house.json";
 interface Props {
   Video?: boolean;
 }
@@ -47,7 +48,7 @@ const NFTS = ({ Video }: Props) => {
   let navigate = useNavigate();
   const [video, setVideo] = useState(false);
   const [property, setProperty] = useState<any>({});
-  const { docId } = useParams();
+  const { docId, sublet } = useParams();
   const db = getFirestore(firebaseApp);
   const storage = getStorage(firebaseApp);
   const { loggedIn, uid } = useSelector(
@@ -100,9 +101,10 @@ const NFTS = ({ Video }: Props) => {
   ];
   useEffect(() => {
     // const idToken = new URLSearchParams(window?.location?.search).get("idToken");
+
     const run = async () => {
       setLoading(true);
-      if (docId) {
+      if (docId && sublet === "sublet") {
         await getDoc(doc(db, "subletRequest", docId))
           .then((QuerySnapshot) => {
             // console.log("1");
@@ -147,13 +149,18 @@ const NFTS = ({ Video }: Props) => {
             console.log(err);
           });
         setLoading(false);
-      } else {
-        return;
+      } else if (sublet !== "sublet" && docId) {
+        Items_1.filter((elem) => {
+          if (elem.id === parseInt(docId)) {
+            setProperty(elem);
+            setLoading(false);
+          }
+        });
       }
     };
     run();
   }, [docId, db, storage]);
-
+  // console.log(property);
   const handleStarred = async () => {
     console.log("Hello");
     if (loggedIn && uid && docId) {
@@ -256,7 +263,11 @@ const NFTS = ({ Video }: Props) => {
                       controlsList="nodownload"
                     />
                   ) : (
-                    <img id={styles.img} src={property.propertyImg} alt="NFT" />
+                    <img
+                      id={styles.img}
+                      src={property.propertyImg ?? property.imag_url}
+                      alt="NFT"
+                    />
                   )}
                   {/* <Option
                     onClick={handleStarred}
@@ -267,12 +278,14 @@ const NFTS = ({ Video }: Props) => {
               </div>
 
               <div className={styles.details}>
-                <h1 className={styles.title}>{property.propertyName}</h1>
+                <h1 className={styles.title}>
+                  {property.propertyName ?? property.name}
+                </h1>
                 <div className={styles.cost}>
                   <GradBorder
                     className={styles.price}
                     disable={true}
-                    text={` Room Rent $${property.rent}`}
+                    text={` Room Rent $${property.rent ?? property.rent}`}
                   />
                   <GradBorder
                     className={styles.price}
@@ -286,7 +299,9 @@ const NFTS = ({ Video }: Props) => {
                   {property.description}
                   <br />
                   <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${property?.location?._lat},${property?.location?._long}`}
+                    href={`https://www.google.com/maps/search/?api=1&query=${
+                      property?.location?._lat ?? property?.location?.lat
+                    },${property?.location?._long ?? property?.location?.lng}`}
                     target="_blank"
                   >
                     Address: {property.propertyAddress}

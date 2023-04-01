@@ -9,6 +9,7 @@ import { firebaseApp } from "../../../../firebaseConfig";
 import { getStorage, getDownloadURL, ref } from "firebase/storage";
 import { useNavigate } from "react-router";
 import Loader from "../../../Loader/Loader";
+import Items_1 from "../../../../Items_house.json";
 
 const Explore_Card1 = ({ className, items: itemFromProps }: any) => {
   const [item, setItem] = useState<null | any>({});
@@ -23,13 +24,15 @@ const Explore_Card1 = ({ className, items: itemFromProps }: any) => {
   const [collectionTag, setCollectionTag] = useState("");
   const [idToken, setIdToken] = useState("");
 
+  // console.log(itemFromProps);
+
   return (
     <div className={cn(styles.card, className)}>
       {loading && <Loader />}
       {loading === false && (
         <Link
           className={styles.link}
-          to={`/property/${itemFromProps.requestId}`}
+          to={`/property/${itemFromProps.id}/listing`}
         >
           <div className={styles.body}>
             <div className={styles.line}>
