@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "name": "The Ridge",
+    "description": "A modern apartment complex with spacious living spaces and a rooftop pool.",
+    "location": {
+      "lat": 29.636611,
+      "lng": -82.385114
+    },
+    "rooms": [
+      {
+        "type": "bedroom",
+        "size": "3x3"
+      },
+      {
+        "type": "living room",
+        "size": "5x5"
+      }
+    ],
+    "washrooms": 1,
+    "amenities": ["gym", "swimming pool", "parking"],
+    "customer_rating": 4.0,
+    "security_rating": 4.5,
+    "rent": 800,
+    "imag_url": "https://www.swamprentals.com/uploads/images/The%20Ridge%20Gainesville%205.jpeg",
+    "url": "https://www.theridgefl.com"
+  },
+  {
+    "id": 2,
+    "name": "Alight Gainesville",
+    "description": "Stylish apartments with a well-equipped gym and a vibrant community atmosphere.",
+    "location": {
+      "lat": 29.6578,
+      "lng": -82.3383
+    },
+    "rooms": [
+      {
+        "type": "bedroom",
+        "size": "3x3"
+      },
+      {
+        "type": "kitchen",
+        "size": "4x3"
+      }
+    ],
+    "washrooms": 1,
+    "amenities": ["gym", "clubhouse", "parking"],
+    "customer_rating": 4.0,
+    "security_rating": 4.0,
+    "rent": 750,
+    "imag_url": "https://larkgainesville.com/wp-content/uploads/sites/17/2020/09/TNG_N38.jpg",
+    "url": "https://alight-gainesville.com"
+  },
+  {
+    "id": 3,
+    "name": "University Club Apartments",
+    "description": "Conveniently located near the university, these apartments offer an affordable and comfortable living experience.",
+    "location": {
+      "lat": 29.636344,
+      "lng": -82.361255
+    },
+    "rooms": [
+      {
+        "type": "bedroom",
+        "size": "3x3"
+      },
+      {
+        "type": "living room",
+        "size": "5x5"
+      },
+      {
+        "type": "kitchen",
+        "size": "4x3"
+      }
+    ],
+    "washrooms": 1,
+    "amenities": ["laundry", "parking"],
+    "customer_rating": 4.0,
+    "security_rating": 4.0,
+    "rent": 450,
+    "imag_url": "https://ratemyapartments.s3.amazonaws.com/files/61/70/61700601d95f790f7a5430c632_original.jpg",
+    "url": "https://www.americancampus.com/student-apartments/fl/gainesville/university-club-apartments"
+  },
+  {
+    "id": 4,
+    "name": "Social 28",
+    "description": "Luxurious apartments with premium amenities and a lively social scene.",
+    "location": {
+      "lat": 29.648981,
+      "lng": -82.328169
+    },
+    "rooms": [
+      {
+        "type": "bedroom",
+        "size": "3x3"
+      },
+      {
+        "type": "living room",
+        "size": "6x4"
+      }
+    ],
+    "washrooms": 1,
+    "amenities": ["gym", "swimming pool", "clubhouse", "parking"],
+    "customer_rating": 4.5,
+    "security_rating": 4.5,
+    "rent": 900,
+    "imag_url": "https://rentpath-res.cloudinary.com/$img_current/t_3x2_jpg_xl/t_unpaid/6a2ded47c70cddf81299c81454249ffc",
+    "url": "https://www.liveatsocial28.com"
+  },
+  {
+    "id": 5,
+    "name": "Royal Gainesville",
+    "description": "Elegant apartments featuring beautiful interiors and a serene courtyard.",
+    "location": {
+      "lat": 29.647769,
+      "lng": -82.331044
+    },
+    "rooms": [
+      {
+        "type": "bedroom",
+        "size": "3x3"
+      },
+      {
+        "type": "living room",
+        "size": "5x5"
+      },
+      {
+        "type": "kitchen",
+        "size": "4x3"
+      }
+    ],
+    "washrooms": 1,
+    "amenities": ["gym", "parking", "laundry"],
+    "customer_rating": 4.0,
+    "security_rating": 4.0,
+    "rent": 650,
+    "imag_url": "https://gatorrentals.com/wp-content/uploads/2017/03/original.0-17.jpeg",
+    "url": "https://www.americancampus.com/student-apartments/fl/gainesville/royal-village"
+  },
+  {
+    "id": 6,
+    "name": "Lark Gainesville",
+    "description": "Pet-friendly apartments with modern design and a cozy community vibe.",
+    "location": {
+      "lat": 29.650021,
+      "lng": -82.341122
+    },
+    "rooms": [
+      {
+        "type": "bedroom",
+        "size": "3x3"
+      },
+      {
+        "type": "living room",
+        "size": "5x4"
+      },
+      {
+        "type": "kitchen",
+        "size": "4x3"
+      }
+    ],
+    "washrooms": 1,
+    "amenities": ["pet-friendly", "parking", "laundry"],
+    "customer_rating": 4.5,
+    "security_rating": 4.0,
+    "rent": 700,
+    "imag_url": "https://larkgainesville.com/wp-content/uploads/sites/17/2020/09/TNG_N3.jpg",
+    "url": "https://larkgainesville.com"
+  },
+  {
+    "id": 7,
+    "name": "The Standard",
+    "description": "Upscale apartments with top-notch facilities and a prime location near shopping and dining.",
+    "location": {
+      "lat": 29.644097,
+      "lng": -82.341101
+    },
+    "rooms": [
+      {
+        "type": "bedroom",
+        "size": "3x3"
+      },
+      {
+        "type": "living room",
+        "size": "5x5"
+      }
+    ],
+    "washrooms": 1,
+    "amenities": ["gym", "swimming pool", "parking", "clubhouse"],
+    "customer_rating": 4.5,
+    "security_rating": 4.5,
+    "rent": 850,
+    "imag_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcZOyATEADDFz_-2ZY8Sxa0kcef1kZ7L-flzuezlZQ&s",
+    "url": "https://thestandardgainesville.landmark-properties.com"
+  },
+  {
+    "id": 8,
+    "name": "Lexington Crossing",
+    "description": "Well-maintained apartments offering a relaxing environment and easy access to public transportation.",
+    "location": {
+      "lat": 29.639414,
+      "lng": -82.368559
+    },
+    "rooms": [
+      {
+        "type": "bedroom",
+        "size": "3x3"
+      },
+      {
+        "type": "kitchen",
+        "size": "4x3"
+      },
+      {
+        "type": "living room",
+        "size": "4x4"
+      }
+    ],
+    "washrooms": 1,
+    "amenities": ["laundry", "parking", "public transportation access"],
+    "customer_rating": 3.5,
+    "security_rating": 3.5,
+    "rent": 500,
+    "imag_url": "https://medialibrarycf.entrata.com/10357/MLv3/3/27/2022/2/22/801/5d262fcbbc1f34.69155553350.jpg",
+    "url": "https://www.lexingtoncrossingapts.com"
+  }
+]

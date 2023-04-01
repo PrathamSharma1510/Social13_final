@@ -6,7 +6,8 @@ import styles from "./Explore.module.css";
 import GradBorder from "../../NFTs/GradBorder/GradBorder";
 import Dropdown from "../../Dropdown/Dropdown";
 import ExploreCard from "./ExploreCard/ExploreCard";
-
+import Explore_Card1 from "./ExploreCard/Explore_Card1";
+import Items_1 from "../../../Items_house.json";
 const dateOptions = ["Recently added", "Long Added"];
 const navLinks = ["All", "Subleasing"];
 const priceOptions = ["All", "1+", "2+", "3+", "4+", "5"];
@@ -259,6 +260,10 @@ const Explore = ({ items }: explore) => {
           {activeIndex === 1 &&
             items?.map((x: any, index: any) => (
               <ExploreCard className={styles.card} items={x} key={index} />
+            ))}
+          {activeIndex === 0 &&
+            Items_1?.map((x: any, index: any) => (
+              <Explore_Card1 className={styles.card} items={x} key={index} />
             ))}
         </div>
       </div>
