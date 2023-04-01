@@ -93,7 +93,7 @@ const Explore = ({ items }: explore) => {
   const [price, setPrice] = useState(priceOptions[0]);
   const [likes, setLikes] = useState(likesOptions[0]);
   const [creator, setCreator] = useState(creatorOptions[0]);
-  const [values, setValues] = useState([5]);
+  const [values, setValues] = useState([2000]);
   const STEP = 50;
   const MIN = 0.1;
   const MAX = 2000;
@@ -264,6 +264,7 @@ const Explore = ({ items }: explore) => {
           {activeIndex === 0 &&
             Items_1?.filter((x) => Number(x.security_rating) <= Number(likes))
               .filter((x) => Number(x.customer_rating) <= Number(price))
+              .filter((x) => Number(x.rent) <= Number(values))
               .map((x: any, index: any) => (
                 <Explore_Card1 className={styles.card} items={x} key={index} />
               ))}
