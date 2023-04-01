@@ -46,7 +46,7 @@
     "washrooms": 1,
     "amenities": ["gym", "clubhouse", "parking"],
     "customer_rating": 4.0,
-    "security_rating": 4.0,
+    "security_rating": 3.0,
     "rent": 750,
     "imag_url": "https://larkgainesville.com/wp-content/uploads/sites/17/2020/09/TNG_N38.jpg",
     "url": "https://alight-gainesville.com"
@@ -132,7 +132,7 @@
     "washrooms": 1,
     "amenities": ["gym", "parking", "laundry"],
     "customer_rating": 4.0,
-    "security_rating": 4.0,
+    "security_rating": 2.0,
     "rent": 650,
     "imag_url": "https://gatorrentals.com/wp-content/uploads/2017/03/original.0-17.jpeg",
     "url": "https://www.americancampus.com/student-apartments/fl/gainesville/royal-village"
