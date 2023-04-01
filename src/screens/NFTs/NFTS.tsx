@@ -5,6 +5,7 @@ import cn from "classnames";
 import Header_login from "../../components/header/header_after_login/Header_login";
 import { ArrowLeft } from "phosphor-react";
 import { Link } from "react-router-dom";
+import GoogleMapReact from "google-map-react";
 // import { Avatar } from "@mui/material";
 // import { style } from "@mui/system";
 
@@ -45,6 +46,7 @@ interface Props {
 const NFTS = ({ Video }: Props) => {
   let navigate = useNavigate();
   const [video, setVideo] = useState(false);
+  const [property, setProperty] = useState<any>({});
   const { docId } = useParams();
   const db = getFirestore(firebaseApp);
   const storage = getStorage(firebaseApp);
@@ -81,137 +83,76 @@ const NFTS = ({ Video }: Props) => {
     setSuccess(false);
   };
 
+  const defaultProps = {
+    center: {
+      lat: 10.99835602,
+      lng: 77.01502627,
+    },
+    zoom: 11,
+  };
   const users = [
     {
-      name: ownerData.name,
-      position: "Owner",
-      avatar: ownerImage || "../../images/logo-dark.jpg",
-      profile: "/" + ownerData.username,
-    },
-    {
       name: creatorData.name,
-      position: "Creator",
+      position: "Tent",
       avatar: creatorImage || "../../images/logo-dark.jpg",
       profile: "/" + creatorData.username,
     },
   ];
-  // useEffect(() => {
-  //   // const idToken = new URLSearchParams(window?.location?.search).get("idToken");
-  //   const run = async () => {
-  //     setLoading(true);
-  //     if (docId) {
-  //       await getDoc(doc(db, "subletRequest", docId))
-  //         .then((QuerySnapshot) => {
-  //           // console.log("1");
-  //           if (QuerySnapshot.exists()) {
-  //             setItemPrice(QuerySnapshot.data().price);
-  //             setPerksData(QuerySnapshot.data().perks);
-  //             setPerkState(QuerySnapshot.data().nftPerkState);
-  //             setContractAddress(QuerySnapshot.data().contractAddress);
-  //             setForSale(QuerySnapshot.data().forSale);
-  //             //   let Perk_list: any = [];
-  //             // axios
-  //             //   .get(
-  //             //     "https://cdn.hyprclub.com/" +
-  //             //       QuerySnapshot.data().collectionTag +
-  //             //       "/" +
-  //             //       QuerySnapshot.data().token
-  //             //   ) // add custom uri settings here.
-  //             //   .then((result) => {
-  //             //     if (result) {
-  //             //       setItem(result.data);
-  //             //       if (
-  //             //         result.data.image.split().pop() === "mp4" ||
-  //             //         result.data.animation_url
-  //             //       ) {
-  //             //         setVideo(true);
-  //             //         console.log(true);
-  //             //       } else {
-  //             //         setVideo(false);
-  //             //         console.log(false);
-  //             //       }
-  //             //     } else {
-  //             //       console.log("No Data");
-  //             //     }
-  //             //   })
-  //             //   .catch((err) => {
-  //             //     console.log(err);
-  //             //   });
-  //             getDoc(doc(db, "users", QuerySnapshot.data().ownerUid))
-  //               .then((snapshotOwner) => {
-  //                 if (snapshotOwner.exists()) {
-  //                   if (QuerySnapshot.data().ownerUid === userData?.uid) {
-  //                     setBought(true);
-  //                   } else {
-  //                     setBought(false);
-  //                   }
-  //                   const storageOwnerRef = ref(
-  //                     storage,
-  //                     "users/" + snapshotOwner.id + "/profile.jpg"
-  //                   );
-  //                   getDownloadURL(ref(storageOwnerRef))
-  //                     .then((url) => {
-  //                       setOwnerImage(url);
-  //                     })
-  //                     .catch((err) => {
-  //                       if (err.code === "storage/object-not-found") {
-  //                         setOwnerImage("./images/content/avatar-big.jpg");
-  //                       } else {
-  //                         console.log(err);
-  //                         setOwnerImage("./images/content/avatar-big.jpg");
-  //                       }
-  //                     });
-  //                   setOwnerData(snapshotOwner.data());
-  //                 } else {
-  //                   return;
-  //                 }
-  //               })
-  //               .catch((err) => {
-  //                 console.log(err);
-  //               });
+  useEffect(() => {
+    // const idToken = new URLSearchParams(window?.location?.search).get("idToken");
+    const run = async () => {
+      setLoading(true);
+      if (docId) {
+        await getDoc(doc(db, "subletRequest", docId))
+          .then((QuerySnapshot) => {
+            // console.log("1");
+            if (QuerySnapshot.exists()) {
+              setProperty(QuerySnapshot.data());
+              QuerySnapshot.data()?.communityAmenities?.map((elem: string) => {
+                console.log(elem);
+              });
 
-  //             getDoc(doc(db, "users", QuerySnapshot.data().creatorUid))
-  //               .then((snapshotCreator) => {
-  //                 if (snapshotCreator.exists()) {
-  //                   setCreatorData(snapshotCreator.data());
-  //                   console.log("Creator : " + snapshotCreator.data());
-  //                   const storageCreatorRef = ref(
-  //                     storage,
-  //                     "users/" + snapshotCreator.id + "/profile.jpg"
-  //                   );
-  //                   getDownloadURL(ref(storageCreatorRef))
-  //                     .then((url) => {
-  //                       setCreatorImage(url);
-  //                     })
-  //                     .catch((err) => {
-  //                       console.log(err);
-  //                       if (err.code === "storage/object-not-found") {
-  //                         setCreatorImage("./images/content/avatar-big.jpg");
-  //                       } else {
-  //                         console.log(err);
-  //                         setCreatorImage("./images/content/avatar-big.jpg");
-  //                       }
-  //                     });
-  //                 }
-  //               })
-  //               .catch((err) => {
-  //                 console.log(err);
-  //               });
-  //           } else {
-  //             console.log("No snapshot");
-  //           }
-  //         })
-  //         .catch((err) => {
-  //           console.log(err);
-  //         });
-  //       setLoading(false);
-  //     } else {
-  //       return;
-  //       setLoading(false);
-  //     }
-  //   };
-  //   run();
-  // }, [docId, db, storage]);
+              getDoc(doc(db, "users", QuerySnapshot.data().tentUid))
+                .then((tent) => {
+                  if (tent.exists()) {
+                    setCreatorData(tent.data());
+                    console.log("Creator : " + tent.data());
+                    const userRef = ref(
+                      storage,
+                      "users/" + tent.id + "/profile.jpg"
+                    );
+                    getDownloadURL(ref(userRef))
+                      .then((url) => {
+                        setCreatorImage(url);
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                        if (err.code === "storage/object-not-found") {
+                          setCreatorImage("./images/content/avatar-big.jpg");
+                        } else {
+                          console.log(err);
+                          setCreatorImage("./images/content/avatar-big.jpg");
+                        }
+                      });
+                  }
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            } else {
+              console.log("No snapshot");
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        setLoading(false);
+      } else {
+        return;
+      }
+    };
+    run();
+  }, [docId, db, storage]);
 
   const handleStarred = async () => {
     console.log("Hello");
@@ -244,7 +185,7 @@ const NFTS = ({ Video }: Props) => {
       console.log("Please Login To continue");
     }
   };
-
+  const AnyReactComponent = (text: any) => <div>{text}</div>;
   // const handlePayment = async () => {
   //   if (loggedIn && uid) {
   //     try {
@@ -315,7 +256,7 @@ const NFTS = ({ Video }: Props) => {
                       controlsList="nodownload"
                     />
                   ) : (
-                    <img id={styles.img} src={item.image} alt="NFT" />
+                    <img id={styles.img} src={property.propertyImg} alt="NFT" />
                   )}
                   {/* <Option
                     onClick={handleStarred}
@@ -326,47 +267,68 @@ const NFTS = ({ Video }: Props) => {
               </div>
 
               <div className={styles.details}>
-                <h1 className={styles.title}>{"item.name"}</h1>
+                <h1 className={styles.title}>{property.propertyName}</h1>
                 <div className={styles.cost}>
                   <GradBorder
                     className={styles.price}
                     disable={true}
-                    text={"USD 200"}
+                    text={` Room Rent $${property.rent}`}
+                  />
+                  <GradBorder
+                    className={styles.price}
+                    disable={true}
+                    text={` Utility Cost $${property.utilityCost}`}
                   />
                 </div>
-
-                {/* {forSale && (
-                  <GradBorder
-                    text="Buy Now"
-                    className={styles.buy}
-                    onClick={handlePayment}
-                  />
-                )} */}
 
                 <div className={styles.Description_Perks}>
                   <h3 className={styles.subHeading}>Description</h3>
-                  {"item.description"}
+                  {property.description}
+                  <br />
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${property?.location?._lat},${property?.location?._long}`}
+                    target="_blank"
+                  >
+                    Address: {property.propertyAddress}
+                  </a>
                 </div>
 
                 <div className={styles.Description_Perks}>
-                  <h3 className={styles.subHeading}>Perks</h3>
-                  {/* <Perks
-                    item={perks}
-                    Bought={bought}
-                    nftDet={docId}
-                    ownerDet={ownerData}
-                    creatorDet={creatorData}
-                    perkState={perkState}
-                    nftDetail={item}
-                    ownerPht={ownerImage}
-                  /> */}
+                  <h3 className={styles.subHeading}>Community Amenities</h3>
+                  {property?.communityAmenities?.map(
+                    (elem: string, index: number) => (
+                      <h5 key={index}>{elem}</h5>
+                    )
+                  )}
                 </div>
+                <div className={styles.Description_Perks}>
+                  <h3 className={styles.subHeading}>Apartment Amenities</h3>
+                  {property?.roomAmenities?.map(
+                    (elem: string, index: number) => (
+                      <h5 key={index}>{elem}</h5>
+                    )
+                  )}
+                </div>
+                {/* <div className={styles.Description_Perks}>
+                  <h3 className={styles.subHeading}>Location</h3>
+                  <GoogleMapReact
+                    bootstrapURLKeys={{ key: "" }}
+                    defaultCenter={defaultProps.center}
+                    defaultZoom={defaultProps.zoom}
+                  >
+                    <AnyReactComponent
+                      lat={59.955413}
+                      lng={30.337844}
+                      text="My Marker"
+                    />
+                  </GoogleMapReact>
+                </div> */}
               </div>
             </div>
           </div>
           <div className={styles.bottom}>
             <div className={styles.Bottom_part}>
-              <h4 className={styles.bottomHeading}>Owners</h4>
+              <h4 className={styles.bottomHeading}>Current Tent</h4>
               <Users className={styles.users} items={users} />
             </div>
             <div className={styles.Bottom_part1}>

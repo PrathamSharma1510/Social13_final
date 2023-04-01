@@ -45,35 +45,35 @@ const Nft = ({ star, profile, user, owned, created }: any) => {
 
   // get created nft
 
-  useEffect(() => {
-    const run = async () => {
-      if (user?.uid) {
-        await getDocs(
-          query(collection(db, "nfts"), where("creatorUid", "==", user.uid))
-        )
-          .then((querySnapShot) => {
-            let nftIds: string[] = [];
-            if (querySnapShot) {
-              querySnapShot.forEach((element) => {
-                if (element) {
-                  nftIds.push(element.id);
-                  console.log(nftIds);
-                } else {
-                }
-              });
-            } else {
-            }
+  // useEffect(() => {
+  //   const run = async () => {
+  //     if (user?.uid) {
+  //       await getDocs(
+  //         query(collection(db, "nfts"), where("creatorUid", "==", user.uid))
+  //       )
+  //         .then((querySnapShot) => {
+  //           let nftIds: string[] = [];
+  //           if (querySnapShot) {
+  //             querySnapShot.forEach((element) => {
+  //               if (element) {
+  //                 nftIds.push(element.id);
+  //                 console.log(nftIds);
+  //               } else {
+  //               }
+  //             });
+  //           } else {
+  //           }
 
-            setCreatedNft(nftIds);
-          })
-          .catch((error) => {
-            console.error(error.code);
-          });
-      } else {
-      }
-    };
-    run();
-  }, [db]);
+  //           setCreatedNft(nftIds);
+  //         })
+  //         .catch((error) => {
+  //           console.error(error.code);
+  //         });
+  //     } else {
+  //     }
+  //   };
+  //   run();
+  // }, [db]);
 
   return (
     <div className={styles.Nft}>

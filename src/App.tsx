@@ -110,36 +110,36 @@ function App() {
     run();
   }, [dispatch, loggedIn, uid, db, userData]);
 
-  //fetch user profile photo from
-  // useEffect(() => {
-  //   const run = async () => {
-  //     if (loggedIn && uid) {
-  //       const storagePFref = ref(storage, "users/" + uid + "/profile.jpg");
-  //       await getDownloadURL(ref(storagePFref))
-  //         .then((url) => {
-  //           dispatch(UserDataActions.updateUserDp({ profilePhotoUrl: url }));
-  //         })
-  //         .catch((err) => {
-  //           if (err.code === "storage/object-not-found") {
-  //             dispatch(
-  //               UserDataActions.updateUserDp({
-  //                 profilePhotoUrl: "/images/content/avatar-big.jpg",
-  //               })
-  //             );
-  //           } else {
-  //             dispatch(
-  //               UserDataActions.updateUserDp({
-  //                 profilePhotoUrl: "/images/content/avatar-big.jpg",
-  //               })
-  //             );
-  //           }
-  //         });
-  //     } else {
-  //       console.log("Logged Out profile one");
-  //     }
-  //   };
-  //   run();
-  // }, [loggedIn, uid, storage, dispatch]);
+  // fetch user profile photo from
+  useEffect(() => {
+    const run = async () => {
+      if (loggedIn && uid) {
+        const storagePFref = ref(storage, "users/" + uid + "/profile.jpg");
+        await getDownloadURL(ref(storagePFref))
+          .then((url) => {
+            dispatch(UserDataActions.updateUserDp({ profilePhotoUrl: url }));
+          })
+          .catch((err) => {
+            if (err.code === "storage/object-not-found") {
+              dispatch(
+                UserDataActions.updateUserDp({
+                  profilePhotoUrl: "/images/content/avatar-big.jpg",
+                })
+              );
+            } else {
+              dispatch(
+                UserDataActions.updateUserDp({
+                  profilePhotoUrl: "/images/content/avatar-big.jpg",
+                })
+              );
+            }
+          });
+      } else {
+        console.log("Logged Out profile one");
+      }
+    };
+    run();
+  }, [loggedIn, uid, storage, dispatch]);
 
   return (
     <Router>

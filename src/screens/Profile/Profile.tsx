@@ -71,7 +71,7 @@ const Profile = () => {
           setProfileData(docs.data());
           // GetOwnedNFT(docs.id);
           // GetCreatedNFT(docs.id, docs.data().isCreator);
-          // GetProfilePhoto(docs.id);
+          GetProfilePhoto(docs.id);
           // GetCoverPhoto(docs.id);
 
           console.log(docs.data());
@@ -83,6 +83,23 @@ const Profile = () => {
         return;
       }
     } else {
+    }
+  };
+
+  const GetProfilePhoto = async (uid: any) => {
+    try {
+      // console.log(uid);
+      const storagePFref = ref(storage, "users/" + uid + "/profile.jpg");
+
+      const url = await getDownloadURL(ref(storagePFref));
+
+      setProfilePhoto(url);
+    } catch (err: any) {
+      if (err.code === "storage/object-not-found") {
+        setProfilePhoto("/images/content/avatar-big.jpg");
+      } else {
+        console.error(err.code);
+      }
     }
   };
 
