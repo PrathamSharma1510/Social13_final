@@ -13,6 +13,14 @@ import SuccPopup from "../../popups/SuccPopup";
 import ErrPopup from "../../popups/ErrPopup";
 import GradientBorder from "../../gradientBorderBtn/GradientBorder";
 import styles from "./help.module.css";
+import axios from "axios";
+import {
+  getFunctions,
+  httpsCallable,
+  // HttpsCallableOptions,
+} from "firebase/functions";
+
+const functions = getFunctions();
 
 const Help = () => {
   const [success, setSuccess] = useState(false);
@@ -60,33 +68,56 @@ const Help = () => {
   };
   // Function that reports the problem when the submitted
   const handleSubmit = async () => {
-    setBtnDisable(true);
-    const db = getFirestore(firebaseApp);
-    const bugId = "HYPRBUG" + makeReportABugId(26);
-    if (data.description === "") {
-      setOpenErrMsg(true);
-      setBtnDisable(false);
-      setErrorMessage("Please Enter Description");
-    } else {
-      await setDoc(doc(db, "bugReport", bugId), {
-        dateOfReporting: date,
-        description: data.description,
-        reporterEmailId: userData?.email,
-        reporterName: userData?.name,
-        reporterUsername: userData?.username,
-        reporterUid: userData?.uid,
-        reportId: bugId,
-        bugState: "PENDING",
+    // const result = await axios.post(
+    //   "https://us-central1-social13-0712.cloudfunctions.net/gpt",
+    //   { message: "Hello" },
+    //   {
+    //     headers: {
+    //       "Access-Control-Allow-Origin": "*",
+    //     },
+    //   }
+    // );
+
+    // console.log(result);
+    const function_firebase = getFunctions(firebaseApp);
+
+    const gpt = httpsCallable(function_firebase, "gpt");
+    const body = { message: "Hello" };
+    gpt(body)
+      .then((result) => {
+        console.log(result);
       })
-        .then(() => {
-          console.log("Reported");
-          setSuccess(true);
-          setBtnDisable(false);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+      .catch((error) => {
+        console.log(error);
+      });
+    // function_firebase.
+    // setBtnDisable(true);
+    // const db = getFirestore(firebaseApp);
+    // const bugId = "HYPRBUG" + makeReportABugId(26);
+    // if (data.description === "") {
+    //   setOpenErrMsg(true);
+    //   setBtnDisable(false);
+    //   setErrorMessage("Please Enter Description");
+    // } else {
+    //   await setDoc(doc(db, "bugReport", bugId), {
+    //     dateOfReporting: date,
+    //     description: data.description,
+    //     reporterEmailId: userData?.email,
+    //     reporterName: userData?.name,
+    //     reporterUsername: userData?.username,
+    //     reporterUid: userData?.uid,
+    //     reportId: bugId,
+    //     bugState: "PENDING",
+    //   })
+    //     .then(() => {
+    //       console.log("Reported");
+    //       setSuccess(true);
+    //       setBtnDisable(false);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // }
   };
   return (
     <>
