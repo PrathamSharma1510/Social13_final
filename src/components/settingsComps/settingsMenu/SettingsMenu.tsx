@@ -113,7 +113,7 @@ const SettingsMenu = () => {
           >
             Help
           </p>
-          <p
+          {/* <p
             onClick={contact}
             className={clsx(
               styles.page,
@@ -121,7 +121,7 @@ const SettingsMenu = () => {
             )}
           >
             Contact Us
-          </p>
+          </p> */}
         </div>
       </div>
     </>

@@ -126,47 +126,84 @@ const Help = () => {
         <div className={styles.content}>
           <div className={styles.reportDiv}>
             <h3 className={styles.heading}>Report a Problem</h3>
-            <p>
-              Found a bug, inappropriate content, or feel a feature can be
-              improved? Let us know:
-            </p>
+            <div id="chat4">
+              <div className="row">
+                <div className="col-12 mx-auto">
+                  <div className="card">
+                    <div className="card-header text-center">
+                      <span>Chat Box </span>
+                    </div>
+                    {/* <div key={index}>
+								<div>From: {message.from}</div>
+								<div>Message: {message.message}</div>
+								<div>
+									Time : {new Date(message.time).toLocaleDateString()} {new Date(message.time).toLocaleTimeString()}
+								</div>
+							</div> */}
 
-            <label
-              className={styles.lableText}
-              htmlFor="exampleFormControlTextarea1"
-            >
-              Report problem
-            </label>
-            <textarea
-              className={clsx("form-control", styles.textarea)}
-              id="exampleFormControlTextarea1"
-              rows={5}
-              name="description"
-              onChange={(e: React.ChangeEvent<any>) => {
-                updateState(e);
-              }}
-            ></textarea>
-            <div className={clsx("col-md-3 text-center d-flex", styles.avt)}>
-              <GradientBorder
-                disable={btnDisable}
-                text="Submit"
-                onClick={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  handleSubmit();
-                }}
-              />
+                    <div className="card-body chat-care">
+                      <ul className="chat">
+                        <li className="agent clearfix">
+                          <div className="chat-body clearfix">
+                            <div className="header clearfix">
+                              <strong className="primary-font">"PRO"</strong>{" "}
+                              <small className="right text-muted">
+                                <span className="glyphicon glyphicon-time" />
+                                {/* {new Date(message.time).toLocaleTimeString()} */}
+                              </small>
+                            </div>
+                            <p>"jnjneds"</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="card-footer">
+                      <div className="input-group">
+                        <input
+                          type="text"
+                          className="form-control input-sm"
+                          name="quiz_id"
+                          id="quiz_id"
+                          defaultValue=""
+                          // value={state.message}
+                          // onChange={(e) => {
+                          //   setState((state) => ({
+                          //     ...state,
+                          //     message: e.target.value,
+                          //   }));
+                          // }}
+                          placeholder="Type your message here..."
+                        />
+                        <span className="input-group-btn">
+                          {
+                            <button
+                              className="btn btn-primary"
+                              id="btn-chat"
+                              // disabled={disabled}
+                              // onClick={() => {
+                              //   setLoading(true);
+                              //   setDisabled(true);
+                              //   socket.current?.emit("send-proctor-message", {
+                              //     message: state.message,
+                              //     quiz_id: quiz_id,
+                              //   });
+                              //   setState((state) => ({
+                              //     ...state,
+                              //     message: "",
+                              //   }));
+                              // }}
+                            >
+                              {/* {loading ? "Sending..." : "Send"} */}
+                            </button>
+                          }
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className={styles.helpCenter}>
-            <h3 className={styles.heading}>Help Center</h3>
-            <p>
-              If you have any questions regarding how the platform works,
-              payments or doubts in general, check out our FAQ Page.
-              <br />
-              <br />
-              If your questions are unanswered, you can also submit your query
-              through the form provided here. We will reach out to you as soon
-              as possible.
-            </p>
           </div>
         </div>
       </div>

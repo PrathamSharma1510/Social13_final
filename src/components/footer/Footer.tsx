@@ -42,7 +42,7 @@ function Footer() {
                         <li className="footer-col-title"><Link to="#" className="link">Company</Link></li>
 
 
-                        <li><Link to="#" className="link">Contact Us</Link></li>
+                        {/* <li><Link to="#" className="link">Contact Us</Link></li> */}
                         <li> <Link to="#" className="link">About Us</Link></li>
                         <li><Link to="#" className="link"> FAQs</Link></li>
                         <li><Link to="#" className="link">Careers</Link></li>
