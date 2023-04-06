@@ -300,7 +300,7 @@ const NFTS = ({ Video }: Props) => {
                   {property.description}
                   <br />
                   <a
-                    className="hov"
+                    className="text-primary"
                     href={`https://www.google.com/maps/search/?api=1&query=${
                       property?.location?._lat ?? property?.location?.lat
                     },${property?.location?._long ?? property?.location?.lng}`}
