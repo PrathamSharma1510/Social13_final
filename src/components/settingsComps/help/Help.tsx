@@ -27,8 +27,8 @@ const Help = () => {
   const [disabled, setDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [message, setMessage] = useState("");
-
+  const [message, setMessage] = useState<any>([]);
+  const [text, setText] = useState<any>("");
   const userData = useSelector((state: RootStateOrAny) => state.userData);
   const [data, setData] = useState({
     name: userData?.name,
@@ -55,10 +55,11 @@ const Help = () => {
     const function_firebase = getFunctions(firebaseApp);
 
     const gpt = httpsCallable(function_firebase, "gpt");
-    const body = { message: message };
+    const body = { message: text };
     gpt(body)
       .then((result) => {
         console.log(result);
+        message.push({ role: "AI Property Agent", message: result.data });
         setLoading(false);
         setDisabled(false);
       })
@@ -93,13 +94,24 @@ const Help = () => {
                         <li className="agent clearfix">
                           <div className="chat-body clearfix">
                             <div className="header clearfix">
-                              <strong className="primary-font">"PRO"</strong>{" "}
-                              <small className="right text-muted">
-                                <span className="glyphicon glyphicon-time" />
-                                {/* {new Date(message.time).toLocaleTimeString()} */}
-                              </small>
+                              {message.map((elem: any, index: number) => {
+                                return (
+                                  <>
+                                    <strong
+                                      className="primary-font"
+                                      key={index}
+                                    >
+                                      {elem.role}
+                                    </strong>{" "}
+                                    <small className="right text-muted">
+                                      <span className="glyphicon glyphicon-time" />
+                                      <p>{elem.message}</p>
+                                      {/* {new Date(message.time).toLocaleTimeString()} */}
+                                    </small>
+                                  </>
+                                );
+                              })}
                             </div>
-                            <p>"jnjneds"</p>
                           </div>
                         </li>
                       </ul>
@@ -113,9 +125,9 @@ const Help = () => {
                           name="quiz_id"
                           id="quiz_id"
                           defaultValue=""
-                          value={message}
+                          value={text}
                           onChange={(e) => {
-                            setMessage(e.target.value);
+                            setText(e.target.value);
                           }}
                           placeholder="Type your message here..."
                         />
@@ -128,7 +140,12 @@ const Help = () => {
                               onClick={() => {
                                 setLoading(true);
                                 setDisabled(true);
+                                message.push({
+                                  role: "Me",
+                                  message: text,
+                                });
                                 handleSubmit();
+                                setText("");
                               }}
                             >
                               {loading ? "Sending..." : "Send"}
