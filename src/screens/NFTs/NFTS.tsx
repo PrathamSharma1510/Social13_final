@@ -365,14 +365,14 @@ const NFTS = ({ Video }: Props) => {
                     className={`${styles.price} col-6`}
                     disable={true}
                     text={`Room Rating ⭐️${
-                      property.customer_rating ?? property.customer_rating
+                      property.overallRating ?? property.customer_rating
                     }`}
                   />
                   <GradBorder
                     className={styles.price}
                     disable={true}
                     text={`Security Rating ⭐️${
-                      property.security_rating ?? property.security_rating
+                      property.securityRating ?? property.security_rating
                     }`}
                   />
                 </div>
