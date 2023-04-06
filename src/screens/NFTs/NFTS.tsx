@@ -281,7 +281,7 @@ const NFTS = ({ Video }: Props) => {
                 <h1 className={styles.title}>
                   {property.propertyName ?? property.name}
                 </h1>
-                <div className={styles.cost}>
+                <div className={`${styles.cost} mt-4`}>
                   <GradBorder
                     className={styles.price}
                     disable={true}
@@ -295,18 +295,18 @@ const NFTS = ({ Video }: Props) => {
                     }`}
                   />
                 </div>
-
-                <div className={styles.Description_Desc}>
+                <div className={styles.Description_Perks}>
                   <h3 className={styles.subHeading}>Description</h3>
                   {property.description}
                   <br />
                   <a
+                    className="hov"
                     href={`https://www.google.com/maps/search/?api=1&query=${
                       property?.location?._lat ?? property?.location?.lat
                     },${property?.location?._long ?? property?.location?.lng}`}
                     target="_blank"
                   >
-                    <b>Address: {property.propertyAddress}</b>
+                    Click for the Location
                   </a>
                 </div>
                 {sublet === "listing" && (
@@ -351,6 +351,22 @@ const NFTS = ({ Video }: Props) => {
                     />
                   </GoogleMapReact>
                 </div> */}
+                <div className={`${styles.cost} row mt-5`}>
+                  <GradBorder
+                    className={`${styles.price} col-6`}
+                    disable={true}
+                    text={`Room Rating ⭐️${
+                      property.customer_rating ?? property.customer_rating
+                    }`}
+                  />
+                  <GradBorder
+                    className={styles.price}
+                    disable={true}
+                    text={`Security Rating ⭐️${
+                      property.security_rating ?? property.security_rating
+                    }`}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -368,6 +384,7 @@ const NFTS = ({ Video }: Props) => {
               </div> */}
             </div>
           )}
+
           {/* <p className={styles.more}>Discover NFTs Related to The Last Slice</p>
         <div className={styles.carousel}>
         <ItemsCarousel /> 
