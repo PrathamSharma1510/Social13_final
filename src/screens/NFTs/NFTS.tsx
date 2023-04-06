@@ -312,9 +312,18 @@ const NFTS = ({ Video }: Props) => {
                 {sublet === "listing" && (
                   <div className={styles.Description_Perks}>
                     <h3 className={styles.subHeading}>Amenities</h3>
-                    {property?.amenities?.map((elem: string, index: number) => (
-                      <h5 key={index}>{elem}</h5>
-                    ))}
+                    <div className="row">
+                      {property?.amenities?.map(
+                        (elem: string, index: number) => (
+                          <div className="col-12">
+                            <h6 key={index}>{elem}</h6>
+                          </div>
+                        )
+                      )}
+                    </div>
+                    {/* {property?.amenities?.map((elem: string, index: number) => (
+                      <h6 key={index}>{elem}</h6>
+                    ))} */}
                   </div>
                 )}
                 {sublet === "sublet" && (
