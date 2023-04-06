@@ -90,7 +90,7 @@ const ExploreCard = ({ className, items: itemFromProps }: any) => {
               >
                 <div className={clsx("d-flex align-items-center")}>
                   <div className={styles.ownerAndUsername}>
-                    <p className={styles.owner}>{creatorUsername}</p>
+                    <p className={styles.owner}>Posted By :{creatorUsername}</p>
                   </div>
                 </div>
                 <div className={styles.price}>

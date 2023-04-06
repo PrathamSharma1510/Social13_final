@@ -30,7 +30,7 @@ const Marketplace = () => {
   const [loading, setLoading] = useState(false);
   const query1 = query(
     collection(db, "subletRequest"),
-    where("state", "==", "PENDING")
+    where("state", "==", "APPROVED")
   );
   const userData = useSelector((state: RootStateOrAny) => state.userData);
 
