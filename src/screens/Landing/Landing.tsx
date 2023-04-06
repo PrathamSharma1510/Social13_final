@@ -78,10 +78,16 @@ const Landing = () => {
             <span className={styles.gradient}> Team</span>
           </h1>
           <p className={styles.desc}>
-            Our team comprises highly skilled individuals with diverse expertise
-            in web development, design, and project management. Led by Professor
-            Pedro Guillermo, we're dedicated to delivering a platform that makes
-            a real difference in the lives of Gainesville residents.
+            <a className="text-primary" href="social13.netlify.app">
+              Team Website
+            </a>
+            <p>
+              Our team comprises highly skilled individuals with diverse
+              expertise in web development, design, and project management. Led
+              by Professor Pedro Guillermo, we're dedicated to delivering a
+              platform that makes a real difference in the lives of Gainesville
+              residents.
+            </p>
           </p>
 
           <div className={styles.desktopcards}>
