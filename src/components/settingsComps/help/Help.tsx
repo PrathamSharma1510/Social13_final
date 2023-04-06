@@ -24,27 +24,10 @@ const functions = getFunctions();
 
 const Help = () => {
   const [success, setSuccess] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [openErrMsg, setOpenErrMsg] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [btnDisable, setBtnDisable] = useState(false);
-
-  const Submit = () => {
-    setSuccess(true);
-    setOpen(true);
-  };
-
-  const handelClose = (reason: any) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpenErrMsg(false);
-    setSuccess(false);
-  };
-  const current = new Date();
-  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
+  const [message, setMessage] = useState("");
 
   const userData = useSelector((state: RootStateOrAny) => state.userData);
   const [data, setData] = useState({
@@ -52,16 +35,6 @@ const Help = () => {
     description: "",
     reportedBy: userData?.email,
   });
-  const makeReportABugId = (len: number) => {
-    let result = "";
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    const characterLengths = characters.length;
-    for (let i = 0; i < len; i++) {
-      result += characters.charAt(Math.floor(Math.random() * characterLengths));
-    }
-    return result;
-  };
   const updateState = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData((state) => ({ ...state, [e.target.name]: e.target.value }));
     console.log({ data });
@@ -82,42 +55,16 @@ const Help = () => {
     const function_firebase = getFunctions(firebaseApp);
 
     const gpt = httpsCallable(function_firebase, "gpt");
-    const body = { message: "Hello" };
+    const body = { message: message };
     gpt(body)
       .then((result) => {
         console.log(result);
+        setLoading(false);
+        setDisabled(false);
       })
       .catch((error) => {
         console.log(error);
       });
-    // function_firebase.
-    // setBtnDisable(true);
-    // const db = getFirestore(firebaseApp);
-    // const bugId = "HYPRBUG" + makeReportABugId(26);
-    // if (data.description === "") {
-    //   setOpenErrMsg(true);
-    //   setBtnDisable(false);
-    //   setErrorMessage("Please Enter Description");
-    // } else {
-    //   await setDoc(doc(db, "bugReport", bugId), {
-    //     dateOfReporting: date,
-    //     description: data.description,
-    //     reporterEmailId: userData?.email,
-    //     reporterName: userData?.name,
-    //     reporterUsername: userData?.username,
-    //     reporterUid: userData?.uid,
-    //     reportId: bugId,
-    //     bugState: "PENDING",
-    //   })
-    //     .then(() => {
-    //       console.log("Reported");
-    //       setSuccess(true);
-    //       setBtnDisable(false);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // }
   };
   return (
     <>
@@ -131,7 +78,7 @@ const Help = () => {
                 <div className="col-12 mx-auto">
                   <div className="card">
                     <div className="card-header text-center">
-                      <span>Chat Box </span>
+                      <span>AI Property Dealer </span>
                     </div>
                     {/* <div key={index}>
 								<div>From: {message.from}</div>
@@ -166,13 +113,10 @@ const Help = () => {
                           name="quiz_id"
                           id="quiz_id"
                           defaultValue=""
-                          // value={state.message}
-                          // onChange={(e) => {
-                          //   setState((state) => ({
-                          //     ...state,
-                          //     message: e.target.value,
-                          //   }));
-                          // }}
+                          value={message}
+                          onChange={(e) => {
+                            setMessage(e.target.value);
+                          }}
                           placeholder="Type your message here..."
                         />
                         <span className="input-group-btn">
@@ -180,21 +124,14 @@ const Help = () => {
                             <button
                               className="btn btn-primary"
                               id="btn-chat"
-                              // disabled={disabled}
-                              // onClick={() => {
-                              //   setLoading(true);
-                              //   setDisabled(true);
-                              //   socket.current?.emit("send-proctor-message", {
-                              //     message: state.message,
-                              //     quiz_id: quiz_id,
-                              //   });
-                              //   setState((state) => ({
-                              //     ...state,
-                              //     message: "",
-                              //   }));
-                              // }}
+                              disabled={disabled}
+                              onClick={() => {
+                                setLoading(true);
+                                setDisabled(true);
+                                handleSubmit();
+                              }}
                             >
-                              {/* {loading ? "Sending..." : "Send"} */}
+                              {loading ? "Sending..." : "Send"}
                             </button>
                           }
                         </span>
@@ -207,20 +144,6 @@ const Help = () => {
           </div>
         </div>
       </div>
-      {success && (
-        <SuccPopup
-          handelClose={(r: any) => handelClose(r)}
-          open={success}
-          message="Sent Successfully!"
-        />
-      )}
-      {openErrMsg && (
-        <ErrPopup
-          handelClose={(r: any) => handelClose(r)}
-          open={openErrMsg}
-          message={errorMessage}
-        />
-      )}
     </>
   );
 };

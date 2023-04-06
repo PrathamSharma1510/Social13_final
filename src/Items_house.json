@@ -7,6 +7,7 @@
       "lat": 29.636611,
       "lng": -82.385114
     },
+    "utility": 60,
     "rooms": [
       {
         "type": "bedroom",
@@ -33,6 +34,7 @@
       "lat": 29.6578,
       "lng": -82.3383
     },
+    "utility": 60,
     "rooms": [
       {
         "type": "bedroom",
@@ -59,6 +61,7 @@
       "lat": 29.636344,
       "lng": -82.361255
     },
+    "utility": 60,
     "rooms": [
       {
         "type": "bedroom",
@@ -84,6 +87,7 @@
   {
     "id": 4,
     "name": "Social 28",
+    "utility": 60,
     "description": "Luxurious apartments with premium amenities and a lively social scene.",
     "location": {
       "lat": 29.648981,
@@ -102,6 +106,7 @@
     "washrooms": 1,
     "amenities": ["gym", "swimming pool", "clubhouse", "parking"],
     "customer_rating": 4.5,
+    "utility": 60,
     "security_rating": 4.5,
     "rent": 900,
     "imag_url": "https://rentpath-res.cloudinary.com/$img_current/t_3x2_jpg_xl/t_unpaid/6a2ded47c70cddf81299c81454249ffc",
@@ -133,6 +138,7 @@
     "amenities": ["gym", "parking", "laundry"],
     "customer_rating": 4.0,
     "security_rating": 2.0,
+    "utility": 60,
     "rent": 650,
     "imag_url": "https://gatorrentals.com/wp-content/uploads/2017/03/original.0-17.jpeg",
     "url": "https://www.americancampus.com/student-apartments/fl/gainesville/royal-village"
@@ -160,6 +166,7 @@
       }
     ],
     "washrooms": 1,
+    "utility": 60,
     "amenities": ["pet-friendly", "parking", "laundry"],
     "customer_rating": 4.5,
     "security_rating": 4.0,
@@ -189,6 +196,7 @@
     "amenities": ["gym", "swimming pool", "parking", "clubhouse"],
     "customer_rating": 4.5,
     "security_rating": 4.5,
+    "utility": 60,
     "rent": 850,
     "imag_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcZOyATEADDFz_-2ZY8Sxa0kcef1kZ7L-flzuezlZQ&s",
     "url": "https://thestandardgainesville.landmark-properties.com"
@@ -201,6 +209,7 @@
       "lat": 29.639414,
       "lng": -82.368559
     },
+    "utility": 60,
     "rooms": [
       {
         "type": "bedroom",

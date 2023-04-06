@@ -290,7 +290,9 @@ const NFTS = ({ Video }: Props) => {
                   <GradBorder
                     className={styles.price}
                     disable={true}
-                    text={` Utility Cost $${property.utilityCost}`}
+                    text={` Utility Cost $${
+                      property?.utilityCost ?? property?.utility
+                    }`}
                   />
                 </div>
 
@@ -307,23 +309,34 @@ const NFTS = ({ Video }: Props) => {
                     Address: {property.propertyAddress}
                   </a>
                 </div>
-
-                <div className={styles.Description_Perks}>
-                  <h3 className={styles.subHeading}>Community Amenities</h3>
-                  {property?.communityAmenities?.map(
-                    (elem: string, index: number) => (
+                {sublet === "listing" && (
+                  <div className={styles.Description_Perks}>
+                    <h3 className={styles.subHeading}>Amenities</h3>
+                    {property?.amenities?.map((elem: string, index: number) => (
                       <h5 key={index}>{elem}</h5>
-                    )
-                  )}
-                </div>
-                <div className={styles.Description_Perks}>
-                  <h3 className={styles.subHeading}>Apartment Amenities</h3>
-                  {property?.roomAmenities?.map(
-                    (elem: string, index: number) => (
-                      <h5 key={index}>{elem}</h5>
-                    )
-                  )}
-                </div>
+                    ))}
+                  </div>
+                )}
+                {sublet === "sublet" && (
+                  <div className={styles.Description_Perks}>
+                    <h3 className={styles.subHeading}>Community Amenities</h3>
+                    {property?.communityAmenities?.map(
+                      (elem: string, index: number) => (
+                        <h5 key={index}>{elem}</h5>
+                      )
+                    )}
+                  </div>
+                )}
+                {sublet === "sublet" && (
+                  <div className={styles.Description_Perks}>
+                    <h3 className={styles.subHeading}>Apartment Amenities</h3>
+                    {property?.roomAmenities?.map(
+                      (elem: string, index: number) => (
+                        <h5 key={index}>{elem}</h5>
+                      )
+                    )}
+                  </div>
+                )}
                 {/* <div className={styles.Description_Perks}>
                   <h3 className={styles.subHeading}>Location</h3>
                   <GoogleMapReact
@@ -341,18 +354,20 @@ const NFTS = ({ Video }: Props) => {
               </div>
             </div>
           </div>
-          <div className={styles.bottom}>
-            <div className={styles.Bottom_part}>
-              <h4 className={styles.bottomHeading}>Current Tent</h4>
-              <Users className={styles.users} items={users} />
+          {sublet === "sublet" && (
+            <div className={styles.bottom}>
+              <div className={styles.Bottom_part}>
+                <h4 className={styles.bottomHeading}>Current Tent</h4>
+                <Users className={styles.users} items={users} />
+              </div>
+              {/* <div className={styles.Bottom_part1}>
+                <h4 className={cn(styles.bottomHeading, styles.auth)}>
+                  View Authenticity
+                </h4>
+                <Polygon className={styles.poly} />
+              </div> */}
             </div>
-            <div className={styles.Bottom_part1}>
-              <h4 className={cn(styles.bottomHeading, styles.auth)}>
-                View Authenticity
-              </h4>
-              <Polygon className={styles.poly} />
-            </div>
-          </div>
+          )}
           {/* <p className={styles.more}>Discover NFTs Related to The Last Slice</p>
         <div className={styles.carousel}>
         <ItemsCarousel /> 
