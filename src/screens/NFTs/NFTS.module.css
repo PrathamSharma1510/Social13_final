@@ -212,6 +212,20 @@
     border-radius: 20px;
     transition: height 100ms ease-in-out;
 }
+.Description_Desc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 20px 30px;
+    gap: 15px;
+    background: #FFFFFF;
+    box-shadow: -14px 14px 28px rgba(230, 230, 230, 0.2), 14px -14px 28px rgba(230, 230, 230, 0.2), -14px -14px 28px rgba(255, 255, 255, 0.9), 14px 14px 35px rgba(230, 230, 230, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(230, 230, 230, 0.5);
+    border-radius: 20px;
+    transition: height 100ms ease-in-out;
+}
 
 .subHeading {
     font-style: normal;

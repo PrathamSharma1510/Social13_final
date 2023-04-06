@@ -296,7 +296,7 @@ const NFTS = ({ Video }: Props) => {
                   />
                 </div>
 
-                <div className={styles.Description_Perks}>
+                <div className={styles.Description_Desc}>
                   <h3 className={styles.subHeading}>Description</h3>
                   {property.description}
                   <br />
@@ -306,7 +306,7 @@ const NFTS = ({ Video }: Props) => {
                     },${property?.location?._long ?? property?.location?.lng}`}
                     target="_blank"
                   >
-                    Address: {property.propertyAddress}
+                    <b>Address: {property.propertyAddress}</b>
                   </a>
                 </div>
                 {sublet === "listing" && (
